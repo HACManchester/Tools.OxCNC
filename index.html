@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Hacman - Ox CNC">
+        
+        <link rel="canonical" href="http://hacmanchester.github.io/Tools.OxCNC/">
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+	<title>Hacman - Ox CNC</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="./css/base.css" rel="stylesheet">
+        <link href="./css/highlight-fix.css" rel="stylesheet">
+        <link href="./css/highlight-custom.css" rel="stylesheet">
+        <link href="./css/navbarfix.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">Hacman - Ox CNC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="active">
+                    <a href=".">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="Maintenance/Grbl-Settings/">Grbl Settings</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="next" >
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="Maintenance/Grbl-Settings/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/HACManchester/Tools.OxCNC/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    
+                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/index.md"
+                        class="icon icon-github"> Edit</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#hacman-ox-cnx">Hacman - Ox CNX</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#workflow">WorkFlow</a></li>
+        
+            <li><a href="#software">Software</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="hacman-ox-cnx">Hacman - Ox CNX</h1>
+<h2 id="overview">Overview</h2>
+<p>This is a series of Docs for the use of the Ox CNC currently within the Hackspace. <br>
+This was originally run as part of a pledge run - http://wiki.hacman.org.uk/Pledges/OxCNCIan (Many thanks to Ian for all the additional bits)</p>
+<p>The docs are largley split into 3 sections</p>
+<ul>
+<li><strong>CAD / CAM</strong> - First use the CAD / CAM Headings to create the G-Code</li>
+<li><strong>Milling</strong> - once you have the G-Code to run on the mill use this section to carry out the milling</li>
+<li><strong>Maintenance</strong> - Note for future upgrates etc</li>
+</ul>
+<p><a href="images/root/OxCNC1.jpg"><img src="images/root/OxCNC1.jpg" height="100%" width="100%" ></a> <br></p>
+<h2 id="workflow">WorkFlow</h2>
+<ul>
+<li>You design your part in Cad software or as a vector diagram / inkscape etc</li>
+<li>You pass the design into CAM software which plots out the paths needed to mill the part (similar to a 3D Printer slicer)</li>
+<li>You run the generated G-Code on the mill (generally via chillipepr)</li>
+</ul>
+<p>The post processor is usually a part of the Cam software that generates G-Code for specific types of CNC.
+This could include one processor for Grbl, another for TinyG. Generally if there&rsquo;s a post processor for LinuxCNC then this should work with grbl.</p>
+<p><img alt="Flow1" src="./images/root/WorkFlow1.svg" /></p>
+<h2 id="software">Software</h2>
+<h3 id="open-source-software">Open Source Software</h3>
+<ul>
+<li><strong><a href="http://jscut.org/">JSCut</a></strong> - Easiest to use Open source Cam software, limited to 2.5 CAM / 2 dimensional profiles similar to a laser cutter</li>
+<li><strong><a href="http://flatcam.org/">FlatCAM</a></strong> - PCB Milling via G-Code, this is one of the few PCB to G-Code softwares that has a GUI.</li>
+<li><strong><a href="http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Cam">PyCAM</a></strong> - Can handle STL Files and generate 3D Cam profiles, but seems not to be updated often</li>
+<li><strong><a href="http://www.freecadweb.org/wiki/index.php?title=Path_Workbench">FreeCad</a></strong> - Path workspace, this is the closest match to Soldiworks in the open source world and has support for importing openscad files</li>
+<li><strong><a href="https://github.com/Heeks/heekscad">HeeksCad / HeeksCNC</a></strong></li>
+</ul>
+<h3 id="free-non-open-source-software">Free / Non open source software</h3>
+<ul>
+<li><strong><a href="http://cam.autodesk.com/fusion360/">Autodesk Fusion 360 CAM / Cad</a></strong></li>
+</ul>
+<h3 id="commercial-software">Commercial Software</h3>
+<p>The top two items of commercial CAM software for use with Solidworks includes Hsmworks and MasterCam.
+Hsmworks is by far the easiest to use, but not to good at turning or 4 / 5 Axis.
+MasterCam has the most features but is much more difficult to use.</p>
+<ul>
+<li><strong><a href="http://www.hsmworks.com/">HsmWorks / Solidworks</a></strong> - Milling Solid 3D parts</li>
+<li><strong><a href="http://www.mastercam.com/en-us/Solutions/Integrated-CAD-Solutions/Mastercam-for-SOLIDWORKS">MasterCam / Solidworks</a></strong> - Milling Solid 3D parts</li>
+<li><strong><a href="http://www.vectric.com/cool-stuff/projects/2013/bread-box.html">Aspire</a></strong> - Milling graphical / artwork type patterns such as lettering or meshes.</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

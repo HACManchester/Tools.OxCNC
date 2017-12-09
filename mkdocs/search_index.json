@@ -1,0 +1,89 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Hacman - Ox CNX\n\n\nOverview\n\n\nThis is a series of Docs for the use of the Ox CNC currently within the Hackspace. \n\nThis was originally run as part of a pledge run - http://wiki.hacman.org.uk/Pledges/OxCNCIan (Many thanks to Ian for all the additional bits)\n\n\nThe docs are largley split into 3 sections\n\n\n\n\nCAD / CAM\n - First use the CAD / CAM Headings to create the G-Code\n\n\nMilling\n - once you have the G-Code to run on the mill use this section to carry out the milling\n\n\nMaintenance\n - Note for future upgrates etc\n\n\n\n\n \n\n\nWorkFlow\n\n\n\n\nYou design your part in Cad software or as a vector diagram / inkscape etc\n\n\nYou pass the design into CAM software which plots out the paths needed to mill the part (similar to a 3D Printer slicer)\n\n\nYou run the generated G-Code on the mill (generally via chillipepr)\n\n\n\n\nThe post processor is usually a part of the Cam software that generates G-Code for specific types of CNC.\nThis could include one processor for Grbl, another for TinyG. Generally if there\ns a post processor for LinuxCNC then this should work with grbl.\n\n\n\n\nSoftware\n\n\nOpen Source Software\n\n\n\n\nJSCut\n - Easiest to use Open source Cam software, limited to 2.5 CAM / 2 dimensional profiles similar to a laser cutter\n\n\nFlatCAM\n - PCB Milling via G-Code, this is one of the few PCB to G-Code softwares that has a GUI.\n\n\nPyCAM\n - Can handle STL Files and generate 3D Cam profiles, but seems not to be updated often\n\n\nFreeCad\n - Path workspace, this is the closest match to Soldiworks in the open source world and has support for importing openscad files\n\n\nHeeksCad / HeeksCNC\n\n\n\n\nFree / Non open source software\n\n\n\n\nAutodesk Fusion 360 CAM / Cad\n\n\n\n\nCommercial Software\n\n\nThe top two items of commercial CAM software for use with Solidworks includes Hsmworks and MasterCam.\nHsmworks is by far the easiest to use, but not to good at turning or 4 / 5 Axis.\nMasterCam has the most features but is much more difficult to use.\n\n\n\n\nHsmWorks / Solidworks\n - Milling Solid 3D parts\n\n\nMasterCam / Solidworks\n - Milling Solid 3D parts\n\n\nAspire\n - Milling graphical / artwork type patterns such as lettering or meshes.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#hacman-ox-cnx", 
+            "text": "", 
+            "title": "Hacman - Ox CNX"
+        }, 
+        {
+            "location": "/#overview", 
+            "text": "This is a series of Docs for the use of the Ox CNC currently within the Hackspace.  \nThis was originally run as part of a pledge run - http://wiki.hacman.org.uk/Pledges/OxCNCIan (Many thanks to Ian for all the additional bits)  The docs are largley split into 3 sections   CAD / CAM  - First use the CAD / CAM Headings to create the G-Code  Milling  - once you have the G-Code to run on the mill use this section to carry out the milling  Maintenance  - Note for future upgrates etc", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#workflow", 
+            "text": "You design your part in Cad software or as a vector diagram / inkscape etc  You pass the design into CAM software which plots out the paths needed to mill the part (similar to a 3D Printer slicer)  You run the generated G-Code on the mill (generally via chillipepr)   The post processor is usually a part of the Cam software that generates G-Code for specific types of CNC.\nThis could include one processor for Grbl, another for TinyG. Generally if there s a post processor for LinuxCNC then this should work with grbl.", 
+            "title": "WorkFlow"
+        }, 
+        {
+            "location": "/#software", 
+            "text": "", 
+            "title": "Software"
+        }, 
+        {
+            "location": "/#open-source-software", 
+            "text": "JSCut  - Easiest to use Open source Cam software, limited to 2.5 CAM / 2 dimensional profiles similar to a laser cutter  FlatCAM  - PCB Milling via G-Code, this is one of the few PCB to G-Code softwares that has a GUI.  PyCAM  - Can handle STL Files and generate 3D Cam profiles, but seems not to be updated often  FreeCad  - Path workspace, this is the closest match to Soldiworks in the open source world and has support for importing openscad files  HeeksCad / HeeksCNC", 
+            "title": "Open Source Software"
+        }, 
+        {
+            "location": "/#free-non-open-source-software", 
+            "text": "Autodesk Fusion 360 CAM / Cad", 
+            "title": "Free / Non open source software"
+        }, 
+        {
+            "location": "/#commercial-software", 
+            "text": "The top two items of commercial CAM software for use with Solidworks includes Hsmworks and MasterCam.\nHsmworks is by far the easiest to use, but not to good at turning or 4 / 5 Axis.\nMasterCam has the most features but is much more difficult to use.   HsmWorks / Solidworks  - Milling Solid 3D parts  MasterCam / Solidworks  - Milling Solid 3D parts  Aspire  - Milling graphical / artwork type patterns such as lettering or meshes.", 
+            "title": "Commercial Software"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/", 
+            "text": "Grbl Settings\n\n\nConnecting to grbl\n\n\nSince the grbl board is placed behind a Rpi running the serial proxy.\n\nFirst we need to browse to the following link in our browser\n\n\n\n\nhttp://172.16.0.8:8989\n\n\n\n\nSettings\n\n\nReading Settings\n\n\nTo read the grbl settings we need to send $$ to grbl over the serial port\n\n\nTo do this via the serial proxy we can type in the following into the web client\n\n\nsend /dev/ttyACM0 $$\n\n\n\n\nReading Firmware version\n\n\nTo read the current firmware version\n\n\nsend /dev/ttyACM0 $I\n\n\n\n\nAs of writing the current firmware version is: 0.9j.20150811\n\n\nSoft End Stops\n\n\nFor the most part we don\nt really need software stops apart from one place which is when the spindle travels downwards. \n\nI\nve enabled them, and added 1mm onto each setting which seems to get them to work right\n\n\nFrom the home position the max \n\n\n\n\nfor z = 67mm from home (68mm from the top of where the end stop is)\n\n\nfor x = 562mm (switch triggers after 564)\n\n\nfor y = 745mm (switch triggers after 748)\n\n\n\n\nThis equals\n\n\n$20=1\n$130=563.000 - XMax travel\n$131=746.000 - YMax travel\n$132=68.000 - ZMax travel\n\n\n\n\nCurrent Settings\n\n\n$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=1 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=563.000 (x max travel, mm)\n$131=746.000 (y max travel, mm)\n$132=68.000 (z max travel, mm)\n\n\n\n\nOriginal Settings (when the machine first arrived from Ian)\n\n\n$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=0 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=555.000 (x max travel, mm)\n$131=740.000 (y max travel, mm)\n$132=60.000 (z max travel, mm)", 
+            "title": "Grbl Settings"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#grbl-settings", 
+            "text": "", 
+            "title": "Grbl Settings"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#connecting-to-grbl", 
+            "text": "Since the grbl board is placed behind a Rpi running the serial proxy. \nFirst we need to browse to the following link in our browser   http://172.16.0.8:8989", 
+            "title": "Connecting to grbl"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#settings", 
+            "text": "", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#reading-settings", 
+            "text": "To read the grbl settings we need to send $$ to grbl over the serial port  To do this via the serial proxy we can type in the following into the web client  send /dev/ttyACM0 $$", 
+            "title": "Reading Settings"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#reading-firmware-version", 
+            "text": "To read the current firmware version  send /dev/ttyACM0 $I  As of writing the current firmware version is: 0.9j.20150811", 
+            "title": "Reading Firmware version"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#soft-end-stops", 
+            "text": "For the most part we don t really need software stops apart from one place which is when the spindle travels downwards.  \nI ve enabled them, and added 1mm onto each setting which seems to get them to work right  From the home position the max    for z = 67mm from home (68mm from the top of where the end stop is)  for x = 562mm (switch triggers after 564)  for y = 745mm (switch triggers after 748)   This equals  $20=1\n$130=563.000 - XMax travel\n$131=746.000 - YMax travel\n$132=68.000 - ZMax travel", 
+            "title": "Soft End Stops"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#current-settings", 
+            "text": "$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=1 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=563.000 (x max travel, mm)\n$131=746.000 (y max travel, mm)\n$132=68.000 (z max travel, mm)", 
+            "title": "Current Settings"
+        }, 
+        {
+            "location": "/Maintenance/Grbl-Settings/#original-settings-when-the-machine-first-arrived-from-ian", 
+            "text": "$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=0 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=555.000 (x max travel, mm)\n$131=740.000 (y max travel, mm)\n$132=60.000 (z max travel, mm)", 
+            "title": "Original Settings (when the machine first arrived from Ian)"
+        }
+    ]
+}

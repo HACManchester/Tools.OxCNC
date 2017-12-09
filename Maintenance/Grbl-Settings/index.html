@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://hacmanchester.github.io/Tools.OxCNC/Maintenance/Grbl-Settings/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Grbl Settings - Hacman - Ox CNC</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/highlight-fix.css" rel="stylesheet">
+        <link href="../../css/highlight-custom.css" rel="stylesheet">
+        <link href="../../css/navbarfix.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Hacman - Ox CNC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">Grbl Settings</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/HACManchester/Tools.OxCNC/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    
+                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/Maintenance\Grbl-Settings.md"
+                        class="icon icon-github"> Edit</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#grbl-settings">Grbl Settings</a></li>
+        
+            <li><a href="#connecting-to-grbl">Connecting to grbl</a></li>
+        
+            <li><a href="#settings">Settings</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="grbl-settings">Grbl Settings</h1>
+<h2 id="connecting-to-grbl">Connecting to grbl</h2>
+<p>Since the grbl board is placed behind a Rpi running the serial proxy.<br>
+First we need to browse to the following link in our browser</p>
+<ul>
+<li><a href="http://172.16.0.8:8989">http://172.16.0.8:8989</a></li>
+</ul>
+<h2 id="settings">Settings</h2>
+<h3 id="reading-settings">Reading Settings</h3>
+<p>To read the grbl settings we need to send $$ to grbl over the serial port</p>
+<p>To do this via the serial proxy we can type in the following into the web client</p>
+<pre><code>send /dev/ttyACM0 $$
+</code></pre>
+
+<h3 id="reading-firmware-version">Reading Firmware version</h3>
+<p>To read the current firmware version</p>
+<pre><code>send /dev/ttyACM0 $I
+</code></pre>
+
+<p>As of writing the current firmware version is: 0.9j.20150811</p>
+<h3 id="soft-end-stops">Soft End Stops</h3>
+<p>For the most part we don&rsquo;t really need software stops apart from one place which is when the spindle travels downwards. <br>
+I&rsquo;ve enabled them, and added 1mm onto each setting which seems to get them to work right</p>
+<p>From the home position the max </p>
+<ul>
+<li>for z = 67mm from home (68mm from the top of where the end stop is)</li>
+<li>for x = 562mm (switch triggers after 564)</li>
+<li>for y = 745mm (switch triggers after 748)</li>
+</ul>
+<p>This equals</p>
+<pre><code>$20=1
+$130=563.000 - XMax travel
+$131=746.000 - YMax travel
+$132=68.000 - ZMax travel
+</code></pre>
+
+<h3 id="current-settings">Current Settings</h3>
+<pre><code>$0=10 (step pulse, usec)
+$1=25 (step idle delay, msec)
+$2=0 (step port invert mask:00000000)
+$3=0 (dir port invert mask:00000000)
+$4=0 (step enable invert, bool)
+$5=0 (limit pins invert, bool)
+$6=0 (probe pin invert, bool)
+$10=3 (status report mask:00000011)
+$11=0.010 (junction deviation, mm)
+$12=0.002 (arc tolerance, mm)
+$13=0 (report inches, bool)
+$20=1 (soft limits, bool)
+$21=1 (hard limits, bool)
+$22=1 (homing cycle, bool)
+$23=3 (homing dir invert mask:00000011)
+$24=50.000 (homing feed, mm/min)
+$25=2000.000 (homing seek, mm/min)
+$26=250 (homing debounce, msec)
+$27=1.000 (homing pull-off, mm)
+$100=53.333 (x, step/mm)
+$101=53.333 (y, step/mm)
+$102=400.000 (z, step/mm)
+$110=6000.000 (x max rate, mm/min)
+$111=3000.000 (y max rate, mm/min)
+$112=200.000 (z max rate, mm/min)
+$120=50.000 (x accel, mm/sec^2)
+$121=50.000 (y accel, mm/sec^2)
+$122=10.000 (z accel, mm/sec^2)
+$130=563.000 (x max travel, mm)
+$131=746.000 (y max travel, mm)
+$132=68.000 (z max travel, mm)
+</code></pre>
+
+<h3 id="original-settings-when-the-machine-first-arrived-from-ian">Original Settings (when the machine first arrived from Ian)</h3>
+<pre><code>$0=10 (step pulse, usec)
+$1=25 (step idle delay, msec)
+$2=0 (step port invert mask:00000000)
+$3=0 (dir port invert mask:00000000)
+$4=0 (step enable invert, bool)
+$5=0 (limit pins invert, bool)
+$6=0 (probe pin invert, bool)
+$10=3 (status report mask:00000011)
+$11=0.010 (junction deviation, mm)
+$12=0.002 (arc tolerance, mm)
+$13=0 (report inches, bool)
+$20=0 (soft limits, bool)
+$21=1 (hard limits, bool)
+$22=1 (homing cycle, bool)
+$23=3 (homing dir invert mask:00000011)
+$24=50.000 (homing feed, mm/min)
+$25=2000.000 (homing seek, mm/min)
+$26=250 (homing debounce, msec)
+$27=1.000 (homing pull-off, mm)
+$100=53.333 (x, step/mm)
+$101=53.333 (y, step/mm)
+$102=400.000 (z, step/mm)
+$110=6000.000 (x max rate, mm/min)
+$111=3000.000 (y max rate, mm/min)
+$112=200.000 (z max rate, mm/min)
+$120=50.000 (x accel, mm/sec^2)
+$121=50.000 (y accel, mm/sec^2)
+$122=10.000 (z accel, mm/sec^2)
+$130=555.000 (x max travel, mm)
+$131=740.000 (y max travel, mm)
+$132=60.000 (z max travel, mm)
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
