@@ -2,19 +2,13 @@
 
 ## Connecting to grbl
 
-Since the grbl board is placed behind a Rpi running the serial proxy.
+Since the grbl board is placed behind a Rpi running the serial proxy.<br>
 First we need to browse to the following link in our browser
 
-  * http://172.16.0.8:8989
-
-
-
+  * <http://172.16.0.8:8989>
 
 
 ## Settings
-
-
-
 
 
 ### Reading Settings
@@ -29,7 +23,7 @@ send /dev/ttyACM0 $$
 
 ### Reading Firmware version
 
-To read the current firmware
+To read the current firmware version
 ```
 send /dev/ttyACM0 $I
 ```
@@ -42,7 +36,8 @@ As of writing the current firmware version is: 0.9j.20150811
 For the most part we don't really need software stops apart from one place which is when the spindle travels downwards. <br>
 I've enabled them, and added 1mm onto each setting which seems to get them to work right
 
-From the home position the max travel
+From the home position the max 
+
   * for z = 67mm from home (68mm from the top of where the end stop is)
   * for x = 562mm (switch triggers after 564)
   * for y = 745mm (switch triggers after 748)
@@ -51,13 +46,13 @@ From the home position the max travel
 This equals
 ```
 $20=1
-$130=563.000 - TODO XMax travel
-$131=746.000 - TODO YMax travel
+$130=563.000 - XMax travel
+$131=746.000 - YMax travel
 $132=68.000 - ZMax travel
 ```
 
 ### Current Settings
-
+```
 $0=10 (step pulse, usec)
 $1=25 (step idle delay, msec)
 $2=0 (step port invert mask:00000000)
@@ -89,7 +84,7 @@ $122=10.000 (z accel, mm/sec^2)
 $130=563.000 (x max travel, mm)
 $131=746.000 (y max travel, mm)
 $132=68.000 (z max travel, mm)
-
+```
 
 ### Original Settings (when the machine first arrived from Ian)
 

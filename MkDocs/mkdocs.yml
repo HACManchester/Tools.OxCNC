@@ -20,10 +20,10 @@ pages:
 #    - Milling Material: Milling/Material.md
 #    - Feed Rates: Milling/FeedRates.md
 #    - Milling: Milling/Milling.md
-#- Maintenance:
+- Maintenance:
 #    - Device Overview: Maintenance/Device-Overview.md
 #    - Updating the Firmware: Maintenance/Updating-Firmware.md
-#    - Grbl Settings: Maintenance/Grbl-Settings.md
+    - Grbl Settings: Maintenance/Grbl-Settings.md
 #    - Todo: Maintenance/Todo.md
 
 theme: cosmo
