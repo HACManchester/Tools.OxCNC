@@ -1,0 +1,17 @@
+When using JScut
+
+  * http://jscut.org/jscut.html#
+
+make sure to position the head about 3mm down on the z axis first then zero the machine
+the G-Code will raise the head by 2.5mm between movements from area to area so this is important
+otherwise the Z axis will try to go too high and trip the alarm / end stop
+
+
+Laserweb
+
+https://laserweb.github.io/LaserWeb4/dist/
+
+Chenfu pointed me to towards this one as a potential option for the CNC Software
+It seems to work okay if you get the settings right
+It seems to lack a retraction option for when moving between section to section
+
