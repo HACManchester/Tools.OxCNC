@@ -15,3 +15,24 @@ Chenfu pointed me to towards this one as a potential option for the CNC Software
 It seems to work okay if you get the settings right
 It seems to lack a retraction option for when moving between section to section
 
+
+Test
+
+Check if there are buffer issues when connecting direcly to the arduino board, also double check the grbl setting in chillipepr
+
+
+Safety
+
+It may be best to reset the grbl board on power down / estop
+that way a home will be forced before the machine can start recieving G-Code again
+
+
+
+Firmware
+
+double check we're using a 328p processor (Uno, Duemilanove, Nano, Micro, etc) for the arduino
+also backup the existing firmware hex
+
+we also need to use this link for grbl 1.1
+
+  * http://chilipeppr.com/jpadie

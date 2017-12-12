@@ -22,7 +22,7 @@ pages:
 #    - Milling: Milling/Milling.md
 - Maintenance:
 #    - Device Overview: Maintenance/Device-Overview.md
-#    - Updating the Firmware: Maintenance/Updating-Firmware.md
+    - Updating the Firmware: Maintenance/Updating-Firmware.md
     - Grbl Settings: Maintenance/Grbl-Settings.md
 #    - Todo: Maintenance/Todo.md
 
