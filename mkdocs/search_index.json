@@ -41,8 +41,398 @@
             "title": "Commercial Software"
         }, 
         {
+            "location": "/Milling/Connecting/", 
+            "text": "Connecting to the CNC\n\n\nOverview\n\n\nThe CNC is reachable via a Rpi over the network which acts as a serial proxy\n\n\nIf using Windows 10 then I\nd recommend using a separate desktop window, and using a browser other than your main one\n(such as Firefox or chrome) so that you can continue to do other things (such as browser the web) with your\nmain browser etc. without interfering with the milling process.\n\n\nTry to avoid using the Microsoft Edge Browser as an alternate browser, it seems to be okay sending commands to the mill, but I\nve noticed the\ncontrols become locked up / unresponsive during the process of sending G-Code / doing the actual mill.\n\n\nPlugging In\n\n\nThere\ns currently two main\ns plugs that need to be plugged in\n\n\n\n\nOne powers the CNC Grbl board and fan\n\n\nThe second powers a 12V supply which feeds the Spindle.\n\n\n\n\nYou may need to switch on the electronics bench, as we\nve got the bench it\ns on temporarily hooked up to that at the moment.\nConnect the USB plug into your laptop.\n\n\n \n\n\nControls\n\n\nSpindle Power\n\n\nThe switch on the front of the box controls the spindle on / off \n\nThe speed of the spindle is fixed at the moment; I think the spindle is 48V but we\nre currently using a 12V Power Supply so the speed is only quarter of maximum. \n\nNote this switch only controls the power to the spindle, not the grbl shield or the arduino, they are powered by a seperate supply not controlled by this switch\n\n\n \n\n\nStarting Chillipepr\n\n\nNext we\nre going to start up Chillipepr.\n\n\n\n\nOpen up a 2nd browser window\n\n\nBrowse to \nhttp://chilipeppr.com/jpadie\n\n\n\n\nThe link is different than normal chillipepr / grbl as we\nre using firmware version 1.1 instead of 0.9\n\n\nChillipepr is a online system consisting of a series of web pages and JavaScript scripts pulled in from other sites.\nThere has been an attempt to create an offline version, but for now it\ns easier just to browse the online version.\nThe JavaScript within Chillipepr will connect to a Serial Port Json Server ether located on your local machine or elsewhere.\n\n\nI\nve discovered that it\ns best to run Chillipepr and the serial server on the same machine to avoid problems with latency.\nWe\nre using the Grbl version of Chillipepr here as the firmware for the shapeoko2 is the latest version of Grbl.\n\n\n \n\n\nStarting the Serial Port Json Server\n\n\nNext we need to start a small app on our local machine called the Serial Port Json Server.\nThe serial server acts as a bridge in-between the serial port on your local machine which connects to the mill\nand Chillipepr.\n\n\nDownloading the Serial Proxy\n\n\nYou can find the download links in the bottom right hand corner of the Chillipepr window.\nSometimes you need to press the up / down arrow to expand the tab to see it, then scroll down.\n\n\n \n\n\nThere should be different versions listed for different operating systems.\n\n\nRunning the Serial Port Json Server\n\n\nFirst plug in the USB plug from the mill.\nThen run the serial port json server, it should pick up on the new serial port and list it in a console window\n\n\n \n\n\nConnecting Chillipepr to the Serial Proxy\n\n\nNext we should be ready to now link / connect Chillipepr to the serial server. \n\nSelect \nConnect to Host\n\n\n \n\n\nSelect \nConnect to Localhost\n\n\n \n\n\nWe should now see a list of the devices detected in the bottom right corner.\n\n\nIn the drop down lists make sure \nGrbl\n is selected, and the maximum baud rate \n115,200\n \n\nThe older versions of Grbl used to use a slower baud rate of around 9600, but the later versions use the max 115,200 speed instead.\n\n\nOnce you\nve selected Grbl in the drop down, click the tick box on the left to initiate the connection to the board.\n\n\n \n\n\nConnecting via Putty\n\n\nIf you want to instead connect to the CNC via a Serial Console, then you can use Putty to do this\n\n\n\n\n\n\nDownload and install Putty from \nhttp://www.chiark.greenend.org.uk/~sgtatham/putty/download.html\n\n\n\n\n\n\nOpen putty and connect to the Grbl / Arduino Uno\ns COM Port\n\n\n\n\nSpeed: \n115200\n\n\nDatabits: \n8\n\n\nStopBits: \n1\n\n\nParity / Flow Control: \nNone\n\n\nhttp://www.shapeoko.com/wiki/index.php/G-Code", 
+            "title": "Connecting"
+        }, 
+        {
+            "location": "/Milling/Connecting/#connecting-to-the-cnc", 
+            "text": "", 
+            "title": "Connecting to the CNC"
+        }, 
+        {
+            "location": "/Milling/Connecting/#overview", 
+            "text": "The CNC is reachable via a Rpi over the network which acts as a serial proxy  If using Windows 10 then I d recommend using a separate desktop window, and using a browser other than your main one\n(such as Firefox or chrome) so that you can continue to do other things (such as browser the web) with your\nmain browser etc. without interfering with the milling process.  Try to avoid using the Microsoft Edge Browser as an alternate browser, it seems to be okay sending commands to the mill, but I ve noticed the\ncontrols become locked up / unresponsive during the process of sending G-Code / doing the actual mill.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Milling/Connecting/#plugging-in", 
+            "text": "There s currently two main s plugs that need to be plugged in   One powers the CNC Grbl board and fan  The second powers a 12V supply which feeds the Spindle.   You may need to switch on the electronics bench, as we ve got the bench it s on temporarily hooked up to that at the moment.\nConnect the USB plug into your laptop.", 
+            "title": "Plugging In"
+        }, 
+        {
+            "location": "/Milling/Connecting/#controls", 
+            "text": "", 
+            "title": "Controls"
+        }, 
+        {
+            "location": "/Milling/Connecting/#spindle-power", 
+            "text": "The switch on the front of the box controls the spindle on / off  \nThe speed of the spindle is fixed at the moment; I think the spindle is 48V but we re currently using a 12V Power Supply so the speed is only quarter of maximum.  \nNote this switch only controls the power to the spindle, not the grbl shield or the arduino, they are powered by a seperate supply not controlled by this switch", 
+            "title": "Spindle Power"
+        }, 
+        {
+            "location": "/Milling/Connecting/#starting-chillipepr", 
+            "text": "Next we re going to start up Chillipepr.   Open up a 2nd browser window  Browse to  http://chilipeppr.com/jpadie   The link is different than normal chillipepr / grbl as we re using firmware version 1.1 instead of 0.9  Chillipepr is a online system consisting of a series of web pages and JavaScript scripts pulled in from other sites.\nThere has been an attempt to create an offline version, but for now it s easier just to browse the online version.\nThe JavaScript within Chillipepr will connect to a Serial Port Json Server ether located on your local machine or elsewhere.  I ve discovered that it s best to run Chillipepr and the serial server on the same machine to avoid problems with latency.\nWe re using the Grbl version of Chillipepr here as the firmware for the shapeoko2 is the latest version of Grbl.", 
+            "title": "Starting Chillipepr"
+        }, 
+        {
+            "location": "/Milling/Connecting/#starting-the-serial-port-json-server", 
+            "text": "Next we need to start a small app on our local machine called the Serial Port Json Server.\nThe serial server acts as a bridge in-between the serial port on your local machine which connects to the mill\nand Chillipepr.", 
+            "title": "Starting the Serial Port Json Server"
+        }, 
+        {
+            "location": "/Milling/Connecting/#downloading-the-serial-proxy", 
+            "text": "You can find the download links in the bottom right hand corner of the Chillipepr window.\nSometimes you need to press the up / down arrow to expand the tab to see it, then scroll down.     There should be different versions listed for different operating systems.", 
+            "title": "Downloading the Serial Proxy"
+        }, 
+        {
+            "location": "/Milling/Connecting/#running-the-serial-port-json-server", 
+            "text": "First plug in the USB plug from the mill.\nThen run the serial port json server, it should pick up on the new serial port and list it in a console window", 
+            "title": "Running the Serial Port Json Server"
+        }, 
+        {
+            "location": "/Milling/Connecting/#connecting-chillipepr-to-the-serial-proxy", 
+            "text": "Next we should be ready to now link / connect Chillipepr to the serial server.  \nSelect  Connect to Host     Select  Connect to Localhost     We should now see a list of the devices detected in the bottom right corner.  In the drop down lists make sure  Grbl  is selected, and the maximum baud rate  115,200   \nThe older versions of Grbl used to use a slower baud rate of around 9600, but the later versions use the max 115,200 speed instead.  Once you ve selected Grbl in the drop down, click the tick box on the left to initiate the connection to the board.", 
+            "title": "Connecting Chillipepr to the Serial Proxy"
+        }, 
+        {
+            "location": "/Milling/Connecting/#connecting-via-putty", 
+            "text": "If you want to instead connect to the CNC via a Serial Console, then you can use Putty to do this    Download and install Putty from  http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html    Open putty and connect to the Grbl / Arduino Uno s COM Port   Speed:  115200  Databits:  8  StopBits:  1  Parity / Flow Control:  None  http://www.shapeoko.com/wiki/index.php/G-Code", 
+            "title": "Connecting via Putty"
+        }, 
+        {
+            "location": "/Milling/Jog/", 
+            "text": "Jogging the CNC\n\n\nOverview\n\n\nOne of the first things to learn how to do is to jog the device using the controls at the upper right hand corner. \n\nYou may need to use the arrow button to expand the tab out to see all the controls.\n\n\n \n\n\nMoving in Increments\n\n\nIt\ns possible to move the head of the mill in small increments by using the following buttons.\n\n\n \n\n\nBy default, the amount to move should be in mm, it\ns possible to set larger or smaller values to move using the buttons underneath.\nTo use a value larger than 1 just use the custom drop down.\n\n\n \n\n\nNote\n be careful not to crash the head onto the spoiler plate or side of the machine when moving around.\n\n\nZeroing the machine\n\n\nZero point\n\n\nCNC\ns tend to have a concept of a zero point. The zero point is the reference to which all other move operations occur.\nThis zero point can be anywhere\n\n\n\n\nUsually you set the zero point to the bottom left corner of where you will be milling from.\n\n\nAlso it\ns best to set the Z Axis (height of the mill bit above the material) so that it\ns just touching the top of the material that\ns going to be milled.\n\n\nOne trick to getting the Z Height right is to turn the spindle on, and to jog the machine down slightly until you start to hear it grind against the wood.\n\n\nThis assumes you have set the origin in the Cam software to the bottom left corner at the top of the material\n\n\n\n\nOnce the head is in the right place you can then use the \nZero Out\n button to tell the grbl firmware that this is the new starting point.\n\n\n \n\n\nThe \nGo To Zero\n button should be used carefully, this will cause the cnc head to move back to the zero point if it\ns currently in some other location.\nIf the zero point isn\nt set right then you might cause the head to crash into the milling material.\n\n\nHoming the machine\n\n\nWe currently don\nt have any homing switches on the Shapeoko at the moment.\nOne way around this is to power down the steppers, then manually move the head to the bottom left hand corner.\n\n\nGrbl doesn\nt have a way of forcing the steppers on / off, we currently have the settings within the firmware set to power down the steppers 0.1 seconds after the machine enters into a hold. \n\nThis way we have the option of manually moving the mill when it\ns not running g-code", 
+            "title": "Jogging / Moving the CNC"
+        }, 
+        {
+            "location": "/Milling/Jog/#jogging-the-cnc", 
+            "text": "", 
+            "title": "Jogging the CNC"
+        }, 
+        {
+            "location": "/Milling/Jog/#overview", 
+            "text": "One of the first things to learn how to do is to jog the device using the controls at the upper right hand corner.  \nYou may need to use the arrow button to expand the tab out to see all the controls.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Milling/Jog/#moving-in-increments", 
+            "text": "It s possible to move the head of the mill in small increments by using the following buttons.     By default, the amount to move should be in mm, it s possible to set larger or smaller values to move using the buttons underneath.\nTo use a value larger than 1 just use the custom drop down.     Note  be careful not to crash the head onto the spoiler plate or side of the machine when moving around.", 
+            "title": "Moving in Increments"
+        }, 
+        {
+            "location": "/Milling/Jog/#zeroing-the-machine", 
+            "text": "", 
+            "title": "Zeroing the machine"
+        }, 
+        {
+            "location": "/Milling/Jog/#zero-point", 
+            "text": "CNC s tend to have a concept of a zero point. The zero point is the reference to which all other move operations occur.\nThis zero point can be anywhere   Usually you set the zero point to the bottom left corner of where you will be milling from.  Also it s best to set the Z Axis (height of the mill bit above the material) so that it s just touching the top of the material that s going to be milled.  One trick to getting the Z Height right is to turn the spindle on, and to jog the machine down slightly until you start to hear it grind against the wood.  This assumes you have set the origin in the Cam software to the bottom left corner at the top of the material   Once the head is in the right place you can then use the  Zero Out  button to tell the grbl firmware that this is the new starting point.     The  Go To Zero  button should be used carefully, this will cause the cnc head to move back to the zero point if it s currently in some other location.\nIf the zero point isn t set right then you might cause the head to crash into the milling material.", 
+            "title": "Zero point"
+        }, 
+        {
+            "location": "/Milling/Jog/#homing-the-machine", 
+            "text": "We currently don t have any homing switches on the Shapeoko at the moment.\nOne way around this is to power down the steppers, then manually move the head to the bottom left hand corner.  Grbl doesn t have a way of forcing the steppers on / off, we currently have the settings within the firmware set to power down the steppers 0.1 seconds after the machine enters into a hold.  \nThis way we have the option of manually moving the mill when it s not running g-code", 
+            "title": "Homing the machine"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/", 
+            "text": "Loading the G-Code\n\n\nLoading from a local file on Disk\n\n\nIn order to load a local G-Code file on disk, you basically just drag and drop the file on top of the browser window with Chillipepr In\n\n\nRecent Files\n\n\nChillipepr seems to cache the most recent files that have been dragged / dropped onto it.\nIf you need to clear the cache for any reason the controls at the upper left can be used.\nThese can also reset the G-Code to the default Chillipepr logo.\n\n\n \n\n\n \n\n\nLoading from JSCut\n\n\nJSCut is an online CAM software for milling simple 2D profiles (i.e. inkscape diagrams similar to the laser cutter)\n\n\n\n\nhttp://jscut.org/\n\n\n\n\nFrom what I understand if JSCut is open at the same time as Chillipepr within the browser, it\ns possible to use this button to copy the G-Code across without having to export / import files.\n\n\n \n\n\nEagle BRD Load\n\n\nChillipepr also has support for converting Eagle board files into G-Code.\nPersonally I\nd recommend using FlatCAM instead to load in a gerber file / export the G-Code as this can be used with any app that supports the gerber export format.\n\n\n \n\n\nAuto Levelling\n\n\nOne of the main problems with milling PCB\ns is that the copper board tends not to be completely flat.\nSo you end up ether milling too much and making a mess of the board, or not enough missing some parts of the board.\n\n\nOne way around this is to use an inductive proximity sensor to take measurements of the copper board relative to the milling head.\nTypically, this is wired into Z-Min I think on the board. This can then be used as an offset to the milling profile to compensate for an uneven Copper board.\n\n\nIt should be mentioned that other software such as FlatCAM also have these features inbuilt as well as double sided board support, although I have yet to try this out (since we don\nt have a sensor wired in just yet)\n\n\nI spotted this online tutorial here\n\n\n\n\nhttps://www.youtube.com/watch?v=6WNE3E1ZZYY", 
+            "title": "Loading and Setup"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#loading-the-g-code", 
+            "text": "", 
+            "title": "Loading the G-Code"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#loading-from-a-local-file-on-disk", 
+            "text": "In order to load a local G-Code file on disk, you basically just drag and drop the file on top of the browser window with Chillipepr In", 
+            "title": "Loading from a local file on Disk"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#recent-files", 
+            "text": "Chillipepr seems to cache the most recent files that have been dragged / dropped onto it.\nIf you need to clear the cache for any reason the controls at the upper left can be used.\nThese can also reset the G-Code to the default Chillipepr logo.", 
+            "title": "Recent Files"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#loading-from-jscut", 
+            "text": "JSCut is an online CAM software for milling simple 2D profiles (i.e. inkscape diagrams similar to the laser cutter)   http://jscut.org/   From what I understand if JSCut is open at the same time as Chillipepr within the browser, it s possible to use this button to copy the G-Code across without having to export / import files.", 
+            "title": "Loading from JSCut"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#eagle-brd-load", 
+            "text": "Chillipepr also has support for converting Eagle board files into G-Code.\nPersonally I d recommend using FlatCAM instead to load in a gerber file / export the G-Code as this can be used with any app that supports the gerber export format.", 
+            "title": "Eagle BRD Load"
+        }, 
+        {
+            "location": "/Milling/Loading-Setup/#auto-levelling", 
+            "text": "One of the main problems with milling PCB s is that the copper board tends not to be completely flat.\nSo you end up ether milling too much and making a mess of the board, or not enough missing some parts of the board.  One way around this is to use an inductive proximity sensor to take measurements of the copper board relative to the milling head.\nTypically, this is wired into Z-Min I think on the board. This can then be used as an offset to the milling profile to compensate for an uneven Copper board.  It should be mentioned that other software such as FlatCAM also have these features inbuilt as well as double sided board support, although I have yet to try this out (since we don t have a sensor wired in just yet)  I spotted this online tutorial here   https://www.youtube.com/watch?v=6WNE3E1ZZYY", 
+            "title": "Auto Levelling"
+        }, 
+        {
+            "location": "/Milling/Simulation/", 
+            "text": "Simulation\n\n\nOverview\n\n\nUsually the best simulation is done within the CAM Software such as HSMExpress.\nIt\ns also possible to simulate outside of cam via a couple of methods to see how the milling head will follow the path while milling\n\n\nChillipepr\n\n\nChillipepr has its own simulator that can be used to get a preview of the G-Code path within the browser window.\n\n\nSomething to be aware of is that Chillipepr has problems with curves in the simulator, it seems to just follow a diagonal line across the arc.\nWhen it comes to actual milling though this isn\nt a problem as the firmware of the CNC will perform the arc correctly and send feedback to Chillipepr as to its current location.\n\n\n \n\n\nCamotics\n\n\nOne app you can download and use to simulate the G-Code is Camotics.\nThis can be used to give you a simulation of what the part will look like once milled.\n\n\n\n\nhttp://camotics.org/", 
+            "title": "Simulation"
+        }, 
+        {
+            "location": "/Milling/Simulation/#simulation", 
+            "text": "", 
+            "title": "Simulation"
+        }, 
+        {
+            "location": "/Milling/Simulation/#overview", 
+            "text": "Usually the best simulation is done within the CAM Software such as HSMExpress.\nIt s also possible to simulate outside of cam via a couple of methods to see how the milling head will follow the path while milling", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Milling/Simulation/#chillipepr", 
+            "text": "Chillipepr has its own simulator that can be used to get a preview of the G-Code path within the browser window.  Something to be aware of is that Chillipepr has problems with curves in the simulator, it seems to just follow a diagonal line across the arc.\nWhen it comes to actual milling though this isn t a problem as the firmware of the CNC will perform the arc correctly and send feedback to Chillipepr as to its current location.", 
+            "title": "Chillipepr"
+        }, 
+        {
+            "location": "/Milling/Simulation/#camotics", 
+            "text": "One app you can download and use to simulate the G-Code is Camotics.\nThis can be used to give you a simulation of what the part will look like once milled.   http://camotics.org/", 
+            "title": "Camotics"
+        }, 
+        {
+            "location": "/Milling/Material/", 
+            "text": "Milling Material\n\n\nClamping Holes\n\n\nThe CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced.\nIt has several inserts in the bottom for securing additional material on top using a series of M6 bolts\n\n\nSome of the holes should line up with the holes on the small drill press vice\n\n\n \n\n\n \n\n\nPosition of Clamping Holes\n\n\nIn order to drill the positioning holes for the material being milled (that sits on top of the spoiler board)\nFirst line the head up with the bottom left hole.\n\n\nThe first bottom left hole should be at a position of \n30mm Up, 0mm Right\n.\nBut I\nve found that trying to using the bottom left corner of the machine is unreliable and that it\ns better to align with the first hole instead.\n\n\nThe following are offset positions from the first hole\n\n\nPlate fixing points\n\n\n\n\n\n\n\n\nY (back to front)\n\n\nX (left to right)\n\n\n\n\n\n\n\n\n\n\n0 mm\n\n\n0 mm\n\n\n\n\n\n\n0 mm\n\n\n300 mm\n\n\n\n\n\n\n260 mm\n\n\n0 mm\n\n\n\n\n\n\n260 mm\n\n\n300 mm\n\n\n\n\n\n\n\n\nDrill mount holes\n\n\n\n\n\n\n\n\nY (back to front)\n\n\nX (left to right)\n\n\n\n\n\n\n\n\n\n\n0 mm\n\n\n0 mm\n\n\n\n\n\n\n0 mm\n\n\n110 mm\n\n\n\n\n\n\n110 mm\n\n\n0 mm\n\n\n\n\n\n\n\n\nTODO add additional hole on the rights to avoid belt holder conflict\n\n\nMDF\n\n\nSo far I\nve used MDF 12mm thick cut into sections using the table saw.\nHowever, it\ns advisable to limit the depth of a pass to about 2mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)\n\n\nMetal\n\n\nSince the Shapeoko 2 only has Nema 17 motors, I\nve found that it manages mdf okay but I\nm not sure if it can manage metal such as aluminium.\nWith metal you have to mill at the right speed, too slow and the metal sticks to the mill bit\n\n\nFor this you\nll need to use a speeds and feeds calculator.\n\n\n\n\nhttp://www.cnccookbook.com/GWCalcFeedsSpeeds.htm", 
+            "title": "Milling Material"
+        }, 
+        {
+            "location": "/Milling/Material/#milling-material", 
+            "text": "", 
+            "title": "Milling Material"
+        }, 
+        {
+            "location": "/Milling/Material/#clamping-holes", 
+            "text": "The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced.\nIt has several inserts in the bottom for securing additional material on top using a series of M6 bolts  Some of the holes should line up with the holes on the small drill press vice", 
+            "title": "Clamping Holes"
+        }, 
+        {
+            "location": "/Milling/Material/#position-of-clamping-holes", 
+            "text": "In order to drill the positioning holes for the material being milled (that sits on top of the spoiler board)\nFirst line the head up with the bottom left hole.  The first bottom left hole should be at a position of  30mm Up, 0mm Right .\nBut I ve found that trying to using the bottom left corner of the machine is unreliable and that it s better to align with the first hole instead.  The following are offset positions from the first hole", 
+            "title": "Position of Clamping Holes"
+        }, 
+        {
+            "location": "/Milling/Material/#plate-fixing-points", 
+            "text": "Y (back to front)  X (left to right)      0 mm  0 mm    0 mm  300 mm    260 mm  0 mm    260 mm  300 mm", 
+            "title": "Plate fixing points"
+        }, 
+        {
+            "location": "/Milling/Material/#drill-mount-holes", 
+            "text": "Y (back to front)  X (left to right)      0 mm  0 mm    0 mm  110 mm    110 mm  0 mm     TODO add additional hole on the rights to avoid belt holder conflict", 
+            "title": "Drill mount holes"
+        }, 
+        {
+            "location": "/Milling/Material/#mdf", 
+            "text": "So far I ve used MDF 12mm thick cut into sections using the table saw.\nHowever, it s advisable to limit the depth of a pass to about 2mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)", 
+            "title": "MDF"
+        }, 
+        {
+            "location": "/Milling/Material/#metal", 
+            "text": "Since the Shapeoko 2 only has Nema 17 motors, I ve found that it manages mdf okay but I m not sure if it can manage metal such as aluminium.\nWith metal you have to mill at the right speed, too slow and the metal sticks to the mill bit  For this you ll need to use a speeds and feeds calculator.   http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm", 
+            "title": "Metal"
+        }, 
+        {
+            "location": "/Milling/FeedRates/", 
+            "text": "Feed Rates\n\n\nOverview\n\n\nThe feed rate is the speed at which the spindle travels through the material \n\nTo slow and the milling process can take hours to complete, too fast and it can lead to the spindle over heating or bending with excessive load. \n\nSpeeds tend to be measured in mm/min.\n\n\nA speed which is too fast is really bad, as it can lead to:\n\n\n\n\nThe milling bit becoming too stressed / breaking / bending\n\n\nThe machine skipping steps leading to all sorts of problems with miss-alignments\n\n\n\n\nTo get the best speeds, it\ns best to do a pass with a larger mill bit first, then a smaller bit afterwards\nAlso try to set the speeds in the Cam software instead of using the multiplier in Chillipepr\n\n\nFeed Rate recommendations\n\n\n300W Spindle - MDF\n\n\nFor MDF I\nd recommend we only do \n2mm\n at a time on a given pass for the depth of cut \n\nCommerical software such as hsmworks tends to default to about 1000mm/min and 333.3 mm/min but this is way too fast\n\n\n\n\n\n\n\n\nMaterial\n\n\nBit Type\n\n\nCutting Speed\n\n\nPlunge Speed\n\n\nDepth Pass\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nMDF\n\n\n3mm Flat End Mill\n\n\n250mm/min\n\n\n83.325mm/min\n\n\n1 mm - 2 mm\n\n\nThis seems a safe setting for general use\n\n\n\n\n\n\nMDF\n\n\n6mm Flat End Mill\n\n\n250mm/min\n\n\n83.325mm/min\n\n\n1 mm - 2 mm\n\n\nNot sure with this spindle, needs to be tested\n\n\n\n\n\n\n\n\nI\nve noticed that when setting the max depth of cut to 2mm instead of 1mm when going around the outside of a part\ncan result in the part becoming too loose early on during the final pass / cut around the outside.\nSo if you are going to do that try to hold the part down a bit with something heavy.\n\n\nTODO\n \n\nWe could do with experimenting with different speeds / spindles / materials etc.\nSo far I\nve not tested a 6mm bit with the spindle, but we need to use one where an area needs to be leveled out \nas trying to do this with a 3mm bit will take a long time.\n\n\nConsiderations\n\n\nHeat\n\n\nThe first consideration is the amount of heat generated by milling through the material.\nWith a really small mill bit it\ns going to get hotter more quickly than a larger mill bit.\nThis is due to the larger mill bit having more metal to store / get rid of the heat.\n\n\nA dremmel typically isn\nt cooled, but the 300W spindle has air flow over the bit and the spindle, this which allows us to mill more.\nAs one example, while milling mdf with a dremmel and too high a feed rate I managed to cause the mdf to turn black and start to burn.\nWith an air cooled spindle such as the one currently on the shapeoko this doesn\nt seem to have this problem.\n\n\nSkipped Steps\n\n\nThe shapeoko2 we have in the hackspace only uses Nema 17 Motors so we can\nt apply a lot of pressure quickly.\nTherefore, running too quickly or too deeply can lead to uneven cuts.\nOne way around this is to do a rough cut initially if possible to clear out most of the material except for about 0.5mm or so.\nThen afterwards a 2nd fine pass afterwards to remove the remaining material.\n\n\nDepth of Cut\n\n\nThe deeper we cut on a pass the more heat will be generated, and the more force the shapeoko will need to provide.\nThis in turn can affect the heat generated by the stepper motors.", 
+            "title": "Feed Rates"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#feed-rates", 
+            "text": "", 
+            "title": "Feed Rates"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#overview", 
+            "text": "The feed rate is the speed at which the spindle travels through the material  \nTo slow and the milling process can take hours to complete, too fast and it can lead to the spindle over heating or bending with excessive load.  \nSpeeds tend to be measured in mm/min.  A speed which is too fast is really bad, as it can lead to:   The milling bit becoming too stressed / breaking / bending  The machine skipping steps leading to all sorts of problems with miss-alignments   To get the best speeds, it s best to do a pass with a larger mill bit first, then a smaller bit afterwards\nAlso try to set the speeds in the Cam software instead of using the multiplier in Chillipepr", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#feed-rate-recommendations", 
+            "text": "", 
+            "title": "Feed Rate recommendations"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#300w-spindle-mdf", 
+            "text": "For MDF I d recommend we only do  2mm  at a time on a given pass for the depth of cut  \nCommerical software such as hsmworks tends to default to about 1000mm/min and 333.3 mm/min but this is way too fast     Material  Bit Type  Cutting Speed  Plunge Speed  Depth Pass  Description      MDF  3mm Flat End Mill  250mm/min  83.325mm/min  1 mm - 2 mm  This seems a safe setting for general use    MDF  6mm Flat End Mill  250mm/min  83.325mm/min  1 mm - 2 mm  Not sure with this spindle, needs to be tested     I ve noticed that when setting the max depth of cut to 2mm instead of 1mm when going around the outside of a part\ncan result in the part becoming too loose early on during the final pass / cut around the outside.\nSo if you are going to do that try to hold the part down a bit with something heavy.  TODO   \nWe could do with experimenting with different speeds / spindles / materials etc.\nSo far I ve not tested a 6mm bit with the spindle, but we need to use one where an area needs to be leveled out \nas trying to do this with a 3mm bit will take a long time.", 
+            "title": "300W Spindle - MDF"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#considerations", 
+            "text": "", 
+            "title": "Considerations"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#heat", 
+            "text": "The first consideration is the amount of heat generated by milling through the material.\nWith a really small mill bit it s going to get hotter more quickly than a larger mill bit.\nThis is due to the larger mill bit having more metal to store / get rid of the heat.  A dremmel typically isn t cooled, but the 300W spindle has air flow over the bit and the spindle, this which allows us to mill more.\nAs one example, while milling mdf with a dremmel and too high a feed rate I managed to cause the mdf to turn black and start to burn.\nWith an air cooled spindle such as the one currently on the shapeoko this doesn t seem to have this problem.", 
+            "title": "Heat"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#skipped-steps", 
+            "text": "The shapeoko2 we have in the hackspace only uses Nema 17 Motors so we can t apply a lot of pressure quickly.\nTherefore, running too quickly or too deeply can lead to uneven cuts.\nOne way around this is to do a rough cut initially if possible to clear out most of the material except for about 0.5mm or so.\nThen afterwards a 2nd fine pass afterwards to remove the remaining material.", 
+            "title": "Skipped Steps"
+        }, 
+        {
+            "location": "/Milling/FeedRates/#depth-of-cut", 
+            "text": "The deeper we cut on a pass the more heat will be generated, and the more force the shapeoko will need to provide.\nThis in turn can affect the heat generated by the stepper motors.", 
+            "title": "Depth of Cut"
+        }, 
+        {
+            "location": "/Milling/Milling/", 
+            "text": "Milling\n\n\nAll of the controls associated with the actual milling are located on the left hand side. \n\nThe emergency / immediate stop is also located on the right hand side\n\n\n\n\n \n\n\nZero the Machine\n\n\nOne of the first steps is to get the head of the machine in the right place.\nIt all depends on where you\nve put the origin when using the CAM software, but generally placing the head at the lower left corner of where you will be milling is the best bet.\nAlso you need to ether jog or manually adjust the Z Height so that the mill bit is just touching the surface of the material to be milled.\n\n\nOne trick to figuring out when the mill bit is just touching the surface, is to turn on the spindle then jog the head down slowly 0.1 mm at a time\nuntill you hear the noise of the material being grinded.\n\n\nAnother idea before you start milling is to move the head back 5mm (y - 5) \n\nThen mill a hole straight down. If for any reason anything goes wrong you can use this hole to reset the position of the machine\nto a known point before restarting.\n\n\nSet the Feed Rate Multiplier\n\n\nAssuming you\nve already loaded in the G-Code into Chillipepr (drag and drop the file onto the browser window) \n\nThe most important setting is the Feed Rate\n\n\n \n\n\nIf you\nve already set the feedrate within the CAM software \n\n(used to create the G-Code) then you can just leave this at \n1.00\n \n\nThis value is a multiplier so \n0.5\n = half speed.\n\n\nA speed which is too fast is really bad, as it can lead to:\n\n\n\n\nThe milling bit becoming too stressed / breaking / bending\n\n\nThe machine skipping steps leading to all sorts of problems with mis-alignments\n\n\n\n\nIf you\nve used hsmworks for example and left the feedrate at the default speed, then it will be about 10 x too fast for the mill.\nIn that case 0.1 is a safe value. \n\n\nThat being said it\ns generally better to make sure the feedrate is set correctly within the CAM software and to use a 1.0 value here if you can.\nThe reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.\n\n\nTurn on the Spindle\n\n\nNext switch on the spindle to get ready to start milling\n\n\n \n\n\nStart the G-Code\n\n\nTo start running the G-Code use the play button, make sure the spindle is running before you do this.\n\n\n \n\n\nUsing the Vacuum Cleaner\n\n\nWhile cutting we can use the henry hoover to suck up the mdf that\ns milled out to see what has been cut so far.\n\n\n \n\n\nUsing a different starting point (Optional)\n\n\nOne of the tricks Chillipepr allows us to do is to start from a line further down in the G-Code.\nIf you click on one of the lines of the G-Code in the list\n\n\n\n\nThis gives you an indication of where the CNC will be from an absolute position\n\n\nThis allows you to set this as a new starting point when playing the G-Code\n\n\nWe can get the head to move to this position / skip the G-Code above\n\n\n\n\n \n\n\nStopping Milling\n\n\nThere\ns a couple of different ways to stop the milling\n\n\nDisconnect the USB Lead\n\n\nIf you\nre really in a rush because something has horribly gone wrong, just disconnecting the USB lead is one sure way to stop everything.\n\n\nStopping the Queue\n\n\nThe controls on the left do have a stop button.\nHowever, this only stops further messages being queued into the grbl firmware.\nIf you use this the CNC will probably still continue on for a while longer while it gets to the end of its buffer stream\n\n\n \n\n\nImmediate Stop\n\n\nIf you want to try and stop the machine immediately within Chillipepr then there\ns a 2nd stop button on the right hand side.\nThese buttons send special commands to grbl to stop the G-Code right away (without waiting for the buffer to flush / complete).\nThere\ns also a resume button next to it as well", 
+            "title": "Milling"
+        }, 
+        {
+            "location": "/Milling/Milling/#milling", 
+            "text": "All of the controls associated with the actual milling are located on the left hand side.  \nThe emergency / immediate stop is also located on the right hand side", 
+            "title": "Milling"
+        }, 
+        {
+            "location": "/Milling/Milling/#zero-the-machine", 
+            "text": "One of the first steps is to get the head of the machine in the right place.\nIt all depends on where you ve put the origin when using the CAM software, but generally placing the head at the lower left corner of where you will be milling is the best bet.\nAlso you need to ether jog or manually adjust the Z Height so that the mill bit is just touching the surface of the material to be milled.  One trick to figuring out when the mill bit is just touching the surface, is to turn on the spindle then jog the head down slowly 0.1 mm at a time\nuntill you hear the noise of the material being grinded.  Another idea before you start milling is to move the head back 5mm (y - 5)  \nThen mill a hole straight down. If for any reason anything goes wrong you can use this hole to reset the position of the machine\nto a known point before restarting.", 
+            "title": "Zero the Machine"
+        }, 
+        {
+            "location": "/Milling/Milling/#set-the-feed-rate-multiplier", 
+            "text": "Assuming you ve already loaded in the G-Code into Chillipepr (drag and drop the file onto the browser window)  \nThe most important setting is the Feed Rate     If you ve already set the feedrate within the CAM software  \n(used to create the G-Code) then you can just leave this at  1.00   \nThis value is a multiplier so  0.5  = half speed.  A speed which is too fast is really bad, as it can lead to:   The milling bit becoming too stressed / breaking / bending  The machine skipping steps leading to all sorts of problems with mis-alignments   If you ve used hsmworks for example and left the feedrate at the default speed, then it will be about 10 x too fast for the mill.\nIn that case 0.1 is a safe value.   That being said it s generally better to make sure the feedrate is set correctly within the CAM software and to use a 1.0 value here if you can.\nThe reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.", 
+            "title": "Set the Feed Rate Multiplier"
+        }, 
+        {
+            "location": "/Milling/Milling/#turn-on-the-spindle", 
+            "text": "Next switch on the spindle to get ready to start milling", 
+            "title": "Turn on the Spindle"
+        }, 
+        {
+            "location": "/Milling/Milling/#start-the-g-code", 
+            "text": "To start running the G-Code use the play button, make sure the spindle is running before you do this.", 
+            "title": "Start the G-Code"
+        }, 
+        {
+            "location": "/Milling/Milling/#using-the-vacuum-cleaner", 
+            "text": "While cutting we can use the henry hoover to suck up the mdf that s milled out to see what has been cut so far.", 
+            "title": "Using the Vacuum Cleaner"
+        }, 
+        {
+            "location": "/Milling/Milling/#using-a-different-starting-point-optional", 
+            "text": "One of the tricks Chillipepr allows us to do is to start from a line further down in the G-Code.\nIf you click on one of the lines of the G-Code in the list   This gives you an indication of where the CNC will be from an absolute position  This allows you to set this as a new starting point when playing the G-Code  We can get the head to move to this position / skip the G-Code above", 
+            "title": "Using a different starting point (Optional)"
+        }, 
+        {
+            "location": "/Milling/Milling/#stopping-milling", 
+            "text": "There s a couple of different ways to stop the milling", 
+            "title": "Stopping Milling"
+        }, 
+        {
+            "location": "/Milling/Milling/#disconnect-the-usb-lead", 
+            "text": "If you re really in a rush because something has horribly gone wrong, just disconnecting the USB lead is one sure way to stop everything.", 
+            "title": "Disconnect the USB Lead"
+        }, 
+        {
+            "location": "/Milling/Milling/#stopping-the-queue", 
+            "text": "The controls on the left do have a stop button.\nHowever, this only stops further messages being queued into the grbl firmware.\nIf you use this the CNC will probably still continue on for a while longer while it gets to the end of its buffer stream", 
+            "title": "Stopping the Queue"
+        }, 
+        {
+            "location": "/Milling/Milling/#immediate-stop", 
+            "text": "If you want to try and stop the machine immediately within Chillipepr then there s a 2nd stop button on the right hand side.\nThese buttons send special commands to grbl to stop the G-Code right away (without waiting for the buffer to flush / complete).\nThere s also a resume button next to it as well", 
+            "title": "Immediate Stop"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/", 
+            "text": "Device Overview\n\n\nWe currently have a ooznest Ox CNC which was purchased via a pledge run\n\n\n\n\nThe main controller board is a Arduino Uno running Grbl 1.1\n\n\nThere is also a CNC Shield, I think one of these - \nhttps://blog.protoneer.co.nz/arduino-cnc-shield/\n\n\nThe stepper motors are Nema23\ns, I think 2.8A max based on the ooznest site\n\n\nI think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling\n\n\n\n\nFirmware Overview\n\n\nCurrently the Ox CNC uses an Arduino Uno with Grbl 1.1\n\n\n\n\nhttps://github.com/grbl/grbl\n\n\nhttps://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8#grbls-xval-settings-and-what-they-mean\n\n\nThe original version of the firmware was 0.9\n\n\nThis has now been updated to version 1.1 which uses a baud of \n115200\n\n\n\n\nPower Supplies\n\n\nThere are 2 PSU\ns in use\n\n\n\n\nThe first powers the spindle via a Black box BLDC driver\n\n\nThe second powers the stepper drivers / cnc shield\n\n\n\n\nSpindle\n\n\nThe spindle is a 400W one controlled via a potentiometer.\nThe plan is to switch this across to pmw at some point.\n\n\nRpi\n\n\nThere is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it\ns serial port.\n\n\nEnd Stops\n\n\nThere are inductive end stops for every direction except for travelling downwards.\nThe downward limit is handled via a software limit which is based on the homing position.\n\n\nTool Heads\n\n\nFor the collets we have ER11 collets located in a box next to the CNC.\nideally we could do with milling out a wooden plate for holding them, on a pull out shelf etc.\n\n\nThe milling bits are generally 3mm or 6mm. We also have other smaller bits for pcb milling etc.", 
+            "title": "Device Overview"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#device-overview", 
+            "text": "We currently have a ooznest Ox CNC which was purchased via a pledge run   The main controller board is a Arduino Uno running Grbl 1.1  There is also a CNC Shield, I think one of these -  https://blog.protoneer.co.nz/arduino-cnc-shield/  The stepper motors are Nema23 s, I think 2.8A max based on the ooznest site  I think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling", 
+            "title": "Device Overview"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#firmware-overview", 
+            "text": "Currently the Ox CNC uses an Arduino Uno with Grbl 1.1   https://github.com/grbl/grbl  https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8#grbls-xval-settings-and-what-they-mean  The original version of the firmware was 0.9  This has now been updated to version 1.1 which uses a baud of  115200", 
+            "title": "Firmware Overview"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#power-supplies", 
+            "text": "There are 2 PSU s in use   The first powers the spindle via a Black box BLDC driver  The second powers the stepper drivers / cnc shield", 
+            "title": "Power Supplies"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#spindle", 
+            "text": "The spindle is a 400W one controlled via a potentiometer.\nThe plan is to switch this across to pmw at some point.", 
+            "title": "Spindle"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#rpi", 
+            "text": "There is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it s serial port.", 
+            "title": "Rpi"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#end-stops", 
+            "text": "There are inductive end stops for every direction except for travelling downwards.\nThe downward limit is handled via a software limit which is based on the homing position.", 
+            "title": "End Stops"
+        }, 
+        {
+            "location": "/Maintenance/Device-Overview/#tool-heads", 
+            "text": "For the collets we have ER11 collets located in a box next to the CNC.\nideally we could do with milling out a wooden plate for holding them, on a pull out shelf etc.  The milling bits are generally 3mm or 6mm. We also have other smaller bits for pcb milling etc.", 
+            "title": "Tool Heads"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/", 
+            "text": "Updating the Firmware\n\n\nOverview\n\n\nThis is a list of steps to follow when updating the Grbl firmware.\n\nWe\nre currently storing the firmware and settings here: \n\n\nhttps://github.com/HACManchester/Tools.OxCNC/tree/master/Firmware\n\n\nBackup Settings / Firmware\n\n\nBackup Settings\n\n\nThe first thing we need to do is backup the settings from the Grbl firmware / Arduino\n\n\n\n\nHook up the arduino board directly to a laptop using the USB cable that runs into the Rpi\n\n\nOpen putty and connect to the Grbl / Arduino Uno\n\n\nhttp://www.chiark.greenend.org.uk/~sgtatham/putty/download.html\n\n\nType $$ followed by a carriage return\n\n\nCopy and paste the output into a text file\n\n\n\n\nBackup Firmware\n\n\nIf you want to backup the existing firmware:\n\n\nUnder windows (check the com port number)\n\n\ncd C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\navrdude -C \nC:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf\n -p m328p -P com4 -c arduino -b 115200 -F -U flash:r:C:\\Apps\\flash.hex:i\navrdude -C \nC:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf\n -p m328p -P com4 -c arduino -b 115200 -F -U eeprom:r:C:\\Apps\\eeprom.hex:i\navrdude -C \nC:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf\n -p m328p -P com4 -c arduino -b 115200 -F -U efuse:r:C:\\Apps\\efuse.hex:i\navrdude -C \nC:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf\n -p m328p -P com4 -c arduino -b 115200 -F -U lfuse:r:C:\\Apps\\lfuse.hex:i\navrdude -C \nC:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf\n -p m328p -P com4 -c arduino -b 115200 -F -U hfuse:r:C:\\Apps\\hfuse.hex:i\n\n\n\n\nUnder Linux it will be something like\n\n\navrdude -p m328p -P /dev/tty.usbserial- -c arduino -b 38400 -F -U flash:r:backup1.hex:i\n\n\n\n\nFlash new Firmware\n\n\nDownload Files\n\n\nNext we need to grab the latest firmware version\n\n\n\n\nhttps://github.com/gnea/grbl\n\n\nVersion 1.1f (2017-08-01) seems to be the latest at the time of writing\n\n\nThe board in use is a arduino Uno with a 328p chipset so this should match the downloaded binary\n\n\n\n\nNext download XLoader\n\n\n\n\nhttp://russemotto.com/xloader/\n\n\n\n\nFlash Firmware\n\n\nNext to flash the new Hex file to the Arduino\n\n\n\n\nReset the Controller board\n\n\nOpen XLoader\n\n\nSelect the correct \nCOM Port\n\n\nMake sure \nArduino UNO\n is selected for the device\n\n\nBrowse to the new hex file\n\n\nClick Upload\n\n\nWait for the upload to complete\n\n\n\n\nRestore custom settings\n\n\nAs a final step we need to restore any custom settings that were originally applied\n\n\n\n\nConnect via putty (with the latest firmware this is now at a speed of 115200)\n\n\nUse $$ to list all settings\n\n\nAdd in any differences needed to the settings", 
+            "title": "Updating the Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#updating-the-firmware", 
+            "text": "", 
+            "title": "Updating the Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#overview", 
+            "text": "This is a list of steps to follow when updating the Grbl firmware. \nWe re currently storing the firmware and settings here:   https://github.com/HACManchester/Tools.OxCNC/tree/master/Firmware", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#backup-settings-firmware", 
+            "text": "", 
+            "title": "Backup Settings / Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#backup-settings", 
+            "text": "The first thing we need to do is backup the settings from the Grbl firmware / Arduino   Hook up the arduino board directly to a laptop using the USB cable that runs into the Rpi  Open putty and connect to the Grbl / Arduino Uno  http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html  Type $$ followed by a carriage return  Copy and paste the output into a text file", 
+            "title": "Backup Settings"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#backup-firmware", 
+            "text": "If you want to backup the existing firmware:  Under windows (check the com port number)  cd C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\bin\navrdude -C  C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf  -p m328p -P com4 -c arduino -b 115200 -F -U flash:r:C:\\Apps\\flash.hex:i\navrdude -C  C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf  -p m328p -P com4 -c arduino -b 115200 -F -U eeprom:r:C:\\Apps\\eeprom.hex:i\navrdude -C  C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf  -p m328p -P com4 -c arduino -b 115200 -F -U efuse:r:C:\\Apps\\efuse.hex:i\navrdude -C  C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf  -p m328p -P com4 -c arduino -b 115200 -F -U lfuse:r:C:\\Apps\\lfuse.hex:i\navrdude -C  C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\etc\\avrdude.conf  -p m328p -P com4 -c arduino -b 115200 -F -U hfuse:r:C:\\Apps\\hfuse.hex:i  Under Linux it will be something like  avrdude -p m328p -P /dev/tty.usbserial- -c arduino -b 38400 -F -U flash:r:backup1.hex:i", 
+            "title": "Backup Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#flash-new-firmware", 
+            "text": "", 
+            "title": "Flash new Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#download-files", 
+            "text": "Next we need to grab the latest firmware version   https://github.com/gnea/grbl  Version 1.1f (2017-08-01) seems to be the latest at the time of writing  The board in use is a arduino Uno with a 328p chipset so this should match the downloaded binary   Next download XLoader   http://russemotto.com/xloader/", 
+            "title": "Download Files"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#flash-firmware", 
+            "text": "Next to flash the new Hex file to the Arduino   Reset the Controller board  Open XLoader  Select the correct  COM Port  Make sure  Arduino UNO  is selected for the device  Browse to the new hex file  Click Upload  Wait for the upload to complete", 
+            "title": "Flash Firmware"
+        }, 
+        {
+            "location": "/Maintenance/Updating-Firmware/#restore-custom-settings", 
+            "text": "As a final step we need to restore any custom settings that were originally applied   Connect via putty (with the latest firmware this is now at a speed of 115200)  Use $$ to list all settings  Add in any differences needed to the settings", 
+            "title": "Restore custom settings"
+        }, 
+        {
             "location": "/Maintenance/Grbl-Settings/", 
-            "text": "Grbl Settings\n\n\nConnecting to grbl\n\n\nSince the grbl board is placed behind a Rpi running the serial proxy.\n\nFirst we need to browse to the following link in our browser\n\n\n\n\nhttp://172.16.0.8:8989\n\n\n\n\nSettings\n\n\nReading Settings\n\n\nTo read the grbl settings we need to send $$ to grbl over the serial port\n\n\nTo do this via the serial proxy we can type in the following into the web client\n\n\nsend /dev/ttyACM0 $$\n\n\n\n\nReading Firmware version\n\n\nTo read the current firmware version\n\n\nsend /dev/ttyACM0 $I\n\n\n\n\nAs of writing the current firmware version is: 0.9j.20150811\n\n\nSoft End Stops\n\n\nFor the most part we don\nt really need software stops apart from one place which is when the spindle travels downwards. \n\nI\nve enabled them, and added 1mm onto each setting which seems to get them to work right\n\n\nFrom the home position the max \n\n\n\n\nfor z = 67mm from home (68mm from the top of where the end stop is)\n\n\nfor x = 562mm (switch triggers after 564)\n\n\nfor y = 745mm (switch triggers after 748)\n\n\n\n\nThis equals\n\n\n$20=1\n$130=563.000 - XMax travel\n$131=746.000 - YMax travel\n$132=68.000 - ZMax travel\n\n\n\n\nCurrent Settings\n\n\n$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=1 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=563.000 (x max travel, mm)\n$131=746.000 (y max travel, mm)\n$132=68.000 (z max travel, mm)\n\n\n\n\nOriginal Settings (when the machine first arrived from Ian)\n\n\n$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=0 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=555.000 (x max travel, mm)\n$131=740.000 (y max travel, mm)\n$132=60.000 (z max travel, mm)", 
+            "text": "Grbl Settings\n\n\nConnecting to grbl\n\n\nSince the grbl board is placed behind a Rpi running the serial proxy.\n\nFirst we need to browse to the following link in our browser\n\n\n\n\nhttp://172.16.0.8:8989\n\n\n\n\nCurrently firmware and settings are stored within\n\n\n\n\nhttps://github.com/HACManchester/Tools.OxCNC/Firmware/\n\n\n\n\nSettings\n\n\nReading Settings\n\n\nTo read the grbl settings we need to send $$ to grbl over the serial port\n\n\nTo do this via the serial proxy we can type in the following into the web client\n\n\nsend /dev/ttyACM0 $$\n\n\n\n\nReading Firmware version\n\n\nTo read the current firmware version\n\n\nsend /dev/ttyACM0 $I\n\n\n\n\nAs of writing the current firmware version is: 1.1f\n\n\nSoft End Stops\n\n\nFor the most part we don\nt really need software stops apart from one place which is when the spindle travels downwards. \n\nI\nve enabled them, and added 1mm onto each setting which seems to get them to work right\n\n\nFrom the home position the max \n\n\n\n\nfor z = 67mm from home (68mm from the top of where the end stop is)\n\n\nfor x = 562mm (switch triggers after 564)\n\n\nfor y = 745mm (switch triggers after 748)\n\n\n\n\nThis equals\n\n\n$20=1\n$130=563.000 - XMax travel\n$131=746.000 - YMax travel\n$132=68.000 - ZMax travel", 
             "title": "Grbl Settings"
         }, 
         {
@@ -52,7 +442,7 @@
         }, 
         {
             "location": "/Maintenance/Grbl-Settings/#connecting-to-grbl", 
-            "text": "Since the grbl board is placed behind a Rpi running the serial proxy. \nFirst we need to browse to the following link in our browser   http://172.16.0.8:8989", 
+            "text": "Since the grbl board is placed behind a Rpi running the serial proxy. \nFirst we need to browse to the following link in our browser   http://172.16.0.8:8989   Currently firmware and settings are stored within   https://github.com/HACManchester/Tools.OxCNC/Firmware/", 
             "title": "Connecting to grbl"
         }, 
         {
@@ -67,7 +457,7 @@
         }, 
         {
             "location": "/Maintenance/Grbl-Settings/#reading-firmware-version", 
-            "text": "To read the current firmware version  send /dev/ttyACM0 $I  As of writing the current firmware version is: 0.9j.20150811", 
+            "text": "To read the current firmware version  send /dev/ttyACM0 $I  As of writing the current firmware version is: 1.1f", 
             "title": "Reading Firmware version"
         }, 
         {
@@ -76,14 +466,39 @@
             "title": "Soft End Stops"
         }, 
         {
-            "location": "/Maintenance/Grbl-Settings/#current-settings", 
-            "text": "$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=1 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=563.000 (x max travel, mm)\n$131=746.000 (y max travel, mm)\n$132=68.000 (z max travel, mm)", 
-            "title": "Current Settings"
+            "location": "/Maintenance/Todo/", 
+            "text": "Todo\n\n\nMilling bits\n\n\n\n\nIdeally we could do with some 6mm milling bits for clearing large areas \n\n    \nhttps://www.amazon.co.uk/gp/product/B00XTWOT9O\n\n\nlook into how many 3mm milling bits we have as they are considered a consumable.\n\n\n\n\nMounting Holes\n\n\n\n\nAdd some screw in mounting holes to the spoiler table\n\n\n\n\nStepper Drivers\n\n\n\n\nAt the moment the stepper drivers are around 1A, but the motors are around 2.8A \n\n    So we\nre probably only getting limited torque / power from the motors. \n\n    A future idea would be to upgrade the electronics with some TMC stepper drivers.\n\n\n\n\nRpi\n\n\n\n\nWe need to upgrade the Rpi1 to a Rpi3 \n\n    The serial buffer is maxing out the CPU, and it would be useful to have a remote desktop session available.\n\n\n\n\n4th Axis\n\n\n\n\nOne interesting thing we could do is 3d print a 4th axis for the cnc.", 
+            "title": "Todo"
         }, 
         {
-            "location": "/Maintenance/Grbl-Settings/#original-settings-when-the-machine-first-arrived-from-ian", 
-            "text": "$0=10 (step pulse, usec)\n$1=25 (step idle delay, msec)\n$2=0 (step port invert mask:00000000)\n$3=0 (dir port invert mask:00000000)\n$4=0 (step enable invert, bool)\n$5=0 (limit pins invert, bool)\n$6=0 (probe pin invert, bool)\n$10=3 (status report mask:00000011)\n$11=0.010 (junction deviation, mm)\n$12=0.002 (arc tolerance, mm)\n$13=0 (report inches, bool)\n$20=0 (soft limits, bool)\n$21=1 (hard limits, bool)\n$22=1 (homing cycle, bool)\n$23=3 (homing dir invert mask:00000011)\n$24=50.000 (homing feed, mm/min)\n$25=2000.000 (homing seek, mm/min)\n$26=250 (homing debounce, msec)\n$27=1.000 (homing pull-off, mm)\n$100=53.333 (x, step/mm)\n$101=53.333 (y, step/mm)\n$102=400.000 (z, step/mm)\n$110=6000.000 (x max rate, mm/min)\n$111=3000.000 (y max rate, mm/min)\n$112=200.000 (z max rate, mm/min)\n$120=50.000 (x accel, mm/sec^2)\n$121=50.000 (y accel, mm/sec^2)\n$122=10.000 (z accel, mm/sec^2)\n$130=555.000 (x max travel, mm)\n$131=740.000 (y max travel, mm)\n$132=60.000 (z max travel, mm)", 
-            "title": "Original Settings (when the machine first arrived from Ian)"
+            "location": "/Maintenance/Todo/#todo", 
+            "text": "", 
+            "title": "Todo"
+        }, 
+        {
+            "location": "/Maintenance/Todo/#milling-bits", 
+            "text": "Ideally we could do with some 6mm milling bits for clearing large areas  \n     https://www.amazon.co.uk/gp/product/B00XTWOT9O  look into how many 3mm milling bits we have as they are considered a consumable.", 
+            "title": "Milling bits"
+        }, 
+        {
+            "location": "/Maintenance/Todo/#mounting-holes", 
+            "text": "Add some screw in mounting holes to the spoiler table", 
+            "title": "Mounting Holes"
+        }, 
+        {
+            "location": "/Maintenance/Todo/#stepper-drivers", 
+            "text": "At the moment the stepper drivers are around 1A, but the motors are around 2.8A  \n    So we re probably only getting limited torque / power from the motors.  \n    A future idea would be to upgrade the electronics with some TMC stepper drivers.", 
+            "title": "Stepper Drivers"
+        }, 
+        {
+            "location": "/Maintenance/Todo/#rpi", 
+            "text": "We need to upgrade the Rpi1 to a Rpi3  \n    The serial buffer is maxing out the CPU, and it would be useful to have a remote desktop session available.", 
+            "title": "Rpi"
+        }, 
+        {
+            "location": "/Maintenance/Todo/#4th-axis", 
+            "text": "One interesting thing we could do is 3d print a 4th axis for the cnc.", 
+            "title": "4th Axis"
         }
     ]
 }

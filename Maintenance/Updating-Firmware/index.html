@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Maintenance/Grbl-Settings/">
+        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Maintenance/Updating-Firmware/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Grbl Settings - Hacman - Ox CNC</title>
+	<title>Updating the Firmware - Hacman - Ox CNC</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -121,14 +121,14 @@
 
                     
                         
-<li >
-    <a href="../Updating-Firmware/">Updating the Firmware</a>
+<li class="active">
+    <a href="./">Updating the Firmware</a>
 </li>
 
                     
                         
-<li class="active">
-    <a href="./">Grbl Settings</a>
+<li >
+    <a href="../Grbl-Settings/">Grbl Settings</a>
 </li>
 
                     
@@ -152,12 +152,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../Updating-Firmware/">
+                    <a rel="next" href="../Device-Overview/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../Todo/">
+                    <a rel="prev" href="../Grbl-Settings/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -172,7 +172,7 @@
                 </li>
                 <li>
                     
-                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/Maintenance\Grbl-Settings.md"
+                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/Maintenance\Updating-Firmware.md"
                         class="icon icon-github"> Edit</a>
                     
                 </li>
@@ -186,56 +186,79 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#grbl-settings">Grbl Settings</a></li>
+        <li class="main active"><a href="#updating-the-firmware">Updating the Firmware</a></li>
         
-            <li><a href="#connecting-to-grbl">Connecting to grbl</a></li>
+            <li><a href="#overview">Overview</a></li>
         
-            <li><a href="#settings">Settings</a></li>
+            <li><a href="#backup-settings-firmware">Backup Settings / Firmware</a></li>
+        
+            <li><a href="#flash-new-firmware">Flash new Firmware</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="grbl-settings">Grbl Settings</h1>
-<h2 id="connecting-to-grbl">Connecting to grbl</h2>
-<p>Since the grbl board is placed behind a Rpi running the serial proxy.<br>
-First we need to browse to the following link in our browser</p>
+<h1 id="updating-the-firmware">Updating the Firmware</h1>
+<h2 id="overview">Overview</h2>
+<p>This is a list of steps to follow when updating the Grbl firmware.<br>
+We&rsquo;re currently storing the firmware and settings here: <br>
+<a href="https://github.com/HACManchester/Tools.OxCNC/tree/master/Firmware">https://github.com/HACManchester/Tools.OxCNC/tree/master/Firmware</a></p>
+<h2 id="backup-settings-firmware">Backup Settings / Firmware</h2>
+<h3 id="backup-settings">Backup Settings</h3>
+<p>The first thing we need to do is backup the settings from the Grbl firmware / Arduino</p>
 <ul>
-<li><a href="http://172.16.0.8:8989">http://172.16.0.8:8989</a></li>
+<li>Hook up the arduino board directly to a laptop using the USB cable that runs into the Rpi</li>
+<li>Open putty and connect to the Grbl / Arduino Uno</li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a></li>
+<li>Type $$ followed by a carriage return</li>
+<li>Copy and paste the output into a text file</li>
 </ul>
-<p>Currently firmware and settings are stored within</p>
-<ul>
-<li><a href="https://github.com/HACManchester/Tools.OxCNC/Firmware/">https://github.com/HACManchester/Tools.OxCNC/Firmware/</a></li>
-</ul>
-<h2 id="settings">Settings</h2>
-<h3 id="reading-settings">Reading Settings</h3>
-<p>To read the grbl settings we need to send $$ to grbl over the serial port</p>
-<p>To do this via the serial proxy we can type in the following into the web client</p>
-<pre><code>send /dev/ttyACM0 $$
+<h3 id="backup-firmware">Backup Firmware</h3>
+<p>If you want to backup the existing firmware:</p>
+<p>Under windows (check the com port number)</p>
+<pre><code>cd C:\Program Files (x86)\Arduino\hardware\tools\avr\bin
+avrdude -C &quot;C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf&quot; -p m328p -P com4 -c arduino -b 115200 -F -U flash:r:C:\Apps\flash.hex:i
+avrdude -C &quot;C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf&quot; -p m328p -P com4 -c arduino -b 115200 -F -U eeprom:r:C:\Apps\eeprom.hex:i
+avrdude -C &quot;C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf&quot; -p m328p -P com4 -c arduino -b 115200 -F -U efuse:r:C:\Apps\efuse.hex:i
+avrdude -C &quot;C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf&quot; -p m328p -P com4 -c arduino -b 115200 -F -U lfuse:r:C:\Apps\lfuse.hex:i
+avrdude -C &quot;C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf&quot; -p m328p -P com4 -c arduino -b 115200 -F -U hfuse:r:C:\Apps\hfuse.hex:i
 </code></pre>
 
-<h3 id="reading-firmware-version">Reading Firmware version</h3>
-<p>To read the current firmware version</p>
-<pre><code>send /dev/ttyACM0 $I
+<p>Under Linux it will be something like</p>
+<pre><code>avrdude -p m328p -P /dev/tty.usbserial- -c arduino -b 38400 -F -U flash:r:backup1.hex:i
 </code></pre>
 
-<p>As of writing the current firmware version is: 1.1f</p>
-<h3 id="soft-end-stops">Soft End Stops</h3>
-<p>For the most part we don&rsquo;t really need software stops apart from one place which is when the spindle travels downwards. <br>
-I&rsquo;ve enabled them, and added 1mm onto each setting which seems to get them to work right</p>
-<p>From the home position the max </p>
+<h2 id="flash-new-firmware">Flash new Firmware</h2>
+<h3 id="download-files">Download Files</h3>
+<p>Next we need to grab the latest firmware version</p>
 <ul>
-<li>for z = 67mm from home (68mm from the top of where the end stop is)</li>
-<li>for x = 562mm (switch triggers after 564)</li>
-<li>for y = 745mm (switch triggers after 748)</li>
+<li><a href="https://github.com/gnea/grbl">https://github.com/gnea/grbl</a></li>
+<li>Version 1.1f (2017-08-01) seems to be the latest at the time of writing</li>
+<li>The board in use is a arduino Uno with a 328p chipset so this should match the downloaded binary</li>
 </ul>
-<p>This equals</p>
-<pre><code>$20=1
-$130=563.000 - XMax travel
-$131=746.000 - YMax travel
-$132=68.000 - ZMax travel
-</code></pre></div>
+<p>Next download XLoader</p>
+<ul>
+<li><a href="http://russemotto.com/xloader/">http://russemotto.com/xloader/</a></li>
+</ul>
+<h3 id="flash-firmware">Flash Firmware</h3>
+<p>Next to flash the new Hex file to the Arduino</p>
+<ul>
+<li>Reset the Controller board</li>
+<li>Open XLoader</li>
+<li>Select the correct <strong>COM Port</strong></li>
+<li>Make sure <strong>Arduino UNO</strong> is selected for the device</li>
+<li>Browse to the new hex file</li>
+<li>Click Upload</li>
+<li>Wait for the upload to complete</li>
+</ul>
+<h3 id="restore-custom-settings">Restore custom settings</h3>
+<p>As a final step we need to restore any custom settings that were originally applied</p>
+<ul>
+<li>Connect via putty (with the latest firmware this is now at a speed of 115200)</li>
+<li>Use $$ to list all settings</li>
+<li>Add in any differences needed to the settings</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

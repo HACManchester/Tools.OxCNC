@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Maintenance/Grbl-Settings/">
+        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Milling/Material/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Grbl Settings - Hacman - Ox CNC</title>
+	<title>Milling Material - Hacman - Ox CNC</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -59,49 +59,49 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Milling <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../Milling/Connecting/">Connecting</a>
+    <a href="../Connecting/">Connecting</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../Milling/Jog/">Jogging / Moving the CNC</a>
+    <a href="../Jog/">Jogging / Moving the CNC</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../Milling/Loading-Setup/">Loading and Setup</a>
+    <a href="../Loading-Setup/">Loading and Setup</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../Milling/Simulation/">Simulation</a>
+    <a href="../Simulation/">Simulation</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Milling Material</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../Milling/Material/">Milling Material</a>
+    <a href="../FeedRates/">Feed Rates</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../Milling/FeedRates/">Feed Rates</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../Milling/Milling/">Milling</a>
+    <a href="../Milling/">Milling</a>
 </li>
 
                     
@@ -110,31 +110,31 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../Device-Overview/">Device Overview</a>
+    <a href="../../Maintenance/Device-Overview/">Device Overview</a>
 </li>
 
                     
                         
 <li >
-    <a href="../Updating-Firmware/">Updating the Firmware</a>
-</li>
-
-                    
-                        
-<li class="active">
-    <a href="./">Grbl Settings</a>
+    <a href="../../Maintenance/Updating-Firmware/">Updating the Firmware</a>
 </li>
 
                     
                         
 <li >
-    <a href="../Todo/">Todo</a>
+    <a href="../../Maintenance/Grbl-Settings/">Grbl Settings</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../Maintenance/Todo/">Todo</a>
 </li>
 
                     
@@ -152,12 +152,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../Updating-Firmware/">
+                    <a rel="next" href="../Simulation/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../Todo/">
+                    <a rel="prev" href="../FeedRates/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -172,7 +172,7 @@
                 </li>
                 <li>
                     
-                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/Maintenance\Grbl-Settings.md"
+                      <a href="https://github.com/HACManchester/Tools.OxCNC/edit/master/MkDocs/docs/Milling\Material.md"
                         class="icon icon-github"> Edit</a>
                     
                 </li>
@@ -186,56 +186,93 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#grbl-settings">Grbl Settings</a></li>
+        <li class="main active"><a href="#milling-material">Milling Material</a></li>
         
-            <li><a href="#connecting-to-grbl">Connecting to grbl</a></li>
+            <li><a href="#clamping-holes">Clamping Holes</a></li>
         
-            <li><a href="#settings">Settings</a></li>
+            <li><a href="#mdf">MDF</a></li>
+        
+            <li><a href="#metal">Metal</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="grbl-settings">Grbl Settings</h1>
-<h2 id="connecting-to-grbl">Connecting to grbl</h2>
-<p>Since the grbl board is placed behind a Rpi running the serial proxy.<br>
-First we need to browse to the following link in our browser</p>
+<h1 id="milling-material">Milling Material</h1>
+<h2 id="clamping-holes">Clamping Holes</h2>
+<p>The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced.
+It has several inserts in the bottom for securing additional material on top using a series of M6 bolts</p>
+<p>Some of the holes should line up with the holes on the small drill press vice</p>
+<p><a href="../../images/Milling/Material/InsertHoles.jpg"><img src="../../images/Milling/Material/InsertHoles.jpg" height="50%" width="50%" ></a> <br></p>
+<p><a href="../../images/Milling/Material/FittedBolts.jpg"><img src="../../images/Milling/Material/FittedBolts.jpg" height="50%" width="50%" ></a> <br></p>
+<h3 id="position-of-clamping-holes">Position of Clamping Holes</h3>
+<p>In order to drill the positioning holes for the material being milled (that sits on top of the spoiler board)
+First line the head up with the bottom left hole.</p>
+<p>The first bottom left hole should be at a position of <strong>30mm Up, 0mm Right</strong>.
+But I&rsquo;ve found that trying to using the bottom left corner of the machine is unreliable and that it&rsquo;s better to align with the first hole instead.</p>
+<p>The following are offset positions from the first hole</p>
+<h4 id="plate-fixing-points">Plate fixing points</h4>
+<table>
+<thead>
+<tr>
+<th>Y (back to front)</th>
+<th>X (left to right)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 mm</td>
+<td>0 mm</td>
+</tr>
+<tr>
+<td>0 mm</td>
+<td>300 mm</td>
+</tr>
+<tr>
+<td>260 mm</td>
+<td>0 mm</td>
+</tr>
+<tr>
+<td>260 mm</td>
+<td>300 mm</td>
+</tr>
+</tbody>
+</table>
+<h4 id="drill-mount-holes">Drill mount holes</h4>
+<table>
+<thead>
+<tr>
+<th>Y (back to front)</th>
+<th>X (left to right)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 mm</td>
+<td>0 mm</td>
+</tr>
+<tr>
+<td>0 mm</td>
+<td>110 mm</td>
+</tr>
+<tr>
+<td>110 mm</td>
+<td>0 mm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TODO add additional hole on the rights to avoid belt holder conflict</strong></p>
+<h2 id="mdf">MDF</h2>
+<p>So far I&rsquo;ve used MDF 12mm thick cut into sections using the table saw.
+However, it&rsquo;s advisable to limit the depth of a pass to about 2mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)</p>
+<h2 id="metal">Metal</h2>
+<p>Since the Shapeoko 2 only has Nema 17 motors, I&rsquo;ve found that it manages mdf okay but I&rsquo;m not sure if it can manage metal such as aluminium.
+With metal you have to mill at the right speed, too slow and the metal sticks to the mill bit</p>
+<p>For this you&rsquo;ll need to use a speeds and feeds calculator.</p>
 <ul>
-<li><a href="http://172.16.0.8:8989">http://172.16.0.8:8989</a></li>
-</ul>
-<p>Currently firmware and settings are stored within</p>
-<ul>
-<li><a href="https://github.com/HACManchester/Tools.OxCNC/Firmware/">https://github.com/HACManchester/Tools.OxCNC/Firmware/</a></li>
-</ul>
-<h2 id="settings">Settings</h2>
-<h3 id="reading-settings">Reading Settings</h3>
-<p>To read the grbl settings we need to send $$ to grbl over the serial port</p>
-<p>To do this via the serial proxy we can type in the following into the web client</p>
-<pre><code>send /dev/ttyACM0 $$
-</code></pre>
-
-<h3 id="reading-firmware-version">Reading Firmware version</h3>
-<p>To read the current firmware version</p>
-<pre><code>send /dev/ttyACM0 $I
-</code></pre>
-
-<p>As of writing the current firmware version is: 1.1f</p>
-<h3 id="soft-end-stops">Soft End Stops</h3>
-<p>For the most part we don&rsquo;t really need software stops apart from one place which is when the spindle travels downwards. <br>
-I&rsquo;ve enabled them, and added 1mm onto each setting which seems to get them to work right</p>
-<p>From the home position the max </p>
-<ul>
-<li>for z = 67mm from home (68mm from the top of where the end stop is)</li>
-<li>for x = 562mm (switch triggers after 564)</li>
-<li>for y = 745mm (switch triggers after 748)</li>
-</ul>
-<p>This equals</p>
-<pre><code>$20=1
-$130=563.000 - XMax travel
-$131=746.000 - YMax travel
-$132=68.000 - ZMax travel
-</code></pre></div>
+<li><a href="http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm">http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm</a></li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

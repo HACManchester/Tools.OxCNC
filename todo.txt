@@ -1,0 +1,67 @@
+When using JScut
+
+  * http://jscut.org/jscut.html#
+
+make sure to position the head about 3mm down on the z axis first then zero the machine
+the G-Code will raise the head by 2.5mm between movements from area to area so this is important
+otherwise the Z axis will try to go too high and trip the alarm / end stop
+
+
+Laserweb
+
+https://laserweb.github.io/LaserWeb4/dist/
+
+Chenfu pointed me to towards this one as a potential option for the CNC Software
+It seems to work okay if you get the settings right
+It seems to lack a retraction option for when moving between section to section
+
+
+Test
+
+Check if there are buffer issues when connecting direcly to the arduino board, also double check the grbl setting in chillipepr
+
+
+Safety
+
+It may be best to reset the grbl board on power down / estop
+that way a home will be forced before the machine can start recieving G-Code again
+
+
+
+Firmware
+
+double check we're using a 328p processor (Uno, Duemilanove, Nano, Micro, etc) for the arduino
+also backup the existing firmware hex
+
+we also need to use this link for grbl 1.1
+
+  * http://chilipeppr.com/jpadie
+
+
+
+## Electronics
+
+From the looks of things, it looks like an Arduino Uno is in use with a CNC Shield
+I think one of these: https://blog.protoneer.co.nz/arduino-cnc-shield/
+
+Based on the ooznest site, the stepper motors are probably 2.8A Nema 23's.
+
+The stepper drivers I think are Pololu - Allegro A4988
+without cooling (currently the case) the max Amps you can get is around 1A
+with cooling the max amps is around 2A
+
+This means at present we're probably only getting around 50% of the potential power of the stepper drivers
+not a big issue for cutting wood, but it's worth considering for the future if we want to mill harder materials.
+
+
+
+http://chilipeppr.com/jpadie
+
+make sure to select grbl in the drop down
+
+
+
+rpi appears to be maxing out on the cpu when doing a lot of g-code
+updating grbl seems to have improved this, but we need to replace the pi1 with a pi3
+
+the plan is to optionally allow remote desktop onto the pi3, and or have a centeral machine people can log onto for controlling the cnc / 3d printer etc
