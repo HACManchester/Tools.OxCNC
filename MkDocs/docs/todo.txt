@@ -53,3 +53,15 @@ with cooling the max amps is around 2A
 This means at present we're probably only getting around 50% of the potential power of the stepper drivers
 not a big issue for cutting wood, but it's worth considering for the future if we want to mill harder materials.
 
+
+
+http://chilipeppr.com/jpadie
+
+make sure to select grbl in the drop down
+
+
+
+rpi appears to be maxing out on the cpu when doing a lot of g-code
+updating grbl seems to have improved this, but we need to replace the pi1 with a pi3
+
+the plan is to optionally allow remote desktop onto the pi3, and or have a centeral machine people can log onto for controlling the cnc / 3d printer etc

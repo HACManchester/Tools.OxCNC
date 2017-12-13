@@ -9,7 +9,7 @@ First we need to browse to the following link in our browser
 
 Currently firmware and settings are stored within
 
-  * https://github.com/HACManchester/Tools.OxCNC/Firmware/
+  * <https://github.com/HACManchester/Tools.OxCNC/Firmware/>
 
 
 ## Settings
@@ -32,7 +32,7 @@ To read the current firmware version
 send /dev/ttyACM0 $I
 ```
 
-As of writing the current firmware version is: 0.9j.20150811
+As of writing the current firmware version is: 1.1f
 
 
 ### Soft End Stops

@@ -2,21 +2,23 @@
 
 ## Overview
 
-This is a list of steps to follow when updating the Grbl firmware
+This is a list of steps to follow when updating the Grbl firmware.<br>
+We're currently storing the firmware and settings here: <br>
+<https://github.com/HACManchester/Tools.OxCNC/tree/master/Firmware>
 
+## Backup Settings / Firmware
 
-## Backup Settings
+### Backup Settings
 
 The first thing we need to do is backup the settings from the Grbl firmware / Arduino
 
   * Hook up the arduino board directly to a laptop using the USB cable that runs into the Rpi
   * Open putty and connect to the Grbl / Arduino Uno
   * <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>
-
   * Type $$ followed by a carriage return
   * Copy and paste the output into a text file
 
-## Backup Firmware
+### Backup Firmware
 
 If you want to backup the existing firmware:
 
@@ -30,32 +32,27 @@ avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" 
 avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U hfuse:r:C:\Apps\hfuse.hex:i
 ```
 
-
-
-
-
-
 Under Linux it will be something like
 ```
-cd C:\Program Files (x86)\Arduino\hardware\tools\avr\bin
 avrdude -p m328p -P /dev/tty.usbserial- -c arduino -b 38400 -F -U flash:r:backup1.hex:i
 ```
 
-TODO check arduino chip type is m328p
 
+## Flash new Firmware
 
-## Download Files
+### Download Files
 
 Next we need to grab the latest firmware version
 
   * <https://github.com/gnea/grbl>
   * Version 1.1f (2017-08-01) seems to be the latest at the time of writing
+  * The board in use is a arduino Uno with a 328p chipset so this should match the downloaded binary
 
 Next download XLoader
 
   * <http://russemotto.com/xloader/>
 
-## Flash Firmware
+### Flash Firmware
 
 Next to flash the new Hex file to the Arduino
 
@@ -67,7 +64,7 @@ Next to flash the new Hex file to the Arduino
   * Click Upload
   * Wait for the upload to complete
 
-## Restore custom settings
+### Restore custom settings
 
 As a final step we need to restore any custom settings that were originally applied
 

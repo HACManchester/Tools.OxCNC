@@ -12,19 +12,19 @@ pages:
 #- Hsmworks:
 #    - Adaptive Clearing: Hsmworks/AdaptClear.md
 #    - Simulation: Hsmworks/Simulation.md
-#- Milling:
-#    - Connecting - USB: Milling/Connecting.md
-#    - Jogging / Moving the CNC: Milling/Jog.md
-#    - Loading and Setup: Milling/Loading-Setup.md
-#    - Simulation: Milling/Simulation.md
-#    - Milling Material: Milling/Material.md
-#    - Feed Rates: Milling/FeedRates.md
-#    - Milling: Milling/Milling.md
+- Milling:
+    - Connecting: Milling/Connecting.md
+    - Jogging / Moving the CNC: Milling/Jog.md
+    - Loading and Setup: Milling/Loading-Setup.md
+    - Simulation: Milling/Simulation.md
+    - Milling Material: Milling/Material.md
+    - Feed Rates: Milling/FeedRates.md
+    - Milling: Milling/Milling.md
 - Maintenance:
-#    - Device Overview: Maintenance/Device-Overview.md
+    - Device Overview: Maintenance/Device-Overview.md
     - Updating the Firmware: Maintenance/Updating-Firmware.md
     - Grbl Settings: Maintenance/Grbl-Settings.md
-#    - Todo: Maintenance/Todo.md
+    - Todo: Maintenance/Todo.md
 
 theme: cosmo
 #theme: alabaster
