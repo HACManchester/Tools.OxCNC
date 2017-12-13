@@ -36,3 +36,20 @@ also backup the existing firmware hex
 we also need to use this link for grbl 1.1
 
   * http://chilipeppr.com/jpadie
+
+
+
+## Electronics
+
+From the looks of things, it looks like an Arduino Uno is in use with a CNC Shield
+I think one of these: https://blog.protoneer.co.nz/arduino-cnc-shield/
+
+Based on the ooznest site, the stepper motors are probably 2.8A Nema 23's.
+
+The stepper drivers I think are Pololu - Allegro A4988
+without cooling (currently the case) the max Amps you can get is around 1A
+with cooling the max amps is around 2A
+
+This means at present we're probably only getting around 50% of the potential power of the stepper drivers
+not a big issue for cutting wood, but it's worth considering for the future if we want to mill harder materials.
+

@@ -1,4 +1,4 @@
-# Settings V1
+# Settings V1 - V0.9
 
 ## Overview
 

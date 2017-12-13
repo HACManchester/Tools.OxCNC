@@ -16,6 +16,33 @@ The first thing we need to do is backup the settings from the Grbl firmware / Ar
   * Type $$ followed by a carriage return
   * Copy and paste the output into a text file
 
+## Backup Firmware
+
+If you want to backup the existing firmware:
+
+Under windows (check the com port number)
+```
+cd C:\Program Files (x86)\Arduino\hardware\tools\avr\bin
+avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U flash:r:C:\Apps\flash.hex:i
+avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U eeprom:r:C:\Apps\eeprom.hex:i
+avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U efuse:r:C:\Apps\efuse.hex:i
+avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U lfuse:r:C:\Apps\lfuse.hex:i
+avrdude -C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -p m328p -P com4 -c arduino -b 115200 -F -U hfuse:r:C:\Apps\hfuse.hex:i
+```
+
+
+
+
+
+
+Under Linux it will be something like
+```
+cd C:\Program Files (x86)\Arduino\hardware\tools\avr\bin
+avrdude -p m328p -P /dev/tty.usbserial- -c arduino -b 38400 -F -U flash:r:backup1.hex:i
+```
+
+TODO check arduino chip type is m328p
+
 
 ## Download Files
 
