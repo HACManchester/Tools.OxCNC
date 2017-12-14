@@ -16,7 +16,7 @@ controls become locked up / unresponsive during the process of sending G-Code / 
 
 First we need to power up the mill
 
-TODO insert image
+**TODO insert image** <br>
 <a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="50%" width="50%" ></a> <br>
 
   * The green button is for on, the red button is for off
@@ -32,7 +32,7 @@ Because of this reason it's important to perform a homing operation when turning
 In order to get the spindle to operate, there's a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
 In one direction it's off, the other it's full speed on.
 
-TODO insert image
+**TODO insert image** <br>
 <a href="../../images/Milling/Connecting/Spindle_Power.jpg"><img src="../../images/Milling/Connecting/Spindle_Power.jpg" height="50%" width="50%" ></a> <br>
 
 The spindle will only operate if the main power switch is switched on (which also powers the steppers)
@@ -54,8 +54,7 @@ Note the link is different than normal chillipepr / grbl as we're using firmware
 
 ## Connecting Chillipepr to the CNC
 
-TODO
-
+**TODO select discover instead**
 
 Next we should be ready to now link / connect Chillipepr to the serial server. <br>
 Select **Connect to Host**

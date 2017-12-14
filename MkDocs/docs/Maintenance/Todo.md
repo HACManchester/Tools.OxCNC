@@ -21,6 +21,10 @@
   * We need to upgrade the Rpi1 to a Rpi3 <br>
     The serial buffer is maxing out the CPU, and it would be useful to have a remote desktop session available.
 
+# Remote machine
+
+  * We need to setup the Rpi3 with remote desktop, and have a seperate machine that can be used for control from a monitor etc.
+
 ## 4th Axis
 
   * One interesting thing we could do is 3d print a 4th axis for the cnc.
@@ -35,3 +39,8 @@ We need to 3d Print a head to go over the top of the milling bit and allow the a
 ## Touch Plate
 
 Look into setting up a touch plate for mill bits, and a downward inductive sensor for PCB milling
+
+## Electronics
+
+It may be best to reset the grbl board on power down / estop
+that way a home will be forced before the machine can start receiving G-Code again

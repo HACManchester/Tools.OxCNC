@@ -16,9 +16,8 @@ Also you need to ether jog or manually adjust the Z Height so that the mill bit 
 One trick to figuring out when the mill bit is just touching the surface, is to turn on the spindle then jog the head down slowly 0.1 mm at a time
 untill you hear the noise of the material being grinded.
 
-Another idea before you start milling is to move the head back 5mm (y - 5) <br>
-Then mill a hole straight down. If for any reason anything goes wrong you can use this hole to reset the position of the machine
-to a known point before restarting.
+Another idea before you start milling is to make a note of the absolute cordinates of the starting point of the machine if you need to start over.
+
 
 ## Set the Feed Rate Multiplier
 
@@ -47,6 +46,7 @@ The reason being is that the motion will be generally less jerky overall due to 
 
 Next switch on the spindle to get ready to start milling
 
+**TODO** <br>
 <a href="../../images/Milling/Milling/Spindle_Switch.jpg"><img src="../../images/Milling/Milling/Spindle_Switch.jpg" height="20%" width="20%" ></a> <br>
 
 
@@ -61,6 +61,7 @@ To start running the G-Code use the play button, make sure the spindle is runnin
 
 While cutting we can use the henry hoover to suck up the mdf that's milled out to see what has been cut so far.
 
+**TODO** <br>
 <a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br>
 
 ### Using a different starting point (Optional)
@@ -79,9 +80,11 @@ If you click on one of the lines of the G-Code in the list
 
 There's a couple of different ways to stop the milling
 
-### Disconnect the USB Lead
+### Red Switch / Emergency Stop
 
-If you're really in a rush because something has horribly gone wrong, just disconnecting the USB lead is one sure way to stop everything.
+If you're really in a rush because something has horribly gone wrong, just mash the EStop button / or red power off button.
+
+**TODO Image**
 
 ### Stopping the Queue
 
@@ -99,3 +102,5 @@ There's also a resume button next to it as well
 
 <a href="../../images/Milling/Milling/Milling4.png"><img src="../../images/Milling/Milling/Milling4.png" height="50%" width="50%" ></a> <br>
 
+The Ctrl-X button will also perform a soft reset of the Grbl board. <br>
+But make sure to re-home when using that.
