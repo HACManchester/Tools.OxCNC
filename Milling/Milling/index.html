@@ -207,7 +207,7 @@
         
             <li><a href="#set-the-feed-rate-multiplier">Set the Feed Rate Multiplier</a></li>
         
-            <li><a href="#turn-on-the-spindle">Turn on the Spindle</a></li>
+            <li><a href="#switching-on-the-spindle">Switching on the Spindle</a></li>
         
             <li><a href="#start-the-g-code">Start the G-Code</a></li>
         
@@ -246,17 +246,17 @@ This value is a multiplier so <strong>0.5</strong> = half speed.</p>
 In that case 0.1 is a safe value. <br></p>
 <p>That being said it&rsquo;s generally better to make sure the feedrate is set correctly within the CAM software and to use a 1.0 value here if you can.
 The reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.</p>
-<h2 id="turn-on-the-spindle">Turn on the Spindle</h2>
-<p>Next switch on the spindle to get ready to start milling</p>
-<p><strong>TODO</strong> <br>
-<a href="../../images/Milling/Milling/Spindle_Switch.jpg"><img src="../../images/Milling/Milling/Spindle_Switch.jpg" height="20%" width="20%" ></a> <br></p>
+<h2 id="switching-on-the-spindle">Switching on the Spindle</h2>
+<p>In order to get the spindle to operate, there&rsquo;s a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
+In one direction it&rsquo;s off, the other it&rsquo;s full speed on.</p>
+<p><a href="../../images/Milling/Milling/Spindle_Power.jpg"><img src="../../images/Milling/Milling/Spindle_Power.jpg" height="30%" width="30%" ></a> <br></p>
+<p>The spindle will only operate if the main power switch is switched on (which also powers the steppers)</p>
 <h2 id="start-the-g-code">Start the G-Code</h2>
 <p>To start running the G-Code use the play button, make sure the spindle is running before you do this.</p>
 <p><a href="../../images/Milling/Milling/Milling2.png"><img src="../../images/Milling/Milling/Milling2.png" height="50%" width="50%" ></a> <br></p>
 <h3 id="using-the-vacuum-cleaner">Using the Vacuum Cleaner</h3>
-<p>While cutting we can use the henry hoover to suck up the mdf that&rsquo;s milled out to see what has been cut so far.</p>
-<p><strong>TODO</strong> <br>
-<a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br></p>
+<p>While cutting there is a white hoover / extractor we can use to suck up the mdf dust / particles that&rsquo;s milled to better see what&rsquo;s going on.</p>
+<p><a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br></p>
 <h3 id="using-a-different-starting-point-optional">Using a different starting point (Optional)</h3>
 <p>One of the tricks Chillipepr allows us to do is to start from a line further down in the G-Code.
 If you click on one of the lines of the G-Code in the list</p>
@@ -270,7 +270,6 @@ If you click on one of the lines of the G-Code in the list</p>
 <p>There&rsquo;s a couple of different ways to stop the milling</p>
 <h3 id="red-switch-emergency-stop">Red Switch / Emergency Stop</h3>
 <p>If you&rsquo;re really in a rush because something has horribly gone wrong, just mash the EStop button / or red power off button.</p>
-<p><strong>TODO Image</strong></p>
 <h3 id="stopping-the-queue">Stopping the Queue</h3>
 <p>The controls on the left do have a stop button.
 However, this only stops further messages being queued into the grbl firmware.

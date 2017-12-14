@@ -228,6 +228,8 @@
 <li>The stepper motors are Nema23&rsquo;s, I think 2.8A max based on the ooznest site</li>
 <li>I think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling</li>
 </ul>
+<p><a href="../../images/Maintenance/Device-Overview/StepperDrivers.jpg"><img src="../../images/Maintenance/Device-Overview/StepperDrivers.jpg" height="20%" width="20%" ></a>
+<a href="../../images/Maintenance/Device-Overview/MainElectronics.jpg"><img src="../../images/Maintenance/Device-Overview/MainElectronics.jpg" height="20%" width="20%" ></a> <br></p>
 <p>Maximum travel</p>
 <ul>
 <li>X Axis: 563mm (left to right)</li>
@@ -249,10 +251,12 @@
 <li>The second powers the stepper drivers / cnc shield</li>
 </ul>
 <h2 id="spindle">Spindle</h2>
-<p>The spindle is a 400W one controlled via a potentiometer.
+<p>The spindle is a 400W one controlled via a potentiometer, driven by a BLDC driver.
 The plan is to switch this across to pmw at some point.</p>
+<p><a href="../../images/Maintenance/Device-Overview/SpindleDriver.jpg"><img src="../../images/Maintenance/Device-Overview/SpindleDriver.jpg" height="30%" width="30%" ></a> <br></p>
 <h2 id="rpi">Rpi</h2>
 <p>There is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it&rsquo;s serial port.</p>
+<p><a href="../../images/Maintenance/Device-Overview/RpiBoard.jpg"><img src="../../images/Maintenance/Device-Overview/RpiBoard.jpg" height="30%" width="30%" ></a> <br></p>
 <h2 id="end-stops">End Stops</h2>
 <p>There are inductive end stops for every direction except for travelling downwards. <br>
 The downward limit is handled via a software limit which is based on the homing position.</p>

@@ -207,8 +207,6 @@
         
             <li><a href="#powering-up">Powering Up</a></li>
         
-            <li><a href="#switching-on-the-spindle">Switching on the Spindle</a></li>
-        
             <li><a href="#starting-chillipepr">Starting Chillipepr</a></li>
         
             <li><a href="#connecting-chillipepr-to-the-cnc">Connecting Chillipepr to the CNC</a></li>
@@ -232,8 +230,7 @@ main browser etc. without interfering with the milling process.</p>
 controls become locked up / unresponsive during the process of sending G-Code / doing the actual mill.</p>
 <h2 id="powering-up">Powering Up</h2>
 <p>First we need to power up the mill</p>
-<p><strong>TODO insert image</strong> <br>
-<a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="50%" width="50%" ></a> <br></p>
+<p><a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="30%" width="30%" ></a> <br></p>
 <ul>
 <li>The green button is for on, the red button is for off</li>
 <li>The red EStop button is the same as the red push button for off</li>
@@ -241,12 +238,6 @@ controls become locked up / unresponsive during the process of sending G-Code / 
 </ul>
 <p>The grbl board and the rpi board are powered separately and are powered on all the time regardless. <br>
 Because of this reason it&rsquo;s important to perform a homing operation when turning the power on</p>
-<h2 id="switching-on-the-spindle">Switching on the Spindle</h2>
-<p>In order to get the spindle to operate, there&rsquo;s a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
-In one direction it&rsquo;s off, the other it&rsquo;s full speed on.</p>
-<p><strong>TODO insert image</strong> <br>
-<a href="../../images/Milling/Connecting/Spindle_Power.jpg"><img src="../../images/Milling/Connecting/Spindle_Power.jpg" height="50%" width="50%" ></a> <br></p>
-<p>The spindle will only operate if the main power switch is switched on (which also powers the steppers)</p>
 <h2 id="starting-chillipepr">Starting Chillipepr</h2>
 <p>Next we&rsquo;re going to start up Chillipepr.</p>
 <p>Chillipepr is a online system consisting of a series of web pages and JavaScript scripts pulled in from other sites. <br>
@@ -258,25 +249,20 @@ The JavaScript within Chillipepr will connect to a Serial Port Json Server locat
 </ul>
 <p>Note the link is different than normal chillipepr / grbl as we&rsquo;re using firmware version 1.1 instead of 0.9 <br></p>
 <h2 id="connecting-chillipepr-to-the-cnc">Connecting Chillipepr to the CNC</h2>
-<p><strong>TODO select discover instead</strong></p>
-<p>Next we should be ready to now link / connect Chillipepr to the serial server. <br>
-Select <strong>Connect to Host</strong></p>
-<p><a href="../../images/Milling/Connecting/Connect1.png"><img src="../../images/Milling/Connecting/Connect1.png" height="50%" width="50%" ></a> <br></p>
-<p>Select <strong>Connect to Localhost</strong></p>
-<p><a href="../../images/Milling/Connecting/Connect2.png"><img src="../../images/Milling/Connecting/Connect2.png" height="50%" width="50%" ></a> <br></p>
-<p>We should now see a list of the devices detected in the bottom right corner.</p>
+<p>If you&rsquo;ve never connected to the CNC before then select Scan for Hosts.</p>
+<p><a href="../../images/Milling/Connecting/Connect1.png"><img src="../../images/Milling/Connecting/Connect1.png" height="40%" width="40%" ></a> <br></p>
+<p>This should discover the server to connect to, select this to connect</p>
+<p><a href="../../images/Milling/Connecting/Connect2.png"><img src="../../images/Milling/Connecting/Connect2.png" height="40%" width="40%" ></a> <br></p>
 <p>In the drop down lists make sure <strong>Grbl</strong> is selected, and the maximum baud rate <strong>115,200</strong> <br>
 The older versions of Grbl used to use a slower baud rate of around 9600, but the later versions use the max 115,200 speed instead.</p>
 <p>Once you&rsquo;ve selected Grbl in the drop down, click the tick box on the left to initiate the connection to the board.</p>
-<p><a href="../../images/Milling/Connecting/Connect3.png"><img src="../../images/Milling/Connecting/Connect3.png" height="50%" width="50%" ></a> <br></p>
+<p><a href="../../images/Milling/Connecting/Connect3.png"><img src="../../images/Milling/Connecting/Connect3.png" height="40%" width="40%" ></a> <br></p>
 <h2 id="homing">Homing</h2>
-<p>One of the first steps to do after powering up the mill is to home the device.
-Because the grbl board is on all the time but the stepper motors might not be, this means grbl can lose track of where it is up to after a power on cycle.</p>
-<p>Click the Homing button on the Chillipepr interface to trigger a homing cycle of the CNC mill. <br>
-This will cause the mill to move upwards and to the bottom left hand corner of the machine.</p>
-<p>TODO insert image</p>
-<p>Without homing there&rsquo;s the risk the machine may go too far downwards
-as this is limited by software limits which rely on grbl knowing where the home position is.</p>
+<p>One of the first steps to do after powering up the mill is to home the device. <br>
+See the <a href="../Jog/#homing-the-machine">Jogging Section</a> on how to do this.</p>
+<p>Without homing there&rsquo;s the risk the machine may go too far downwards. <br>
+as this is limited by software limits which rely on grbl knowing where the home position is. <br>
+Or the machine not going far enough down if it thinks it&rsquo;s in the wrong place.</p>
 <h2 id="connecting-via-http">Connecting via Http</h2>
 <p>If you want to instead connect to the CNC via a Serial Console, it&rsquo;s possible to access the serial port via the browser</p>
 <ul>
