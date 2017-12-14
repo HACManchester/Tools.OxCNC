@@ -2,56 +2,26 @@
 
 ## Clamping Holes
 
-The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced.
-It has several inserts in the bottom for securing additional material on top using a series of M6 bolts
+The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced. <br>
+The current method for securing material is to just use a glue gun to stick it down then peel it off afterwards.
 
-Some of the holes should line up with the holes on the small drill press vice
+Later on we may have some mounting holes for clamps, although those haven't been added in just yet.
 
-<a href="../../images/Milling/Material/InsertHoles.jpg"><img src="../../images/Milling/Material/InsertHoles.jpg" height="50%" width="50%" ></a> <br>
-
-<a href="../../images/Milling/Material/FittedBolts.jpg"><img src="../../images/Milling/Material/FittedBolts.jpg" height="50%" width="50%" ></a> <br>
-
-
-### Position of Clamping Holes
-
-In order to drill the positioning holes for the material being milled (that sits on top of the spoiler board)
-First line the head up with the bottom left hole.
-
-The first bottom left hole should be at a position of **30mm Up, 0mm Right**.
-But I've found that trying to using the bottom left corner of the machine is unreliable and that it's better to align with the first hole instead.
-
-The following are offset positions from the first hole
-
-#### Plate fixing points
-
-| Y (back to front) | X (left to right) |
-| ----------------- | ----------------- |
-| 0 mm   | 0 mm   |
-| 0 mm   | 300 mm |
-| 260 mm | 0 mm   |
-| 260 mm | 300 mm |
-
-#### Drill mount holes
-
-| Y (back to front) | X (left to right) |
-| ----------------- | ----------------- |
-| 0 mm   | 0 mm   |
-| 0 mm   | 110 mm |
-| 110 mm | 0 mm |
-
-**TODO add additional hole on the rights to avoid belt holder conflict**
 
 ## MDF
 
 So far I've used MDF 12mm thick cut into sections using the table saw.
 However, it's advisable to limit the depth of a pass to about 2mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)
 
+
 ## Metal
 
-Since the Shapeoko 2 only has Nema 17 motors, I've found that it manages mdf okay but I'm not sure if it can manage metal such as aluminium.
-With metal you have to mill at the right speed, too slow and the metal sticks to the mill bit
-
-For this you'll need to use a speeds and feeds calculator.
+The Ox CNC has Nema23 motor's but I think we're only driving them at about 50% of the power due to the stepper drivers in use. <br>
+Generally with metals you have to follow speeds and feeds. This is where the speed of the spindle has to match the feedrate through the material.
 
   * <http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm>
 
+I'd recommend trying two flute bits with aluminum.
+I've also got a rough speeds / feeds calculator here in the form of a spreadsheet:
+
+TODO

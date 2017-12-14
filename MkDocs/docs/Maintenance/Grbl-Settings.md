@@ -42,9 +42,9 @@ I've enabled them, and added 1mm onto each setting which seems to get them to wo
 
 From the home position the max 
 
-  * for z = 67mm from home (68mm from the top of where the end stop is)
-  * for x = 562mm (switch triggers after 564)
-  * for y = 745mm (switch triggers after 748)
+  * For Z = 67mm from home (68mm from the top of where the end stop is)
+  * For X = 562mm (switch triggers after 564)
+  * For Y = 745mm (switch triggers after 748)
 
 
 This equals

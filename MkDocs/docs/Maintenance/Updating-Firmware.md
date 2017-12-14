@@ -70,5 +70,6 @@ As a final step we need to restore any custom settings that were originally appl
 
   * Connect via putty (with the latest firmware this is now at a speed of 115200)
   * Use $$ to list all settings
-  * Add in any differences needed to the settings
+  * Add in any differences needed to the settings <br>
+    This includes settings such as how many revolutions per travel of mm / soft limits etc
 

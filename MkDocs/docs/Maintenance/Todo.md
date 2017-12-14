@@ -25,3 +25,13 @@
 
   * One interesting thing we could do is 3d print a 4th axis for the cnc.
 
+## Dust Brush
+
+We need to 3d Print a head to go over the top of the milling bit and allow the attachment of
+
+  * A ring of LED's
+  * The hose for the vacume extractor.
+
+## Touch Plate
+
+Look into setting up a touch plate for mill bits, and a downward inductive sensor for PCB milling
