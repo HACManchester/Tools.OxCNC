@@ -214,9 +214,7 @@ It all depends on where you&rsquo;ve put the origin when using the CAM software,
 Also you need to ether jog or manually adjust the Z Height so that the mill bit is just touching the surface of the material to be milled.</p>
 <p>One trick to figuring out when the mill bit is just touching the surface, is to turn on the spindle then jog the head down slowly 0.1 mm at a time
 untill you hear the noise of the material being grinded.</p>
-<p>Another idea before you start milling is to move the head back 5mm (y - 5) <br>
-Then mill a hole straight down. If for any reason anything goes wrong you can use this hole to reset the position of the machine
-to a known point before restarting.</p>
+<p>Another idea before you start milling is to make a note of the absolute cordinates of the starting point of the machine if you need to start over.</p>
 <h2 id="set-the-feed-rate-multiplier">Set the Feed Rate Multiplier</h2>
 <p>Assuming you&rsquo;ve already loaded in the G-Code into Chillipepr (drag and drop the file onto the browser window) <br>
 The most important setting is the Feed Rate</p>
@@ -235,13 +233,15 @@ In that case 0.1 is a safe value. <br></p>
 The reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.</p>
 <h2 id="turn-on-the-spindle">Turn on the Spindle</h2>
 <p>Next switch on the spindle to get ready to start milling</p>
-<p><a href="../../images/Milling/Milling/Spindle_Switch.jpg"><img src="../../images/Milling/Milling/Spindle_Switch.jpg" height="20%" width="20%" ></a> <br></p>
+<p><strong>TODO</strong> <br>
+<a href="../../images/Milling/Milling/Spindle_Switch.jpg"><img src="../../images/Milling/Milling/Spindle_Switch.jpg" height="20%" width="20%" ></a> <br></p>
 <h2 id="start-the-g-code">Start the G-Code</h2>
 <p>To start running the G-Code use the play button, make sure the spindle is running before you do this.</p>
 <p><a href="../../images/Milling/Milling/Milling2.png"><img src="../../images/Milling/Milling/Milling2.png" height="50%" width="50%" ></a> <br></p>
 <h3 id="using-the-vacuum-cleaner">Using the Vacuum Cleaner</h3>
 <p>While cutting we can use the henry hoover to suck up the mdf that&rsquo;s milled out to see what has been cut so far.</p>
-<p><a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br></p>
+<p><strong>TODO</strong> <br>
+<a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br></p>
 <h3 id="using-a-different-starting-point-optional">Using a different starting point (Optional)</h3>
 <p>One of the tricks Chillipepr allows us to do is to start from a line further down in the G-Code.
 If you click on one of the lines of the G-Code in the list</p>
@@ -253,8 +253,9 @@ If you click on one of the lines of the G-Code in the list</p>
 <p><a href="../../images/Milling/Milling/StartPos1.png"><img src="../../images/Milling/Milling/StartPos1.png" height="50%" width="50%" ></a> <br></p>
 <h2 id="stopping-milling">Stopping Milling</h2>
 <p>There&rsquo;s a couple of different ways to stop the milling</p>
-<h3 id="disconnect-the-usb-lead">Disconnect the USB Lead</h3>
-<p>If you&rsquo;re really in a rush because something has horribly gone wrong, just disconnecting the USB lead is one sure way to stop everything.</p>
+<h3 id="red-switch-emergency-stop">Red Switch / Emergency Stop</h3>
+<p>If you&rsquo;re really in a rush because something has horribly gone wrong, just mash the EStop button / or red power off button.</p>
+<p><strong>TODO Image</strong></p>
 <h3 id="stopping-the-queue">Stopping the Queue</h3>
 <p>The controls on the left do have a stop button.
 However, this only stops further messages being queued into the grbl firmware.
@@ -264,7 +265,9 @@ If you use this the CNC will probably still continue on for a while longer while
 <p>If you want to try and stop the machine immediately within Chillipepr then there&rsquo;s a 2nd stop button on the right hand side.
 These buttons send special commands to grbl to stop the G-Code right away (without waiting for the buffer to flush / complete).
 There&rsquo;s also a resume button next to it as well</p>
-<p><a href="../../images/Milling/Milling/Milling4.png"><img src="../../images/Milling/Milling/Milling4.png" height="50%" width="50%" ></a> <br></p></div>
+<p><a href="../../images/Milling/Milling/Milling4.png"><img src="../../images/Milling/Milling/Milling4.png" height="50%" width="50%" ></a> <br></p>
+<p>The Ctrl-X button will also perform a soft reset of the Grbl board. <br>
+But make sure to re-home when using that.</p></div>
         </div>
 
         <footer class="col-md-12">

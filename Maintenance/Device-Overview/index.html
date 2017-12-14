@@ -206,12 +206,18 @@
             <div class="col-md-9" role="main">
 
 <h1 id="device-overview">Device Overview</h1>
-<p>We currently have a ooznest Ox CNC which was purchased via a pledge run</p>
+<p>We currently have a ooznest Ox CNC.</p>
 <ul>
 <li>The main controller board is a Arduino Uno running Grbl 1.1</li>
 <li>There is also a CNC Shield, I think one of these - <a href="https://blog.protoneer.co.nz/arduino-cnc-shield/">https://blog.protoneer.co.nz/arduino-cnc-shield/</a></li>
 <li>The stepper motors are Nema23&rsquo;s, I think 2.8A max based on the ooznest site</li>
 <li>I think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling</li>
+</ul>
+<p>Maximum travel</p>
+<ul>
+<li>X Axis: 563mm (left to right)</li>
+<li>Y Axis: 746mm (front to back)</li>
+<li>Z Axis: 68mm (up to down)</li>
 </ul>
 <h2 id="firmware-overview">Firmware Overview</h2>
 <p>Currently the Ox CNC uses an Arduino Uno with Grbl 1.1</p>
@@ -224,7 +230,7 @@
 <h2 id="power-supplies">Power Supplies</h2>
 <p>There are 2 PSU&rsquo;s in use</p>
 <ul>
-<li>The first powers the spindle via a Black box BLDC driver</li>
+<li>The first powers the spindle via a black box BLDC driver</li>
 <li>The second powers the stepper drivers / cnc shield</li>
 </ul>
 <h2 id="spindle">Spindle</h2>
@@ -233,12 +239,13 @@ The plan is to switch this across to pmw at some point.</p>
 <h2 id="rpi">Rpi</h2>
 <p>There is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it&rsquo;s serial port.</p>
 <h2 id="end-stops">End Stops</h2>
-<p>There are inductive end stops for every direction except for travelling downwards.
+<p>There are inductive end stops for every direction except for travelling downwards. <br>
 The downward limit is handled via a software limit which is based on the homing position.</p>
 <h2 id="tool-heads">Tool Heads</h2>
 <p>For the collets we have ER11 collets located in a box next to the CNC.
 ideally we could do with milling out a wooden plate for holding them, on a pull out shelf etc.</p>
-<p>The milling bits are generally 3mm or 6mm. We also have other smaller bits for pcb milling etc.</p></div>
+<p>The milling bits are generally 3mm or 6mm. <br>
+We also have other smaller bits for pcb milling etc.</p></div>
         </div>
 
         <footer class="col-md-12">

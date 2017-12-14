@@ -186,7 +186,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#hacman-ox-cnx">Hacman - Ox CNX</a></li>
+        <li class="main active"><a href="#hacman-ox-cnc">Hacman - Ox CNC</a></li>
         
             <li><a href="#overview">Overview</a></li>
         
@@ -199,13 +199,14 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="hacman-ox-cnx">Hacman - Ox CNX</h1>
+<h1 id="hacman-ox-cnc">Hacman - Ox CNC</h1>
 <h2 id="overview">Overview</h2>
-<p>This is a series of Docs for the use of the Ox CNC currently within the Hackspace. <br>
-This was originally run as part of a pledge run - http://wiki.hacman.org.uk/Pledges/OxCNCIan (Many thanks to Ian for all the additional bits)</p>
+<p>This is a series of docs for the use of the Ox CNC within the Hackspace. <br>
+This was originally run as part of a pledge run: <a href="http://wiki.hacman.org.uk/Pledges/OxCNCIan">http://wiki.hacman.org.uk/Pledges/OxCNCIan</a> <br>
+(Many thanks to Ian for all the additional bits)</p>
 <p>The docs are largley split into 3 sections</p>
 <ul>
-<li><strong>CAD / CAM</strong> - First use the CAD / CAM Headings to create the G-Code</li>
+<li><strong>CAD / CAM</strong> - First use the CAD / CAM Software to create the G-Code</li>
 <li><strong>Milling</strong> - once you have the G-Code to run on the mill use this section to carry out the milling</li>
 <li><strong>Maintenance</strong> - Note for future upgrates etc</li>
 </ul>
@@ -214,10 +215,14 @@ This was originally run as part of a pledge run - http://wiki.hacman.org.uk/Pled
 <ul>
 <li>You design your part in Cad software or as a vector diagram / inkscape etc</li>
 <li>You pass the design into CAM software which plots out the paths needed to mill the part (similar to a 3D Printer slicer)</li>
-<li>You run the generated G-Code on the mill (generally via chillipepr)</li>
+<li>You run the generated G-Code on the mill (usually via chillipepr)</li>
 </ul>
-<p>The post processor is usually a part of the Cam software that generates G-Code for specific types of CNC.
-This could include one processor for Grbl, another for TinyG. Generally if there&rsquo;s a post processor for LinuxCNC then this should work with grbl.</p>
+<p>With a 3d Printer generally it&rsquo;s a lot simpler, but with a CNC you instead have to decide which tools to use, which areas to mill etc.
+The software automates a lot of it, but there&rsquo;s a lot of different ways to mill a part which can make the process a little more complex
+depending on what it is your trying to do.</p>
+<p>The post processor is usually a part of the Cam software that generates G-Code for specific types of CNC. <br>
+This could include one processor for Grbl, another for TinyG. The one we&rsquo;re interested in is Grbl 1.1 <br>
+Generally if there&rsquo;s a post processor for LinuxCNC then this should also work with Grbl.</p>
 <p><img alt="Flow1" src="./images/root/WorkFlow1.svg" /></p>
 <h2 id="software">Software</h2>
 <h3 id="open-source-software">Open Source Software</h3>
@@ -225,7 +230,7 @@ This could include one processor for Grbl, another for TinyG. Generally if there
 <li><strong><a href="http://jscut.org/">JSCut</a></strong> - Easiest to use Open source Cam software, limited to 2.5 CAM / 2 dimensional profiles similar to a laser cutter</li>
 <li><strong><a href="http://flatcam.org/">FlatCAM</a></strong> - PCB Milling via G-Code, this is one of the few PCB to G-Code softwares that has a GUI.</li>
 <li><strong><a href="http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Cam">PyCAM</a></strong> - Can handle STL Files and generate 3D Cam profiles, but seems not to be updated often</li>
-<li><strong><a href="http://www.freecadweb.org/wiki/index.php?title=Path_Workbench">FreeCad</a></strong> - Path workspace, this is the closest match to Soldiworks in the open source world and has support for importing openscad files</li>
+<li><strong><a href="http://www.freecadweb.org/wiki/index.php?title=Path_Workbench">FreeCad</a></strong> - Path workspace, this is the closest match to Solidworks in the open source world and has support for importing openscad files</li>
 <li><strong><a href="https://github.com/Heeks/heekscad">HeeksCad / HeeksCNC</a></strong></li>
 </ul>
 <h3 id="free-non-open-source-software">Free / Non open source software</h3>
@@ -233,14 +238,17 @@ This could include one processor for Grbl, another for TinyG. Generally if there
 <li><strong><a href="http://cam.autodesk.com/fusion360/">Autodesk Fusion 360 CAM / Cad</a></strong></li>
 </ul>
 <h3 id="commercial-software">Commercial Software</h3>
-<p>The top two items of commercial CAM software for use with Solidworks includes Hsmworks and MasterCam.
-Hsmworks is by far the easiest to use, but not to good at turning or 4 / 5 Axis.
-MasterCam has the most features but is much more difficult to use.</p>
+<p>Generally CAM software falls into two catagories one for solid parts such as gears / wheels etc, this includes HsmWorks and MasterCAM.
+The second for graphical artworks such as fancy reliefs like dragons or lettering or Han solo in carbonite. </p>
 <ul>
 <li><strong><a href="http://www.hsmworks.com/">HsmWorks / Solidworks</a></strong> - Milling Solid 3D parts</li>
 <li><strong><a href="http://www.mastercam.com/en-us/Solutions/Integrated-CAD-Solutions/Mastercam-for-SOLIDWORKS">MasterCam / Solidworks</a></strong> - Milling Solid 3D parts</li>
 <li><strong><a href="http://www.vectric.com/cool-stuff/projects/2013/bread-box.html">Aspire</a></strong> - Milling graphical / artwork type patterns such as lettering or meshes.</li>
-</ul></div>
+<li><strong><a href="https://www.autodesk.com/products/artcam/overview">Autodesk ArtCam</a></strong> - Milling graphical / artwork type patterns such as lettering or meshes.</li>
+</ul>
+<p>If your using Solidworks then the top two items of commercial CAM software includes Hsmworks and MasterCam. <br>
+Hsmworks is by far the easiest to use, but not to good at turning or 4 / 5 Axis. <br>
+MasterCam has the most features but is much more difficult to use. <br></p></div>
         </div>
 
         <footer class="col-md-12">

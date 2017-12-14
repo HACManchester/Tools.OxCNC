@@ -190,17 +190,17 @@
         
             <li><a href="#overview">Overview</a></li>
         
-            <li><a href="#plugging-in">Plugging In</a></li>
+            <li><a href="#powering-up">Powering Up</a></li>
         
-            <li><a href="#controls">Controls</a></li>
+            <li><a href="#switching-on-the-spindle">Switching on the Spindle</a></li>
         
             <li><a href="#starting-chillipepr">Starting Chillipepr</a></li>
         
-            <li><a href="#starting-the-serial-port-json-server">Starting the Serial Port Json Server</a></li>
+            <li><a href="#connecting-chillipepr-to-the-cnc">Connecting Chillipepr to the CNC</a></li>
         
-            <li><a href="#connecting-chillipepr-to-the-serial-proxy">Connecting Chillipepr to the Serial Proxy</a></li>
+            <li><a href="#homing">Homing</a></li>
         
-            <li><a href="#connecting-via-putty">Connecting via Putty</a></li>
+            <li><a href="#connecting-via-http">Connecting via Http</a></li>
         
     
     </ul>
@@ -215,48 +215,35 @@
 main browser etc. without interfering with the milling process.</p>
 <p>Try to avoid using the Microsoft Edge Browser as an alternate browser, it seems to be okay sending commands to the mill, but I&rsquo;ve noticed the
 controls become locked up / unresponsive during the process of sending G-Code / doing the actual mill.</p>
-<h2 id="plugging-in">Plugging In</h2>
-<p>There&rsquo;s currently two main&rsquo;s plugs that need to be plugged in</p>
+<h2 id="powering-up">Powering Up</h2>
+<p>First we need to power up the mill</p>
+<p><strong>TODO insert image</strong> <br>
+<a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="50%" width="50%" ></a> <br></p>
 <ul>
-<li>One powers the CNC Grbl board and fan</li>
-<li>The second powers a 12V supply which feeds the Spindle.</li>
+<li>The green button is for on, the red button is for off</li>
+<li>The red EStop button is the same as the red push button for off</li>
+<li>The power these buttons control goes to the stepper drivers and the spindle motor</li>
 </ul>
-<p>You may need to switch on the electronics bench, as we&rsquo;ve got the bench it&rsquo;s on temporarily hooked up to that at the moment.
-Connect the USB plug into your laptop.</p>
-<p><a href="../../images/Milling/Connecting/PSU_Connection.jpg"><img src="../../images/Milling/Connecting/PSU_Connection.jpg" height="50%" width="50%" ></a> <br></p>
-<h2 id="controls">Controls</h2>
-<h3 id="spindle-power">Spindle Power</h3>
-<p>The switch on the front of the box controls the spindle on / off <br>
-The speed of the spindle is fixed at the moment; I think the spindle is 48V but we&rsquo;re currently using a 12V Power Supply so the speed is only quarter of maximum. <br>
-Note this switch only controls the power to the spindle, not the grbl shield or the arduino, they are powered by a seperate supply not controlled by this switch</p>
-<p><a href="../../images/Milling/Connecting/Spindle_Switch.jpg"><img src="../../images/Milling/Connecting/Spindle_Switch.jpg" height="50%" width="50%" ></a> <br></p>
+<p>The grbl board and the rpi board are powered separately and are powered on all the time regardless. <br>
+Because of this reason it&rsquo;s important to perform a homing operation when turning the power on</p>
+<h2 id="switching-on-the-spindle">Switching on the Spindle</h2>
+<p>In order to get the spindle to operate, there&rsquo;s a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
+In one direction it&rsquo;s off, the other it&rsquo;s full speed on.</p>
+<p><strong>TODO insert image</strong> <br>
+<a href="../../images/Milling/Connecting/Spindle_Power.jpg"><img src="../../images/Milling/Connecting/Spindle_Power.jpg" height="50%" width="50%" ></a> <br></p>
+<p>The spindle will only operate if the main power switch is switched on (which also powers the steppers)</p>
 <h2 id="starting-chillipepr">Starting Chillipepr</h2>
 <p>Next we&rsquo;re going to start up Chillipepr.</p>
+<p>Chillipepr is a online system consisting of a series of web pages and JavaScript scripts pulled in from other sites. <br>
+There has been an attempt to create an offline version, but for now it&rsquo;s easier just to browse the online version. <br>
+The JavaScript within Chillipepr will connect to a Serial Port Json Server located on the Rpi.</p>
 <ul>
-<li>Open up a 2nd browser window</li>
+<li>Open up a browser window</li>
 <li>Browse to <a href="http://chilipeppr.com/jpadie">http://chilipeppr.com/jpadie</a></li>
 </ul>
-<p>The link is different than normal chillipepr / grbl as we&rsquo;re using firmware version 1.1 instead of 0.9</p>
-<p>Chillipepr is a online system consisting of a series of web pages and JavaScript scripts pulled in from other sites.
-There has been an attempt to create an offline version, but for now it&rsquo;s easier just to browse the online version.
-The JavaScript within Chillipepr will connect to a Serial Port Json Server ether located on your local machine or elsewhere.</p>
-<p>I&rsquo;ve discovered that it&rsquo;s best to run Chillipepr and the serial server on the same machine to avoid problems with latency.
-We&rsquo;re using the Grbl version of Chillipepr here as the firmware for the shapeoko2 is the latest version of Grbl.</p>
-<p><a href="../../images/Milling/Connecting/Chillipepr-Example1.png"><img src="../../images/Milling/Connecting/Chillipepr-Example1.png" height="50%" width="50%" ></a> <br></p>
-<h2 id="starting-the-serial-port-json-server">Starting the Serial Port Json Server</h2>
-<p>Next we need to start a small app on our local machine called the Serial Port Json Server.
-The serial server acts as a bridge in-between the serial port on your local machine which connects to the mill
-and Chillipepr.</p>
-<h3 id="downloading-the-serial-proxy">Downloading the Serial Proxy</h3>
-<p>You can find the download links in the bottom right hand corner of the Chillipepr window.
-Sometimes you need to press the up / down arrow to expand the tab to see it, then scroll down.</p>
-<p><a href="../../images/Milling/Connecting/SerialProxyDownload1.png"><img src="../../images/Milling/Connecting/SerialProxyDownload1.png" height="50%" width="50%" ></a> <br></p>
-<p>There should be different versions listed for different operating systems.</p>
-<h3 id="running-the-serial-port-json-server">Running the Serial Port Json Server</h3>
-<p>First plug in the USB plug from the mill.
-Then run the serial port json server, it should pick up on the new serial port and list it in a console window</p>
-<p><a href="../../images/Milling/Connecting/SerialConsole.png"><img src="../../images/Milling/Connecting/SerialConsole.png" height="50%" width="50%" ></a> <br></p>
-<h2 id="connecting-chillipepr-to-the-serial-proxy">Connecting Chillipepr to the Serial Proxy</h2>
+<p>Note the link is different than normal chillipepr / grbl as we&rsquo;re using firmware version 1.1 instead of 0.9 <br></p>
+<h2 id="connecting-chillipepr-to-the-cnc">Connecting Chillipepr to the CNC</h2>
+<p><strong>TODO select discover instead</strong></p>
 <p>Next we should be ready to now link / connect Chillipepr to the serial server. <br>
 Select <strong>Connect to Host</strong></p>
 <p><a href="../../images/Milling/Connecting/Connect1.png"><img src="../../images/Milling/Connecting/Connect1.png" height="50%" width="50%" ></a> <br></p>
@@ -267,20 +254,27 @@ Select <strong>Connect to Host</strong></p>
 The older versions of Grbl used to use a slower baud rate of around 9600, but the later versions use the max 115,200 speed instead.</p>
 <p>Once you&rsquo;ve selected Grbl in the drop down, click the tick box on the left to initiate the connection to the board.</p>
 <p><a href="../../images/Milling/Connecting/Connect3.png"><img src="../../images/Milling/Connecting/Connect3.png" height="50%" width="50%" ></a> <br></p>
-<h2 id="connecting-via-putty">Connecting via Putty</h2>
-<p>If you want to instead connect to the CNC via a Serial Console, then you can use Putty to do this</p>
+<h2 id="homing">Homing</h2>
+<p>One of the first steps to do after powering up the mill is to home the device.
+Because the grbl board is on all the time but the stepper motors might not be, this means grbl can lose track of where it is up to after a power on cycle.</p>
+<p>Click the Homing button on the Chillipepr interface to trigger a homing cycle of the CNC mill. <br>
+This will cause the mill to move upwards and to the bottom left hand corner of the machine.</p>
+<p>TODO insert image</p>
+<p>Without homing there&rsquo;s the risk the machine may go too far downwards
+as this is limited by software limits which rely on grbl knowing where the home position is.</p>
+<h2 id="connecting-via-http">Connecting via Http</h2>
+<p>If you want to instead connect to the CNC via a Serial Console, it&rsquo;s possible to access the serial port via the browser</p>
 <ul>
-<li>
-<p>Download and install Putty from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a></p>
-</li>
-<li>
-<p>Open putty and connect to the Grbl / Arduino Uno&rsquo;s COM Port</p>
-</li>
-<li>Speed: <strong>115200</strong></li>
-<li>Databits: <strong>8</strong></li>
-<li>StopBits: <strong>1</strong></li>
-<li>Parity / Flow Control: <strong>None</strong></li>
-<li><a href="http://www.shapeoko.com/wiki/index.php/G-Code">http://www.shapeoko.com/wiki/index.php/G-Code</a></li>
+<li>First browse to the following link in a web browser <br>
+    <a href="http://172.16.0.8:8989">http://172.16.0.8:8989</a></li>
+</ul>
+<p>To send a command like $$ which lists the grbl settings we can use the following within the web client</p>
+<pre><code>send /dev/ttyACM0 $$
+</code></pre>
+
+<ul>
+<li>To send G-Code:
+    <a href="http://www.shapeoko.com/wiki/index.php/G-Code">http://www.shapeoko.com/wiki/index.php/G-Code</a></li>
 </ul></div>
         </div>
 

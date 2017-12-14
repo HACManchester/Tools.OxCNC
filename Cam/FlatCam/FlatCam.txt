@@ -1,0 +1,15 @@
+
+
+## Auto Levelling
+
+One of the main problems with milling PCB's is that the copper board tends not to be completely flat.
+So you end up ether milling too much and making a mess of the board, or not enough missing some parts of the board.
+
+One way around this is to use an inductive proximity sensor to take measurements of the copper board relative to the milling head.
+Typically, this is wired into Z-Min I think on the board. This can then be used as an offset to the milling profile to compensate for an uneven Copper board.
+
+It should be mentioned that other software such as FlatCAM also have these features inbuilt as well as double sided board support, although I have yet to try this out (since we don't have a sensor wired in just yet)
+
+I spotted this online tutorial here
+
+  * <https://www.youtube.com/watch?v=6WNE3E1ZZYY>
