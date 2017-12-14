@@ -42,12 +42,14 @@ That being said it's generally better to make sure the feedrate is set correctly
 The reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.
 
 
-## Turn on the Spindle
+## Switching on the Spindle
 
-Next switch on the spindle to get ready to start milling
+In order to get the spindle to operate, there's a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
+In one direction it's off, the other it's full speed on.
 
-**TODO** <br>
-<a href="../../images/Milling/Milling/Spindle_Switch.jpg"><img src="../../images/Milling/Milling/Spindle_Switch.jpg" height="20%" width="20%" ></a> <br>
+<a href="../../images/Milling/Milling/Spindle_Power.jpg"><img src="../../images/Milling/Milling/Spindle_Power.jpg" height="30%" width="30%" ></a> <br>
+
+The spindle will only operate if the main power switch is switched on (which also powers the steppers)
 
 
 ## Start the G-Code
@@ -59,10 +61,10 @@ To start running the G-Code use the play button, make sure the spindle is runnin
 
 ### Using the Vacuum Cleaner
 
-While cutting we can use the henry hoover to suck up the mdf that's milled out to see what has been cut so far.
+While cutting there is a white hoover / extractor we can use to suck up the mdf dust / particles that's milled to better see what's going on.
 
-**TODO** <br>
 <a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br>
+
 
 ### Using a different starting point (Optional)
 
@@ -80,11 +82,11 @@ If you click on one of the lines of the G-Code in the list
 
 There's a couple of different ways to stop the milling
 
+
 ### Red Switch / Emergency Stop
 
 If you're really in a rush because something has horribly gone wrong, just mash the EStop button / or red power off button.
 
-**TODO Image**
 
 ### Stopping the Queue
 
@@ -93,6 +95,7 @@ However, this only stops further messages being queued into the grbl firmware.
 If you use this the CNC will probably still continue on for a while longer while it gets to the end of its buffer stream
 
 <a href="../../images/Milling/Milling/Milling3.png"><img src="../../images/Milling/Milling/Milling3.png" height="50%" width="50%" ></a> <br>
+
 
 ### Immediate Stop
 

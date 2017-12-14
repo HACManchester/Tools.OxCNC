@@ -7,6 +7,9 @@ We currently have a ooznest Ox CNC.
   * The stepper motors are Nema23's, I think 2.8A max based on the ooznest site
   * I think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling
 
+<a href="../../images/Maintenance/Device-Overview/StepperDrivers.jpg"><img src="../../images/Maintenance/Device-Overview/StepperDrivers.jpg" height="20%" width="20%" ></a>
+<a href="../../images/Maintenance/Device-Overview/MainElectronics.jpg"><img src="../../images/Maintenance/Device-Overview/MainElectronics.jpg" height="20%" width="20%" ></a> <br>
+
 Maximum travel
 
   * X Axis: 563mm (left to right)
@@ -33,14 +36,16 @@ There are 2 PSU's in use
 
 ## Spindle
 
-The spindle is a 400W one controlled via a potentiometer.
+The spindle is a 400W one controlled via a potentiometer, driven by a BLDC driver.
 The plan is to switch this across to pmw at some point.
 
+<a href="../../images/Maintenance/Device-Overview/SpindleDriver.jpg"><img src="../../images/Maintenance/Device-Overview/SpindleDriver.jpg" height="30%" width="30%" ></a> <br>
 
 ## Rpi
 
 There is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it's serial port.
 
+<a href="../../images/Maintenance/Device-Overview/RpiBoard.jpg"><img src="../../images/Maintenance/Device-Overview/RpiBoard.jpg" height="30%" width="30%" ></a> <br>
 
 ## End Stops
 

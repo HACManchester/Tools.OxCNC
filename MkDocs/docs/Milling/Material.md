@@ -5,13 +5,15 @@
 The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced. <br>
 The current method for securing material is to just use a glue gun to stick it down then peel it off afterwards.
 
+<a href="../../images/Milling/Material/GlueGun.jpg"><img src="../../images/Milling/Material/GlueGun.jpg" height="30%" width="30%" ></a> <br>
+
 Later on we may have some mounting holes for clamps, although those haven't been added in just yet.
 
 
 ## MDF
 
 So far I've used MDF 12mm thick cut into sections using the table saw. <br>
-However, it's advisable to limit the depth of a pass to about 2mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)
+However, it's advisable to limit the depth of a pass to about 2mm / 3mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)
 
 
 ## Metal

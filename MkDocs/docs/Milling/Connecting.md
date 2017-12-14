@@ -16,8 +16,7 @@ controls become locked up / unresponsive during the process of sending G-Code / 
 
 First we need to power up the mill
 
-**TODO insert image** <br>
-<a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="50%" width="50%" ></a> <br>
+<a href="../../images/Milling/Connecting/Main_Power.jpg"><img src="../../images/Milling/Connecting/Main_Power.jpg" height="30%" width="30%" ></a> <br>
 
   * The green button is for on, the red button is for off
   * The red EStop button is the same as the red push button for off
@@ -25,17 +24,6 @@ First we need to power up the mill
 
 The grbl board and the rpi board are powered separately and are powered on all the time regardless. <br>
 Because of this reason it's important to perform a homing operation when turning the power on
-
-
-## Switching on the Spindle
-
-In order to get the spindle to operate, there's a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
-In one direction it's off, the other it's full speed on.
-
-**TODO insert image** <br>
-<a href="../../images/Milling/Connecting/Spindle_Power.jpg"><img src="../../images/Milling/Connecting/Spindle_Power.jpg" height="50%" width="50%" ></a> <br>
-
-The spindle will only operate if the main power switch is switched on (which also powers the steppers)
 
 
 ## Starting Chillipepr
@@ -54,39 +42,30 @@ Note the link is different than normal chillipepr / grbl as we're using firmware
 
 ## Connecting Chillipepr to the CNC
 
-**TODO select discover instead**
+If you've never connected to the CNC before then select Scan for Hosts.
 
-Next we should be ready to now link / connect Chillipepr to the serial server. <br>
-Select **Connect to Host**
+<a href="../../images/Milling/Connecting/Connect1.png"><img src="../../images/Milling/Connecting/Connect1.png" height="40%" width="40%" ></a> <br>
 
-<a href="../../images/Milling/Connecting/Connect1.png"><img src="../../images/Milling/Connecting/Connect1.png" height="50%" width="50%" ></a> <br>
+This should discover the server to connect to, select this to connect
 
-Select **Connect to Localhost**
-
-<a href="../../images/Milling/Connecting/Connect2.png"><img src="../../images/Milling/Connecting/Connect2.png" height="50%" width="50%" ></a> <br>
-
-We should now see a list of the devices detected in the bottom right corner.
+<a href="../../images/Milling/Connecting/Connect2.png"><img src="../../images/Milling/Connecting/Connect2.png" height="40%" width="40%" ></a> <br>
 
 In the drop down lists make sure **Grbl** is selected, and the maximum baud rate **115,200** <br>
 The older versions of Grbl used to use a slower baud rate of around 9600, but the later versions use the max 115,200 speed instead.
 
 Once you've selected Grbl in the drop down, click the tick box on the left to initiate the connection to the board.
 
-<a href="../../images/Milling/Connecting/Connect3.png"><img src="../../images/Milling/Connecting/Connect3.png" height="50%" width="50%" ></a> <br>
+<a href="../../images/Milling/Connecting/Connect3.png"><img src="../../images/Milling/Connecting/Connect3.png" height="40%" width="40%" ></a> <br>
 
 
 ## Homing
 
-One of the first steps to do after powering up the mill is to home the device.
-Because the grbl board is on all the time but the stepper motors might not be, this means grbl can lose track of where it is up to after a power on cycle.
+One of the first steps to do after powering up the mill is to home the device. <br>
+See the [Jogging Section](./Jog/#homing-the-machine) on how to do this.
 
-Click the Homing button on the Chillipepr interface to trigger a homing cycle of the CNC mill. <br>
-This will cause the mill to move upwards and to the bottom left hand corner of the machine.
-
-TODO insert image
-
-Without homing there's the risk the machine may go too far downwards
-as this is limited by software limits which rely on grbl knowing where the home position is.
+Without homing there's the risk the machine may go too far downwards. <br>
+as this is limited by software limits which rely on grbl knowing where the home position is. <br>
+Or the machine not going far enough down if it thinks it's in the wrong place.
 
 
 ## Connecting via Http

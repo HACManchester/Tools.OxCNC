@@ -6,6 +6,8 @@ edit_uri: edit/master/MkDocs/docs
 
 pages:
 - Home: index.md
+#- CAM:
+#    - JSCut:
 #- FreeCAD:
 #    - File Importing: FreeCad/File-Import.md
 #    - Exporting GCode: FreeCad/Export-GCode.md
@@ -20,6 +22,8 @@ pages:
     - Milling Material: Milling/Material.md
     - Feed Rates: Milling/FeedRates.md
     - Milling: Milling/Milling.md
+- Other:
+    - Machinable Wax: Other/MachinableWax.md
 - Maintenance:
     - Device Overview: Maintenance/Device-Overview.md
     - Updating the Firmware: Maintenance/Updating-Firmware.md
