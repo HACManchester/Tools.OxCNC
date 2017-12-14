@@ -296,6 +296,21 @@
             "title": "Immediate Stop"
         }, 
         {
+            "location": "/Other/MachinableWax/", 
+            "text": "Machinable Wax\n\n\nOverview\n\n\nWe currently have some wax and plastic we could try to use with the following process. \n\n\n\n\nhttps://leedshackspace.org.uk/2016/05/09/making-machinable-wax/", 
+            "title": "Machinable Wax"
+        }, 
+        {
+            "location": "/Other/MachinableWax/#machinable-wax", 
+            "text": "", 
+            "title": "Machinable Wax"
+        }, 
+        {
+            "location": "/Other/MachinableWax/#overview", 
+            "text": "We currently have some wax and plastic we could try to use with the following process.    https://leedshackspace.org.uk/2016/05/09/making-machinable-wax/", 
+            "title": "Overview"
+        }, 
+        {
             "location": "/Maintenance/Device-Overview/", 
             "text": "Device Overview\n\n\nWe currently have a ooznest Ox CNC.\n\n\n\n\nThe main controller board is a Arduino Uno running Grbl 1.1\n\n\nThere is also a CNC Shield, I think one of these - \nhttps://blog.protoneer.co.nz/arduino-cnc-shield/\n\n\nThe stepper motors are Nema23\ns, I think 2.8A max based on the ooznest site\n\n\nI think the stepper drivers are Pololu - Allegro A4988, which are probably limited to around 1A max without cooling\n\n\n\n\nMaximum travel\n\n\n\n\nX Axis: 563mm (left to right)\n\n\nY Axis: 746mm (front to back)\n\n\nZ Axis: 68mm (up to down)\n\n\n\n\nFirmware Overview\n\n\nCurrently the Ox CNC uses an Arduino Uno with Grbl 1.1\n\n\n\n\nhttps://github.com/grbl/grbl\n\n\nhttps://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8#grbls-xval-settings-and-what-they-mean\n\n\nThe original version of the firmware was 0.9\n\n\nThis has now been updated to version 1.1 which uses a baud of \n115200\n\n\n\n\nPower Supplies\n\n\nThere are 2 PSU\ns in use\n\n\n\n\nThe first powers the spindle via a black box BLDC driver\n\n\nThe second powers the stepper drivers / cnc shield\n\n\n\n\nSpindle\n\n\nThe spindle is a 400W one controlled via a potentiometer.\nThe plan is to switch this across to pmw at some point.\n\n\nRpi\n\n\nThere is a RpiV1 acting as a serial proxy so that we can connect to the OxCNC over the network to it\ns serial port.\n\n\nEnd Stops\n\n\nThere are inductive end stops for every direction except for travelling downwards. \n\nThe downward limit is handled via a software limit which is based on the homing position.\n\n\nTool Heads\n\n\nFor the collets we have ER11 collets located in a box next to the CNC.\nideally we could do with milling out a wooden plate for holding them, on a pull out shelf etc.\n\n\nThe milling bits are generally 3mm or 6mm. \n\nWe also have other smaller bits for pcb milling etc.", 
             "title": "Device Overview"
