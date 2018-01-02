@@ -44,3 +44,14 @@ Look into setting up a touch plate for mill bits, and a downward inductive senso
 
 It may be best to reset the grbl board on power down / estop
 that way a home will be forced before the machine can start receiving G-Code again
+
+## PMW Spindle Control
+
+According to Ian the spindle speed may already be wired up to the control board.
+But the reason for using the variable pot instead was because it was difficult to get the pre-processor to generate the G-Code to switch it on
+Ian got tired of watching the head crash into the material with turning on
+
+We may need to uncomment the below in the source
+
+// #define MINIMUM_SPINDLE_PWM 5 // Default disabled. Uncomment to enable. Integer (0-255)
+
