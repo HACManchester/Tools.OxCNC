@@ -35,7 +35,8 @@ There has been an attempt to create an offline version, but for now it's easier 
 The JavaScript within Chillipepr will connect to a Serial Port Json Server located on the Rpi.
 
   * Open up a browser window
-  * Browse to <http://chilipeppr.com/jpadie>
+  * Browse to <http://hacman.org.uk/cnc>
+  * This should be a shortcut to the jpadie version of chillipepr
 
 Note the link is different than normal chillipepr / grbl as we're using firmware version 1.1 instead of 0.9 <br>
 
