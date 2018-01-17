@@ -222,6 +222,8 @@
         
             <li><a href="#electronics">Electronics</a></li>
         
+            <li><a href="#pmw-spindle-control">PMW Spindle Control</a></li>
+        
     
     </ul>
 </div></div>
@@ -267,7 +269,13 @@
 <p>Look into setting up a touch plate for mill bits, and a downward inductive sensor for PCB milling</p>
 <h2 id="electronics">Electronics</h2>
 <p>It may be best to reset the grbl board on power down / estop
-that way a home will be forced before the machine can start receiving G-Code again</p></div>
+that way a home will be forced before the machine can start receiving G-Code again</p>
+<h2 id="pmw-spindle-control">PMW Spindle Control</h2>
+<p>According to Ian the spindle speed may already be wired up to the control board.
+But the reason for using the variable pot instead was because it was difficult to get the pre-processor to generate the G-Code to switch it on
+Ian got tired of watching the head crash into the material with turning on</p>
+<p>We may need to uncomment the below in the source</p>
+<p>// #define MINIMUM_SPINDLE_PWM 5 // Default disabled. Uncomment to enable. Integer (0-255)</p></div>
         </div>
 
         <footer class="col-md-12">
