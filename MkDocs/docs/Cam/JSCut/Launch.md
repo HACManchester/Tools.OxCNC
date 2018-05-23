@@ -3,19 +3,17 @@
 ## Overview
 
 One of the more simpler ways to create G-Code for the CNC is to use JSCut. <br>
-JSCut is a 2.5D milling software, which means it takes vector shapes (like the laser cutter) and can cut them at different depths.
+JSCut is a 2.5D milling software, which means it takes vector shapes (like the laser cutter) and can mill them at different depths.
 
-  * http://jscut.org/jscut.html#
+  * http://jscut.org/jscut.html?gist=ca7ae332393cc7b80a684cd6f9a9dbe1
+
 
 This is one of the simpler bits of software to use so it's a good place to start. <br>
-It's also online so it's run within the browser
+It's also online so it's run within the browser <br>
+You'll need an svg from some software like inkscape to start.
 
 
 ## Generating G-Code
-
-### Import Settings
-
-TODO
 
 ### Load in SVG File
 

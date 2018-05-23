@@ -22,6 +22,8 @@ pages:
     - Milling Material: Milling/Material.md
     - Feed Rates: Milling/FeedRates.md
     - Milling: Milling/Milling.md
+- PCB:
+    - Installing FlatCAM: PCB/Installing-FlatCAM.md
 - Other:
     - Machinable Wax: Other/MachinableWax.md
 - Maintenance:
