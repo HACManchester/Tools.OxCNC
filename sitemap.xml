@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,43 +13,53 @@
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Connecting/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Jog/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Loading-Setup/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Simulation/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Material/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/FeedRates/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Milling/Milling/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://hacmanchester.github.io/Tools.OxCNC//PCB/Installing-FlatCAM/</loc>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -59,7 +69,7 @@
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Other/MachinableWax/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -69,25 +79,25 @@
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Maintenance/Device-Overview/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Maintenance/Updating-Firmware/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Maintenance/Grbl-Settings/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://hacmanchester.github.io/Tools.OxCNC//Maintenance/Todo/</loc>
-     <lastmod>2018-01-17</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

@@ -286,6 +286,41 @@
             "title": "Immediate Stop"
         }, 
         {
+            "location": "/PCB/Installing-FlatCAM/", 
+            "text": "Installing FlatCam\n\n\nFlatCAM is useful for turning Gerber or Drill files from PCB software into G-Code for a CNC (or svg for a laser cutter) \n\nThe existing self installing version of flatcam is quite old (around 2016). \n\nso below I\nve tried to details the minimum set of steps needed to get it working from source.\n\n\nInstalling Python\n\n\nFirst we need to make sure python 2.7 is installed on the system.\nFor windows I\nd recommend the 64bit version of python 2.7 from \n\n\nhttps://www.python.org/downloads/\n\n\nInstalling PyQt4\n\n\nOne of the things FlatCam uses is QT4 for python. This is fairly easy to install under windows \n\nFirst go to this address\n\n\n\n\nhttps://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4\n\n\n\n\nIf your looking for the python 2.7 / 64bit windows file then this will likley be something like \nPyQt4-4.11.4-cp27-cp27m-win_amd64.whl\n \n\nTo install it into python 2.7\n\n\nC:\\Python27\\Scripts\\pip.exe install PyQt4-4.11.4-cp27-cp27m-win_amd64.whl\n\n\n\n\nInstalling pypiwin32\n\n\nOne thing we also need is pypiwin32 under windows, to install this run the following from the command line\n\n\nC:\\Python27\\Scripts\\pip.exe install pypiwin32\n\n\n\n\nI found on my system I had to force it to re-install for some reason, so if you run into problems running flatcam you may want to try\n\n\nC:\\Python27\\Scripts\\pip.exe install --upgrade --force-reinstall pypiwin32\n\n\n\n\nDownload sources of Flatcam\n\n\nNext we need to download the source code of flatcam. \n\nOne way is to just download the below zip file and extract it into a directory somewhere\n\n\n\n\nhttps://bitbucket.org/jpcgt/flatcam/get/master.zip\n\n\n\n\nAnother way if you can use git is to run the following at a command line\n\n\ngit clone https://bitbucket.org/jpcgt/flatcam\n\n\n\n\nRunning Flatcam\n\n\nNext to try running flatcam\n\n\ncd flatcam\nC:\\Python27\\python flatcam", 
+            "title": "Installing FlatCAM"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#installing-flatcam", 
+            "text": "FlatCAM is useful for turning Gerber or Drill files from PCB software into G-Code for a CNC (or svg for a laser cutter)  \nThe existing self installing version of flatcam is quite old (around 2016).  \nso below I ve tried to details the minimum set of steps needed to get it working from source.", 
+            "title": "Installing FlatCam"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#installing-python", 
+            "text": "First we need to make sure python 2.7 is installed on the system.\nFor windows I d recommend the 64bit version of python 2.7 from   https://www.python.org/downloads/", 
+            "title": "Installing Python"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#installing-pyqt4", 
+            "text": "One of the things FlatCam uses is QT4 for python. This is fairly easy to install under windows  \nFirst go to this address   https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4   If your looking for the python 2.7 / 64bit windows file then this will likley be something like  PyQt4-4.11.4-cp27-cp27m-win_amd64.whl   \nTo install it into python 2.7  C:\\Python27\\Scripts\\pip.exe install PyQt4-4.11.4-cp27-cp27m-win_amd64.whl", 
+            "title": "Installing PyQt4"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#installing-pypiwin32", 
+            "text": "One thing we also need is pypiwin32 under windows, to install this run the following from the command line  C:\\Python27\\Scripts\\pip.exe install pypiwin32  I found on my system I had to force it to re-install for some reason, so if you run into problems running flatcam you may want to try  C:\\Python27\\Scripts\\pip.exe install --upgrade --force-reinstall pypiwin32", 
+            "title": "Installing pypiwin32"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#download-sources-of-flatcam", 
+            "text": "Next we need to download the source code of flatcam.  \nOne way is to just download the below zip file and extract it into a directory somewhere   https://bitbucket.org/jpcgt/flatcam/get/master.zip   Another way if you can use git is to run the following at a command line  git clone https://bitbucket.org/jpcgt/flatcam", 
+            "title": "Download sources of Flatcam"
+        }, 
+        {
+            "location": "/PCB/Installing-FlatCAM/#running-flatcam", 
+            "text": "Next to try running flatcam  cd flatcam\nC:\\Python27\\python flatcam", 
+            "title": "Running Flatcam"
+        }, 
+        {
             "location": "/Other/MachinableWax/", 
             "text": "Machinable Wax\n\n\nOverview\n\n\nWe currently have some wax and plastic we could try to use with the following process. \n\n\n\n\nhttps://leedshackspace.org.uk/2016/05/09/making-machinable-wax/", 
             "title": "Machinable Wax"

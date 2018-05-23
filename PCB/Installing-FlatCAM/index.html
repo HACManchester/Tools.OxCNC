@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Milling/Milling/">
+        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/PCB/Installing-FlatCAM/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Milling - Hacman - Ox CNC</title>
+        <title>Installing FlatCAM - Hacman - Ox CNC</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -58,43 +58,43 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Milling <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../Connecting/">Connecting</a>
+    <a href="../../Milling/Connecting/">Connecting</a>
 </li>
                     
                         
 <li >
-    <a href="../Jog/">Jogging / Moving the CNC</a>
+    <a href="../../Milling/Jog/">Jogging / Moving the CNC</a>
 </li>
                     
                         
 <li >
-    <a href="../Loading-Setup/">Loading and Setup</a>
+    <a href="../../Milling/Loading-Setup/">Loading and Setup</a>
 </li>
                     
                         
 <li >
-    <a href="../Simulation/">Simulation</a>
+    <a href="../../Milling/Simulation/">Simulation</a>
 </li>
                     
                         
 <li >
-    <a href="../Material/">Milling Material</a>
+    <a href="../../Milling/Material/">Milling Material</a>
 </li>
                     
                         
 <li >
-    <a href="../FeedRates/">Feed Rates</a>
+    <a href="../../Milling/FeedRates/">Feed Rates</a>
 </li>
                     
                         
-<li class="active">
-    <a href="./">Milling</a>
+<li >
+    <a href="../../Milling/Milling/">Milling</a>
 </li>
                     
                     </ul>
@@ -102,13 +102,13 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCB <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-<li >
-    <a href="../../PCB/Installing-FlatCAM/">Installing FlatCAM</a>
+<li class="active">
+    <a href="./">Installing FlatCAM</a>
 </li>
                     
                     </ul>
@@ -186,80 +186,57 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#milling">Milling</a></li>
-            <li><a href="#zero-the-machine">Zero the Machine</a></li>
-            <li><a href="#set-the-feed-rate-multiplier">Set the Feed Rate Multiplier</a></li>
-            <li><a href="#switching-on-the-spindle">Switching on the Spindle</a></li>
-            <li><a href="#start-the-g-code">Start the G-Code</a></li>
-            <li><a href="#stopping-milling">Stopping Milling</a></li>
+        <li class="main active"><a href="#installing-flatcam">Installing FlatCam</a></li>
+            <li><a href="#installing-python">Installing Python</a></li>
+            <li><a href="#download-sources-of-flatcam">Download sources of Flatcam</a></li>
+            <li><a href="#running-flatcam">Running Flatcam</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="milling">Milling</h1>
-<p>All of the controls associated with the actual milling are located on the left hand side. <br>
-The emergency / immediate stop is also located on the right hand side</p>
-<p><a href="../../images/Milling/Milling/Milling1.png"><img src="../../images/Milling/Milling/Milling1.png" height="30%" width="30%" ></a>
-<a href="../../images/Milling/Milling/Milling5.png"><img src="../../images/Milling/Milling/Milling5.png" height="30%" width="30%" ></a> <br></p>
-<h2 id="zero-the-machine">Zero the Machine</h2>
-<p>One of the first steps is to get the head of the machine in the right place.
-It all depends on where you&rsquo;ve put the origin when using the CAM software, but generally placing the head at the lower left corner of where you will be milling is the best bet.
-Also you need to ether jog or manually adjust the Z Height so that the mill bit is just touching the surface of the material to be milled.</p>
-<p>One trick to figuring out when the mill bit is just touching the surface, is to turn on the spindle then jog the head down slowly 0.1 mm at a time
-untill you hear the noise of the material being grinded.</p>
-<p>Another idea before you start milling is to make a note of the absolute cordinates of the starting point of the machine if you need to start over.</p>
-<h2 id="set-the-feed-rate-multiplier">Set the Feed Rate Multiplier</h2>
-<p>Assuming you&rsquo;ve already loaded in the G-Code into Chillipepr (drag and drop the file onto the browser window) <br>
-The most important setting is the Feed Rate</p>
-<p><a href="../../images/Milling/Milling/Feedrate1.png"><img src="../../images/Milling/Milling/Feedrate1.png" height="50%" width="50%" ></a> <br></p>
-<p>If you&rsquo;ve already set the feedrate within the CAM software <br>
-(used to create the G-Code) then you can just leave this at <strong>1.00</strong> <br>
-This value is a multiplier so <strong>0.5</strong> = half speed.</p>
-<p>A speed which is too fast is really bad, as it can lead to:</p>
+<h1 id="installing-flatcam">Installing FlatCam</h1>
+<p>FlatCAM is useful for turning Gerber or Drill files from PCB software into G-Code for a CNC (or svg for a laser cutter) <br>
+The existing self installing version of flatcam is quite old (around 2016). <br>
+so below I&rsquo;ve tried to details the minimum set of steps needed to get it working from source.</p>
+<h2 id="installing-python">Installing Python</h2>
+<p>First we need to make sure python 2.7 is installed on the system.
+For windows I&rsquo;d recommend the 64bit version of python 2.7 from <br>
+<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<h3 id="installing-pyqt4">Installing PyQt4</h3>
+<p>One of the things FlatCam uses is QT4 for python. This is fairly easy to install under windows <br>
+First go to this address</p>
 <ul>
-<li>The milling bit becoming too stressed / breaking / bending</li>
-<li>The machine skipping steps leading to all sorts of problems with mis-alignments</li>
+<li><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4">https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4</a></li>
 </ul>
-<p>If you&rsquo;ve used hsmworks for example and left the feedrate at the default speed, then it will be about 10 x too fast for the mill.
-In that case 0.1 is a safe value. <br></p>
-<p>That being said it&rsquo;s generally better to make sure the feedrate is set correctly within the CAM software and to use a 1.0 value here if you can.
-The reason being is that the motion will be generally less jerky overall due to grbl not having to compensate.</p>
-<h2 id="switching-on-the-spindle">Switching on the Spindle</h2>
-<p>In order to get the spindle to operate, there&rsquo;s a small adjustable pot on the back of the machine to adjust the speed of the spindle. <br>
-In one direction it&rsquo;s off, the other it&rsquo;s full speed on.</p>
-<p><a href="../../images/Milling/Milling/Spindle_Power.jpg"><img src="../../images/Milling/Milling/Spindle_Power.jpg" height="30%" width="30%" ></a> <br></p>
-<p>The spindle will only operate if the main power switch is switched on (which also powers the steppers)</p>
-<h2 id="start-the-g-code">Start the G-Code</h2>
-<p>To start running the G-Code use the play button, make sure the spindle is running before you do this.</p>
-<p><a href="../../images/Milling/Milling/Milling2.png"><img src="../../images/Milling/Milling/Milling2.png" height="50%" width="50%" ></a> <br></p>
-<h3 id="using-the-vacuum-cleaner">Using the Vacuum Cleaner</h3>
-<p>While cutting there is a white hoover / extractor we can use to suck up the mdf dust / particles that&rsquo;s milled to better see what&rsquo;s going on.</p>
-<p><a href="../../images/Milling/Milling/Hoover1.jpg"><img src="../../images/Milling/Milling/Hoover1.jpg" height="50%" width="50%" ></a> <br></p>
-<h3 id="using-a-different-starting-point-optional">Using a different starting point (Optional)</h3>
-<p>One of the tricks Chillipepr allows us to do is to start from a line further down in the G-Code.
-If you click on one of the lines of the G-Code in the list</p>
+<p>If your looking for the python 2.7 / 64bit windows file then this will likley be something like <strong>PyQt4-4.11.4-cp27-cp27m-win_amd64.whl</strong> <br>
+To install it into python 2.7</p>
+<pre><code>C:\Python27\Scripts\pip.exe install PyQt4-4.11.4-cp27-cp27m-win_amd64.whl
+</code></pre>
+
+<h3 id="installing-pypiwin32">Installing pypiwin32</h3>
+<p>One thing we also need is pypiwin32 under windows, to install this run the following from the command line</p>
+<pre><code>C:\Python27\Scripts\pip.exe install pypiwin32
+</code></pre>
+
+<p>I found on my system I had to force it to re-install for some reason, so if you run into problems running flatcam you may want to try</p>
+<pre><code>C:\Python27\Scripts\pip.exe install --upgrade --force-reinstall pypiwin32
+</code></pre>
+
+<h2 id="download-sources-of-flatcam">Download sources of Flatcam</h2>
+<p>Next we need to download the source code of flatcam. <br>
+One way is to just download the below zip file and extract it into a directory somewhere</p>
 <ul>
-<li>This gives you an indication of where the CNC will be from an absolute position</li>
-<li>This allows you to set this as a new starting point when playing the G-Code</li>
-<li>We can get the head to move to this position / skip the G-Code above</li>
+<li><a href="https://bitbucket.org/jpcgt/flatcam/get/master.zip">https://bitbucket.org/jpcgt/flatcam/get/master.zip</a></li>
 </ul>
-<p><a href="../../images/Milling/Milling/StartPos1.png"><img src="../../images/Milling/Milling/StartPos1.png" height="50%" width="50%" ></a> <br></p>
-<h2 id="stopping-milling">Stopping Milling</h2>
-<p>There&rsquo;s a couple of different ways to stop the milling</p>
-<h3 id="red-switch-emergency-stop">Red Switch / Emergency Stop</h3>
-<p>If you&rsquo;re really in a rush because something has horribly gone wrong, just mash the EStop button / or red power off button.</p>
-<h3 id="stopping-the-queue">Stopping the Queue</h3>
-<p>The controls on the left do have a stop button.
-However, this only stops further messages being queued into the grbl firmware.
-If you use this the CNC will probably still continue on for a while longer while it gets to the end of its buffer stream</p>
-<p><a href="../../images/Milling/Milling/Milling3.png"><img src="../../images/Milling/Milling/Milling3.png" height="50%" width="50%" ></a> <br></p>
-<h3 id="immediate-stop">Immediate Stop</h3>
-<p>If you want to try and stop the machine immediately within Chillipepr then there&rsquo;s a 2nd stop button on the right hand side.
-These buttons send special commands to grbl to stop the G-Code right away (without waiting for the buffer to flush / complete).
-There&rsquo;s also a resume button next to it as well</p>
-<p><a href="../../images/Milling/Milling/Milling4.png"><img src="../../images/Milling/Milling/Milling4.png" height="50%" width="50%" ></a> <br></p>
-<p>The Ctrl-X button will also perform a soft reset of the Grbl board. <br>
-But make sure to re-home when using that.</p></div>
+<p>Another way if you can use git is to run the following at a command line</p>
+<pre><code>git clone https://bitbucket.org/jpcgt/flatcam
+</code></pre>
+
+<h2 id="running-flatcam">Running Flatcam</h2>
+<p>Next to try running flatcam</p>
+<pre><code>cd flatcam
+C:\Python27\python flatcam
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
