@@ -519,6 +519,66 @@
             "location": "/Maintenance/Todo/#pmw-spindle-control", 
             "text": "According to Ian the spindle speed may already be wired up to the control board.\nBut the reason for using the variable pot instead was because it was difficult to get the pre-processor to generate the G-Code to switch it on\nIan got tired of watching the head crash into the material with turning on  We may need to uncomment the below in the source  // #define MINIMUM_SPINDLE_PWM 5 // Default disabled. Uncomment to enable. Integer (0-255)", 
             "title": "PMW Spindle Control"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/", 
+            "text": "Electronic Upgrade\n\n\nI\nve listed some plans to upgrade the electronics on the CNC within the hackspace \n\nCurrently we\nre using grbl on a 16bit arduino with small Alegro drivers which isn\nt ideal\n\n\nController\n\n\nFor the controller board the plan I\nve got at the moment\nis to instead use a arduino due (32bit) with a breakout board\n\n\nfor the breakout board I\nm currently using one of these at home\n\n\n\n\nhttp://ooznest.co.uk/3D-Printer-Electronic-Parts/RADDS-3D-Printer-Controller-Board\n\n\n\n\nBut what I think I\nll try and do instead of buying one is make a custom board\nthat as green plugs for the stepper drivers \n\nas that is designed more for pololu and I already have the kicad schematic for it as well.\n\n\nStepper drivers\n\n\nFor the stepper drivers there\ns currently two options I\nm looking into\n\n\nDM542 / DQ542MA\n\n\nThis is one option, it\ns easier to use as it\ns a pre-made module \n\nDM542 / DQ542MA seem to be a popular choice on the cnc forums I think\nI think they have DSP\ns in so are a bit quieter\n\n\n\n\nhttp://openbuildspartstore.com/dq542ma-stepper-motor-driver/\n 30 x 4\n\n\nhttps://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps\nfield-keywords=dm542\n\n\nhttps://www.youtube.com/watch?v=8sHsa4FZ2Cc\n\n\nhttps://www.amazon.co.uk/Kehuashina-Leadshine-DM542-05-DM54205-Stepper/dp/B07BBCWH7X/ref=sr_1_2?ie=UTF8\nqid=1528157669\nsr=8-2\nkeywords=dm542\n\n\n\n\nTMC5160\n\n\nThis is the one I\nd like to use, possibly sitting on top of another board with a bit of opto isolation\n\n\n\n\nhttps://www.digikey.co.uk/product-detail/en/trinamic-motion-control-gmbh/TMC5160-BOB/1460-1250-ND/8440397\n\n\n\n\ntrinamic drivers have some features built in we could use later on such as measuring the amount of torque against the bit\nor stealthchop etc, but to start with we could just run them as normal in step / dir mode \n\nhowever those fet\ns are only rated for 2.8A so I\nve asked trinamic if they think the Bob board would be suitable.\nAlso an additional heatsink may be needed.\n\n\nOther suggestions\n\n\n\n\nhttps://www.buildyourcnc.com/item/electronicsAndMotors-stepper-driver-3!0a\n\n\nhttps://www.youtube.com/watch?v=woyp03D0neY\n\n\n\n\nCNC Cable / Connectors\n\n\nWe\nll need to move the electronics to it\ns own seperate box under the bench\n\n\n\n\nstepper driver cable - ?? not sure how many meters to use yet\n    \nhttps://www.cnc4you.co.uk/Electrical/Cables-Connectors/4-Core-Screened-Cable-0.75mm-12Amp\n\n\nConnectors - todo check which connectors to use, I think those 4 pin areospace ones\n\n\n\n\nBox\n\n\nI\nm not sure if the box I\nve got so far will be big enough for everything\ncould do with finding something a bit bigger in the space\n\n\nTODO\n\n\nEndstops\n\n\nThe current end stop board uses relays, I might try and replace that with an opto-coupler board\n\n\nMachine kit\n\n\nlater on we may want to look into using a beaglebone board with a cape of some description with machinekit\nhowever I need to spend some time testing / figuring that out so for now we\nll stick to g2core since I\nve already got that working before\nalso we need it to work with chillipepr.\n\n\n\n\nhttps://jetforme.org/2018/04/machinekit-on-bbb/\n\n\n\n\nSome example cape\ns used with machinekit (cramps / optocape):\n\n\n\n\nhttp://blog.machinekit.io/p/hardware-capes.html#Xylotex\n\n\nhttps://www.tindie.com/products/TEMProducts/optocape/\n\n\nhttps://github.com/dgouramanis/optocape", 
+            "title": "Electronics Upgrade"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#electronic-upgrade", 
+            "text": "I ve listed some plans to upgrade the electronics on the CNC within the hackspace  \nCurrently we re using grbl on a 16bit arduino with small Alegro drivers which isn t ideal", 
+            "title": "Electronic Upgrade"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#controller", 
+            "text": "For the controller board the plan I ve got at the moment\nis to instead use a arduino due (32bit) with a breakout board  for the breakout board I m currently using one of these at home   http://ooznest.co.uk/3D-Printer-Electronic-Parts/RADDS-3D-Printer-Controller-Board   But what I think I ll try and do instead of buying one is make a custom board\nthat as green plugs for the stepper drivers  \nas that is designed more for pololu and I already have the kicad schematic for it as well.", 
+            "title": "Controller"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#stepper-drivers", 
+            "text": "For the stepper drivers there s currently two options I m looking into", 
+            "title": "Stepper drivers"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#dm542-dq542ma", 
+            "text": "This is one option, it s easier to use as it s a pre-made module  \nDM542 / DQ542MA seem to be a popular choice on the cnc forums I think\nI think they have DSP s in so are a bit quieter   http://openbuildspartstore.com/dq542ma-stepper-motor-driver/  30 x 4  https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps field-keywords=dm542  https://www.youtube.com/watch?v=8sHsa4FZ2Cc  https://www.amazon.co.uk/Kehuashina-Leadshine-DM542-05-DM54205-Stepper/dp/B07BBCWH7X/ref=sr_1_2?ie=UTF8 qid=1528157669 sr=8-2 keywords=dm542", 
+            "title": "DM542 / DQ542MA"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#tmc5160", 
+            "text": "This is the one I d like to use, possibly sitting on top of another board with a bit of opto isolation   https://www.digikey.co.uk/product-detail/en/trinamic-motion-control-gmbh/TMC5160-BOB/1460-1250-ND/8440397   trinamic drivers have some features built in we could use later on such as measuring the amount of torque against the bit\nor stealthchop etc, but to start with we could just run them as normal in step / dir mode  \nhowever those fet s are only rated for 2.8A so I ve asked trinamic if they think the Bob board would be suitable.\nAlso an additional heatsink may be needed.", 
+            "title": "TMC5160"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#other-suggestions", 
+            "text": "https://www.buildyourcnc.com/item/electronicsAndMotors-stepper-driver-3!0a  https://www.youtube.com/watch?v=woyp03D0neY", 
+            "title": "Other suggestions"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#cnc-cable-connectors", 
+            "text": "We ll need to move the electronics to it s own seperate box under the bench   stepper driver cable - ?? not sure how many meters to use yet\n     https://www.cnc4you.co.uk/Electrical/Cables-Connectors/4-Core-Screened-Cable-0.75mm-12Amp  Connectors - todo check which connectors to use, I think those 4 pin areospace ones", 
+            "title": "CNC Cable / Connectors"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#box", 
+            "text": "I m not sure if the box I ve got so far will be big enough for everything\ncould do with finding something a bit bigger in the space", 
+            "title": "Box"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#todo", 
+            "text": "", 
+            "title": "TODO"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#endstops", 
+            "text": "The current end stop board uses relays, I might try and replace that with an opto-coupler board", 
+            "title": "Endstops"
+        }, 
+        {
+            "location": "/Maintenance/Electronics-Upgrade/#machine-kit", 
+            "text": "later on we may want to look into using a beaglebone board with a cape of some description with machinekit\nhowever I need to spend some time testing / figuring that out so for now we ll stick to g2core since I ve already got that working before\nalso we need it to work with chillipepr.   https://jetforme.org/2018/04/machinekit-on-bbb/   Some example cape s used with machinekit (cramps / optocape):   http://blog.machinekit.io/p/hardware-capes.html#Xylotex  https://www.tindie.com/products/TEMProducts/optocape/  https://github.com/dgouramanis/optocape", 
+            "title": "Machine kit"
         }
     ]
 }

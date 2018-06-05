@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Milling/Material/">
+        <link rel="canonical" href="https://hacmanchester.github.io/Tools.OxCNC/Maintenance/Electronics-Upgrade/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Milling Material - Hacman - Ox CNC</title>
+        <title>Electronics Upgrade - Hacman - Ox CNC</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -58,43 +58,43 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Milling <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../Connecting/">Connecting</a>
+    <a href="../../Milling/Connecting/">Connecting</a>
 </li>
                     
                         
 <li >
-    <a href="../Jog/">Jogging / Moving the CNC</a>
+    <a href="../../Milling/Jog/">Jogging / Moving the CNC</a>
 </li>
                     
                         
 <li >
-    <a href="../Loading-Setup/">Loading and Setup</a>
+    <a href="../../Milling/Loading-Setup/">Loading and Setup</a>
 </li>
                     
                         
 <li >
-    <a href="../Simulation/">Simulation</a>
-</li>
-                    
-                        
-<li class="active">
-    <a href="./">Milling Material</a>
+    <a href="../../Milling/Simulation/">Simulation</a>
 </li>
                     
                         
 <li >
-    <a href="../FeedRates/">Feed Rates</a>
+    <a href="../../Milling/Material/">Milling Material</a>
 </li>
                     
                         
 <li >
-    <a href="../Milling/">Milling</a>
+    <a href="../../Milling/FeedRates/">Feed Rates</a>
+</li>
+                    
+                        
+<li >
+    <a href="../../Milling/Milling/">Milling</a>
 </li>
                     
                     </ul>
@@ -130,33 +130,33 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../Maintenance/Device-Overview/">Device Overview</a>
+    <a href="../Device-Overview/">Device Overview</a>
 </li>
                     
                         
 <li >
-    <a href="../../Maintenance/Updating-Firmware/">Updating the Firmware</a>
+    <a href="../Updating-Firmware/">Updating the Firmware</a>
 </li>
                     
                         
 <li >
-    <a href="../../Maintenance/Grbl-Settings/">Grbl Settings</a>
+    <a href="../Grbl-Settings/">Grbl Settings</a>
 </li>
                     
                         
 <li >
-    <a href="../../Maintenance/Todo/">Todo</a>
+    <a href="../Todo/">Todo</a>
 </li>
                     
                         
-<li >
-    <a href="../../Maintenance/Electronics-Upgrade/">Electronics Upgrade</a>
+<li class="active">
+    <a href="./">Electronics Upgrade</a>
 </li>
                     
                     </ul>
@@ -191,34 +191,80 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#milling-material">Milling Material</a></li>
-            <li><a href="#clamping-holes">Clamping Holes</a></li>
-            <li><a href="#mdf">MDF</a></li>
-            <li><a href="#metal">Metal</a></li>
+        <li class="main active"><a href="#electronic-upgrade">Electronic Upgrade</a></li>
+            <li><a href="#controller">Controller</a></li>
+            <li><a href="#stepper-drivers">Stepper drivers</a></li>
+            <li><a href="#cnc-cable-connectors">CNC Cable / Connectors</a></li>
+            <li><a href="#box">Box</a></li>
+            <li><a href="#todo">TODO</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="milling-material">Milling Material</h1>
-<h2 id="clamping-holes">Clamping Holes</h2>
-<p>The CNC has a spoiler board located on its base. Generally, you try to avoid milling into the spoiler but it can be replaced. <br>
-The current method for securing material is to just use a glue gun to stick it down then peel it off afterwards.</p>
-<p><a href="../../images/Milling/Material/GlueGun.jpg"><img src="../../images/Milling/Material/GlueGun.jpg" height="30%" width="30%" ></a> <br></p>
-<p>Later on we may have some mounting holes for clamps, although those haven&rsquo;t been added in just yet.</p>
-<h2 id="mdf">MDF</h2>
-<p>So far I&rsquo;ve used MDF 12mm thick cut into sections using the table saw. <br>
-However, it&rsquo;s advisable to limit the depth of a pass to about 2mm / 3mm or so at one time, to avoid overloading the stepper motors on the device (milling too much out at one time)</p>
-<h2 id="metal">Metal</h2>
-<p>The Ox CNC has Nema23 motor&rsquo;s but I think we&rsquo;re only driving them at about 50% of the power <br>
-due to the stepper drivers in use. Generally with metals you have to follow speeds and feeds. <br>
-This is where the speed of the spindle has to match the feedrate through the material.</p>
+<h1 id="electronic-upgrade">Electronic Upgrade</h1>
+<p>I&rsquo;ve listed some plans to upgrade the electronics on the CNC within the hackspace <br>
+Currently we&rsquo;re using grbl on a 16bit arduino with small Alegro drivers which isn&rsquo;t ideal</p>
+<h2 id="controller">Controller</h2>
+<p>For the controller board the plan I&rsquo;ve got at the moment
+is to instead use a arduino due (32bit) with a breakout board</p>
+<p>for the breakout board I&rsquo;m currently using one of these at home</p>
 <ul>
-<li><a href="http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm">http://www.cnccookbook.com/GWCalcFeedsSpeeds.htm</a></li>
+<li><a href="http://ooznest.co.uk/3D-Printer-Electronic-Parts/RADDS-3D-Printer-Controller-Board">http://ooznest.co.uk/3D-Printer-Electronic-Parts/RADDS-3D-Printer-Controller-Board</a></li>
 </ul>
-<p>I&rsquo;d recommend trying two flute bits with aluminum. <br>
-I&rsquo;ve also got a rough speeds / feeds calculator here in the form of a spreadsheet:</p>
+<p>But what I think I&rsquo;ll try and do instead of buying one is make a custom board
+that as green plugs for the stepper drivers <br>
+as that is designed more for pololu and I already have the kicad schematic for it as well.</p>
+<h2 id="stepper-drivers">Stepper drivers</h2>
+<p>For the stepper drivers there&rsquo;s currently two options I&rsquo;m looking into</p>
+<h3 id="dm542-dq542ma">DM542 / DQ542MA</h3>
+<p>This is one option, it&rsquo;s easier to use as it&rsquo;s a pre-made module <br>
+DM542 / DQ542MA seem to be a popular choice on the cnc forums I think
+I think they have DSP&rsquo;s in so are a bit quieter</p>
 <ul>
-<li><a href="https://github.com/HACManchester/Tools.OxCNC/tree/master/MkDocs/docs/images/Milling/Material">https://github.com/HACManchester/Tools.OxCNC/tree/master/MkDocs/docs/images/Milling/Material</a></li>
+<li><a href="http://openbuildspartstore.com/dq542ma-stepper-motor-driver/">http://openbuildspartstore.com/dq542ma-stepper-motor-driver/</a> 30 x 4</li>
+<li><a href="https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps&amp;field-keywords=dm542">https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps&amp;field-keywords=dm542</a></li>
+<li><a href="https://www.youtube.com/watch?v=8sHsa4FZ2Cc">https://www.youtube.com/watch?v=8sHsa4FZ2Cc</a></li>
+<li><a href="https://www.amazon.co.uk/Kehuashina-Leadshine-DM542-05-DM54205-Stepper/dp/B07BBCWH7X/ref=sr_1_2?ie=UTF8&amp;qid=1528157669&amp;sr=8-2&amp;keywords=dm542">https://www.amazon.co.uk/Kehuashina-Leadshine-DM542-05-DM54205-Stepper/dp/B07BBCWH7X/ref=sr_1_2?ie=UTF8&amp;qid=1528157669&amp;sr=8-2&amp;keywords=dm542</a></li>
+</ul>
+<h3 id="tmc5160">TMC5160</h3>
+<p>This is the one I&rsquo;d like to use, possibly sitting on top of another board with a bit of opto isolation</p>
+<ul>
+<li><a href="https://www.digikey.co.uk/product-detail/en/trinamic-motion-control-gmbh/TMC5160-BOB/1460-1250-ND/8440397">https://www.digikey.co.uk/product-detail/en/trinamic-motion-control-gmbh/TMC5160-BOB/1460-1250-ND/8440397</a></li>
+</ul>
+<p>trinamic drivers have some features built in we could use later on such as measuring the amount of torque against the bit
+or stealthchop etc, but to start with we could just run them as normal in step / dir mode <br>
+however those fet&rsquo;s are only rated for 2.8A so I&rsquo;ve asked trinamic if they think the Bob board would be suitable.
+Also an additional heatsink may be needed.</p>
+<h3 id="other-suggestions">Other suggestions</h3>
+<ul>
+<li><a href="https://www.buildyourcnc.com/item/electronicsAndMotors-stepper-driver-3!0a">https://www.buildyourcnc.com/item/electronicsAndMotors-stepper-driver-3!0a</a></li>
+<li><a href="https://www.youtube.com/watch?v=woyp03D0neY">https://www.youtube.com/watch?v=woyp03D0neY</a></li>
+</ul>
+<h2 id="cnc-cable-connectors">CNC Cable / Connectors</h2>
+<p>We&rsquo;ll need to move the electronics to it&rsquo;s own seperate box under the bench</p>
+<ul>
+<li>stepper driver cable - ?? not sure how many meters to use yet
+    <a href="https://www.cnc4you.co.uk/Electrical/Cables-Connectors/4-Core-Screened-Cable-0.75mm-12Amp">https://www.cnc4you.co.uk/Electrical/Cables-Connectors/4-Core-Screened-Cable-0.75mm-12Amp</a></li>
+<li>Connectors - todo check which connectors to use, I think those 4 pin areospace ones</li>
+</ul>
+<h2 id="box">Box</h2>
+<p>I&rsquo;m not sure if the box I&rsquo;ve got so far will be big enough for everything
+could do with finding something a bit bigger in the space</p>
+<h2 id="todo">TODO</h2>
+<h3 id="endstops">Endstops</h3>
+<p>The current end stop board uses relays, I might try and replace that with an opto-coupler board</p>
+<h3 id="machine-kit">Machine kit</h3>
+<p>later on we may want to look into using a beaglebone board with a cape of some description with machinekit
+however I need to spend some time testing / figuring that out so for now we&rsquo;ll stick to g2core since I&rsquo;ve already got that working before
+also we need it to work with chillipepr.</p>
+<ul>
+<li><a href="https://jetforme.org/2018/04/machinekit-on-bbb/">https://jetforme.org/2018/04/machinekit-on-bbb/</a></li>
+</ul>
+<p>Some example cape&rsquo;s used with machinekit (cramps / optocape):</p>
+<ul>
+<li><a href="http://blog.machinekit.io/p/hardware-capes.html#Xylotex">http://blog.machinekit.io/p/hardware-capes.html#Xylotex</a></li>
+<li><a href="https://www.tindie.com/products/TEMProducts/optocape/">https://www.tindie.com/products/TEMProducts/optocape/</a></li>
+<li><a href="https://github.com/dgouramanis/optocape">https://github.com/dgouramanis/optocape</a></li>
 </ul></div>
         </div>
 
