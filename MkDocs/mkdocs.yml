@@ -31,6 +31,7 @@ pages:
     - Updating the Firmware: Maintenance/Updating-Firmware.md
     - Grbl Settings: Maintenance/Grbl-Settings.md
     - Todo: Maintenance/Todo.md
+    - Electronics Upgrade: Maintenance/Electronics-Upgrade.md
 
 theme: cosmo
 #theme: alabaster
