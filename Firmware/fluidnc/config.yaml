@@ -1,68 +1,110 @@
-name: "ESP32 Manchester Hackspace Setup V1"
-board: "ESP32 Manchester Hackspace Setup V1"
+name: "ESP32 bluetin cnc Controller"
+board: "ESP32 bluetin cnc Controller"
+
+arc_tolerance_mm: 0.002
+junction_deviation_mm: 0.010
+verbose_errors: false
+report_inches: false
+enable_parking_override_control: false
+use_line_numbers: true
+planner_blocks: 16
 
 stepping:
   engine: RMT
-  # TODO try dropping down to 250
   idle_ms: 255
   dir_delay_us: 1
-  # TODO try dropping down to 2
-  pulse_us: 4
-  disable_delay_us: 0
+  pulse_us: 2
+  disable_delay_us: 2
 
+axes:
+  shared_stepper_disable_pin: gpio.13:low
+  
+  x:
+    steps_per_mm: 53.333
+    max_rate_mm_per_min: 5000
+    acceleration_mm_per_sec2: 50
+    max_travel_mm: 563
+    soft_limits: true
+    homing:
+      cycle: 2
+      mpos_mm: -150
+      positive_direction: false
+      feed_mm_per_min: 50.000
+      seek_mm_per_min: 2000.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
+    
+    motor0:
+      limit_all_pin: gpio.34:low
+      hard_limits: true
+      pulloff_mm:5.000
+      stepstick:
+        direction_pin: gpio.14
+        step_pin: gpio.12
 
+  y:
+    steps_per_mm: 53.333
+    max_rate_mm_per_min: 5000
+    acceleration_mm_per_sec2: 50
+    max_travel_mm: 746
+    soft_limits: true
+    homing:
+      cycle: 2
+      mpos_mm: -150
+      positive_direction: false
+      feed_mm_per_min: 50.000
+      seek_mm_per_min: 2000.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
 
+    motor0:
+      limit_all_pin: gpio.35:low
+      hard_limits: true
+      pulloff_mm:5.000
+      stepstick:
+        direction_pin: gpio.15
+        step_pin: gpio.26
 
+  z:
+    steps_per_mm: 400
+    max_rate_mm_per_min: 500
+    acceleration_mm_per_sec2: 10
+    max_travel_mm: 68
+    soft_limits: true
+    homing:
+      cycle: 1
+      mpos_mm: 10
+      positive_direction: true
+      feed_mm_per_min: 50.000
+      seek_mm_per_min: 2000.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
 
+    motor0:
+      limit_all_pin: gpio.36:low
+      hard_limits: true
+      pulloff_mm:5.000
+      stepstick:
+        direction_pin: gpio.33
+        step_pin: gpio.27
 
-# TODO
+spi:
+  miso_pin: gpio.19
+  mosi_pin: gpio.23
+  sck_pin: gpio.18
 
-$2 = 0    (Step pulse invert, mask)
-$3 = 0    (Step direction invert, mask)
-$4 = 0    (Invert step enable pin, boolean)
-$5 = 0    (Invert limit pins, boolean)
+sdcard:
+  cs_pin: gpio.5
+  card_detect_pin: NO_PIN
 
+coolant:
+  flood_pin: NO_PIN
+  mist_pin:  NO_PIN
 
-
-$6 = 1    (Invert probe pin, boolean)
-$10 = 3    (Status report options, mask)
-$11 = 0.010    (Junction deviation, millimeters)
-$12 = 0.002    (Arc tolerance, millimeters)
-$13 = 0    (Report in inches, boolean)
-$20 = 1    (Soft limits enable, boolean)
-$21 = 1    (Hard limits enable, boolean)
-$22 = 1    (Homing cycle enable, boolean)
-$23 = 3    (Homing direction invert, mask)
-$24 = 50.000    (Homing locate feed rate, mm/min)
-$25 = 2000.000    (Homing search seek rate, mm/min)
-$26 = 250.000    (Homing switch debounce delay, milliseconds)
-$27 = 2.000    (Homing switch pull-off distance, millimeters)
-$30 = 1000.000    (Maximum spindle speed, RPM)
-$31 = 0.000    (Minimum spindle speed, RPM)
-$32 = 0    (Laser-mode enable, boolean)
-$100 = 53.333    (X-axis travel resolution, step/mm)
-$101 = 53.333    (Y-axis travel resolution, step/mm)
-$102 = 400.000    (Z-axis travel resolution, step/mm)
-$103 = 100.000   
-$104 = 100.000   
-$105 = 100.000   
-$110 = 5000.000    (X-axis maximum rate, mm/min)
-$111 = 5000.000    (Y-axis maximum rate, mm/min)
-$112 = 200.000    (Z-axis maximum rate, mm/min)
-$113 = 1000.000   
-$114 = 1000.000   
-$115 = 1000.000   
-$120 = 50.000    (X-axis acceleration, mm/sec^2)
-$121 = 50.000    (Y-axis acceleration, mm/sec^2)
-$122 = 10.000    (Z-axis acceleration, mm/sec^2)
-$123 = 200.000   
-$124 = 200.000   
-$125 = 200.000   
-$130 = 563.000    (X-axis maximum travel, millimeters)
-$131 = 746.000    (Y-axis maximum travel, millimeters)
-$132 = 68.000    (Z-axis maximum travel, millimeters)
-$133 = 300.000   
-$134 = 300.000   
-$135 = 300.000   
-
+        
+probe:
+  pin: gpio.32:low
 

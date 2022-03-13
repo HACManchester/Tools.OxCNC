@@ -44,3 +44,10 @@ $Startup/Show
 # Typically this shows the default web interface file and the configuration file
 $LocalFS/List
 ```
+
+## TODO
+
+  * Spindle speed
+  * check travel resolution
+  * check homing direction
+  * check soft limits / hard limits

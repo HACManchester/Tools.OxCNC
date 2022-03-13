@@ -9,11 +9,7 @@ Power Supply is 24V DC
 
 The main drivers are DM556
 
-  * https://uk.banggood.com/5_6A-DC-24-50V-57-or-86-2-Phase-Stepping-Driver-DM556-Stepper-Motor-Driver-Board-p-1374317.html?utm_source=googleshopping&utm_medium=cpc_organic&gmcCountry=GB&utm_content=minha&utm_campaign=minha-gbg-en-pc&currency=GBP&cur_warehouse=UK&createTmp=1&utm_source=googleshopping&utm_medium=cpc_bgcs&utm_content=tanya&utm_campaign=tanya-pla-gbg-all-11sale-21-1021&ad_id=554630521428&gclid=EAIaIQobChMIopeG2ZDB9gIVBe_tCh1ewQRgEAQYAyABEgIpx_D_BwE
-
-
-
-
+  * https://uk.banggood.com/5_6A-DC-24-50V-57-or-86-2-Phase-Stepping-Driver-DM556-Stepper-Motor-Driver-Board-p-1374317.html
 
 
 ## SD Card
