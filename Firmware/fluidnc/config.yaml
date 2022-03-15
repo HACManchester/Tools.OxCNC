@@ -3,21 +3,26 @@ board: "ESP32 bluetin cnc Controller"
 
 arc_tolerance_mm: 0.002
 junction_deviation_mm: 0.010
-verbose_errors: false
+verbose_errors: true
 report_inches: false
 enable_parking_override_control: false
 use_line_numbers: true
 planner_blocks: 16
 
+start:
+  must_home: true
+  deactivate_parking: false
+  check_limits: false
+
 stepping:
   engine: RMT
   idle_ms: 255
   dir_delay_us: 1
-  pulse_us: 2
+  pulse_us: 4
   disable_delay_us: 2
 
 axes:
-  shared_stepper_disable_pin: gpio.13:low
+  shared_stepper_disable_pin: gpio.13:high
   
   x:
     steps_per_mm: 53.333
@@ -27,7 +32,7 @@ axes:
     soft_limits: true
     homing:
       cycle: 2
-      mpos_mm: -150
+      mpos_mm: -560
       positive_direction: false
       feed_mm_per_min: 50.000
       seek_mm_per_min: 2000.000
@@ -36,12 +41,12 @@ axes:
       feed_scaler: 1.100
     
     motor0:
-      limit_all_pin: gpio.34:low
+      limit_all_pin: gpio.34:high
       hard_limits: true
-      pulloff_mm:5.000
-      stepstick:
-        direction_pin: gpio.14
-        step_pin: gpio.12
+      pulloff_mm:3.000
+      standard_stepper:
+        direction_pin: gpio.14:high
+        step_pin: gpio.12:high
 
   y:
     steps_per_mm: 53.333
@@ -51,7 +56,7 @@ axes:
     soft_limits: true
     homing:
       cycle: 2
-      mpos_mm: -150
+      mpos_mm: -743
       positive_direction: false
       feed_mm_per_min: 50.000
       seek_mm_per_min: 2000.000
@@ -60,12 +65,12 @@ axes:
       feed_scaler: 1.100
 
     motor0:
-      limit_all_pin: gpio.35:low
+      limit_all_pin: gpio.35:high
       hard_limits: true
-      pulloff_mm:5.000
-      stepstick:
-        direction_pin: gpio.15
-        step_pin: gpio.26
+      pulloff_mm:3.000
+      standard_stepper:
+        direction_pin: gpio.15:high
+        step_pin: gpio.26:high
 
   z:
     steps_per_mm: 400
@@ -75,7 +80,7 @@ axes:
     soft_limits: true
     homing:
       cycle: 1
-      mpos_mm: 10
+      mpos_mm: 5.000
       positive_direction: true
       feed_mm_per_min: 50.000
       seek_mm_per_min: 2000.000
@@ -84,12 +89,12 @@ axes:
       feed_scaler: 1.100
 
     motor0:
-      limit_all_pin: gpio.36:low
+      limit_all_pin: gpio.36:high
       hard_limits: true
       pulloff_mm:5.000
-      stepstick:
-        direction_pin: gpio.33
-        step_pin: gpio.27
+      standard_stepper:
+        direction_pin: gpio.33:high
+        step_pin: gpio.27:high
 
 spi:
   miso_pin: gpio.19
@@ -107,4 +112,5 @@ coolant:
         
 probe:
   pin: gpio.32:low
+  check_mode_start: false
 
