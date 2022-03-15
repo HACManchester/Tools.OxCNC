@@ -26,3 +26,7 @@ But apart from that it's mostly the same
   * https://github.com/bdring/FluidNC
 
 Current version is 3.4.1
+
+If the controller can't reach the hackspace wifi then it defaults to AP mode  
+with an IP of 192.168.1.x, password of 12345678
+
