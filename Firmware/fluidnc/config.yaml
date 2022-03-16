@@ -28,13 +28,13 @@ axes:
     steps_per_mm: 53.333
     max_rate_mm_per_min: 5000
     acceleration_mm_per_sec2: 50
-    max_travel_mm: 563
+    max_travel_mm: 536
     soft_limits: true
     homing:
       cycle: 2
-      mpos_mm: -560
+      mpos_mm: 0
       positive_direction: false
-      feed_mm_per_min: 50.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 2000.000
       settle_ms: 500
       seek_scaler: 1.100
@@ -52,13 +52,13 @@ axes:
     steps_per_mm: 53.333
     max_rate_mm_per_min: 5000
     acceleration_mm_per_sec2: 50
-    max_travel_mm: 746
+    max_travel_mm: 735
     soft_limits: true
     homing:
       cycle: 2
-      mpos_mm: -743
+      mpos_mm: 0
       positive_direction: false
-      feed_mm_per_min: 50.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 2000.000
       settle_ms: 500
       seek_scaler: 1.100
@@ -76,13 +76,13 @@ axes:
     steps_per_mm: 400
     max_rate_mm_per_min: 500
     acceleration_mm_per_sec2: 10
-    max_travel_mm: 68
+    max_travel_mm: 61
     soft_limits: true
     homing:
       cycle: 1
-      mpos_mm: 5.000
+      mpos_mm: 0
       positive_direction: true
-      feed_mm_per_min: 50.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 2000.000
       settle_ms: 500
       seek_scaler: 1.100
@@ -91,7 +91,7 @@ axes:
     motor0:
       limit_all_pin: gpio.36:high
       hard_limits: true
-      pulloff_mm:5.000
+      pulloff_mm:1.000
       standard_stepper:
         direction_pin: gpio.33:high
         step_pin: gpio.27:high
@@ -109,8 +109,6 @@ coolant:
   flood_pin: NO_PIN
   mist_pin:  NO_PIN
 
-        
 probe:
   pin: gpio.32:low
   check_mode_start: false
-
